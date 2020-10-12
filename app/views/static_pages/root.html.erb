@@ -4,6 +4,14 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <% if logged_in? %>
+   <script type="text/javascript">
+      window.currentUser = {
+          'id': <%= current_user.id %>,
+          'username': "<%= current_user.username %>",
+      }
+   </script>
+   <% end %>
 </head>
 <body>
    <main id="root"></main>
