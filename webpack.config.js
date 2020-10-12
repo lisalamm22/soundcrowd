@@ -6,20 +6,20 @@ module.exports = {
         path: path.resolve(__dirname, "app", "assets", "javascripts"),
         filename: "bundle.js",
     },
+    devtool: "source-map",
+    resolve: {
+        extensions: [".js", ".jsx", "*"],
+    },
     module: {
         rules: [
             {
                 test: [/\.jsx?$/],
-                exclude: /node_modules/,
+                exclude: /(node_modules)/,
                 loader: "babel-loader",
                 query: {
-                    presets: ["env", "react"],
+                    presets: ["@babel/env", "@babel/react"],
                 },
             },
         ],
-    },
-    devtool: "source-map",
-    resolve: {
-        extensions: [".js", ".jsx", "*"],
     },
 };
