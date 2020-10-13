@@ -17,3 +17,28 @@
   background: #fff;
   z-index: 3;
 }
+
+.session-form{
+  display: flex;
+  flex-direction: column;
+  // border: 2px black solid;
+}
+
+.session-form input {
+  color: gray;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 5px;
+  border: solid lightgray 1px;
+  margin: 5px;
+}
+
+.session-submit-button, .demo {
+  background-color: lightblue;
+  background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+  border-style: none;
+  font-size: 16px;
+  font-weight: 200;
+  color: white;
+  padding: 5px;
+}

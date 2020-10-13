@@ -46,11 +46,9 @@ export const logout = () => (dispatch) => {
 };
 
 export const login = (formUser) => (dispatch) => {
-    // debugger
     return (
         APIUtil.login(formUser)
             .then(user => {
-                // debugger
                 return (dispatch(receiveCurrentUser(user)))
             })
             .fail(errors => dispatch(receiveErrors(errors.responseJSON)))

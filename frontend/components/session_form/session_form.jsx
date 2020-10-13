@@ -55,51 +55,51 @@ class SessionForm extends React.Component {
 
     render() {
         const email = (<div>
-                        <label>Username:
-                            <input 
-                                type="text" 
-                                value={this.state.username} 
-                                onChange={this.handleChange('username')} 
-                            />
-                        </label>
+                        <input 
+                            className="session-email"
+                            placeholder="Your username"
+                            type="text" 
+                            value={this.state.username} 
+                            onChange={this.handleChange('username')} 
+                        />
                     </div>)
         const {formType} = this.props
         return (
             <div>
                 <h2>SoundCrowd</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form className="session-form" onSubmit={this.handleSubmit}>
                     {/* Please {this.props.formType} or {this.props.otherForm} */}
                     {/* <div onClick={this.props.closeModal} className="close-x"></div> */}
                     <br />
                     
-                    <label>Email:
                         <input 
+                            className="session-email"
                             type="text" 
+                            placeholder="Your email address"
                             value={this.state.email} 
                             onChange={this.handleChange('email')} 
                         />
-                    </label>
-                    {/* <br /> */}
-                    <label>Password:
+
                         <input 
+                            className="session-password"
                             type="password" 
+                            placeholder="Your password"
                             value={this.state.password} 
                             onChange={this.handleChange('password')} 
                         />
-                    </label>
-                    {/* <br/> */}
+
                     {formType === 'Sign Up' ? email : ""}
                     {this.renderErrors()}
-                    <input type="submit" value={formType} className={formType}/>
+                    <button className='session-submit-button'>{formType}</button>
+                    
+                    {formType === "Sign In" ? <button 
+                        onClick={this.demoUserLogin}
+                        className="demo"
+                        >
+                        Demo User
+                    </button> : ''}
                 </form>
-                {this.props.otherForm}
-                {/* <br/> */}
-                {formType === "Sign In" ? <button 
-                    onClick={this.demoUserLogin}
-                    className="demo"
-                    >
-                    Demo User
-                </button> : ''}
+                    {/* {this.props.otherForm} */}
             </div>
         )
     }

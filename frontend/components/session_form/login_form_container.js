@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
             <button 
                 onClick={() => dispatch(openModal('signup'))}
                 className='signup'>
-                Signup
+                Create Account
             </button>
         ),
         closeModal: () => dispatch(closeModal()),
