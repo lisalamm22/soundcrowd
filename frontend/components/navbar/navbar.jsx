@@ -4,8 +4,13 @@ const NavBar = ({ currentUser, logout, openModal }) => {
 
     const sessionLinks = () => (
         <nav className="login-signup">
-            <button onClick={() => openModal('login')} className='signin'>Sign in</button>
-            <button onClick={() => openModal('signup')} className='signup'>Create account</button>
+            <div>
+                <img src={window.logonameclearback} alt="SoundCrowd"/>
+                <div className="login-signup-buttons">
+                    <button onClick={() => openModal('login')} className='signin'>Sign in</button>
+                    <button onClick={() => openModal('signup')} className='signup'>Create account</button>
+                </div>
+            </div>
         </nav>
     );
     const personalGreeting = () => (

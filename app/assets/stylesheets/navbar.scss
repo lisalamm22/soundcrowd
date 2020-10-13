@@ -1,4 +1,24 @@
-.login-signup > button {
+.login-signup{
+    position: absolute;
+    width: 85%;
+}
+// still need to center the div - transform?
+.login-signup > div {
+    display: flex;
+    width: 100%;
+    // border: solid black 2px;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding: 10px 20px;
+    margin: 3px 6px;
+}
+
+.login-signup img {
+    height: 20px;
+}
+
+.login-signup-buttons > button {
     font-size: 14px;
     padding: 2px 12px;
 }

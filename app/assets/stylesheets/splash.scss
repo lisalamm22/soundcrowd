@@ -15,7 +15,7 @@ button{
     border-color: rgb(220, 220, 220);
     border-width: 1px;
     border-style: solid;
-} //can also add buttons to reset file
+} 
 
 h2{
     font-size: 35px;
@@ -54,6 +54,16 @@ span {
     font-size: 13px;
     font-weight: 200;
     padding: 10px;
+}
+
+.splash-welcome{
+    background-image: url(splash2.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 450px;
+    padding-top: 19px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .footer-session{

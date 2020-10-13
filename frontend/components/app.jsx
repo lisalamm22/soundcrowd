@@ -11,7 +11,7 @@ const App = () => (
         <Modal />
         <header>
             <NavBarContainer />
-            <h1>SoundCrowd</h1>
+            {/* <h1>SoundCrowd</h1> */}
         </header>
         <Switch>
             <ProtectedRoute exact path="/discover" component={DiscoverContainer}/>
