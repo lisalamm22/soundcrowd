@@ -13,13 +13,23 @@ class Splash extends React.Component{
                 {/* searchbarcontainer */}
                 {/* songindexcontainer */}
                 {/* images */}
-                <div>
-                    <h3>Thanks for listening. Now join the party.</h3>
+                <div className="footer-session">
+                    <h2>Thanks for listening. Now join the party.</h2>
                     <h4>Save tracks, follow artists and build playlists. All for free.</h4>
-                    <button onClick={() => this.props.openModal('signup')}>Create account</button>
-                    <br/>
-                    <span>Already have an account?</span>
-                    <button onClick={() => this.props.openModal('login')}>Login</button>
+                    <button 
+                        onClick={() => this.props.openModal('signup')}
+                        className='signup'>
+                        Create account
+                    </button>
+                    {/* <br/> */}
+                    <div>
+                        <span>Already have an account?</span>
+                        <button 
+                            onClick={() => this.props.openModal('login')}
+                            className='signin'>
+                            Sign in
+                        </button>
+                    </div>
                 </div>
             </div>
         )

@@ -55,16 +55,21 @@ class SessionForm extends React.Component {
 
     render() {
         const email = (<div>
-                    <label>Username:
-                        <input type="text" value={this.state.username} onChange={this.handleChange('username')} />
-                    </label>
-                    <br /></div>)
+                        <label>Username:
+                            <input 
+                                type="text" 
+                                value={this.state.username} 
+                                onChange={this.handleChange('username')} 
+                            />
+                        </label>
+                    </div>)
+        const {formType} = this.props
         return (
             <div>
                 <h2>SoundCrowd</h2>
                 <form onSubmit={this.handleSubmit}>
                     {/* Please {this.props.formType} or {this.props.otherForm} */}
-                    <div onClick={this.props.closeModal} className="close-x">X</div>
+                    {/* <div onClick={this.props.closeModal} className="close-x"></div> */}
                     <br />
                     
                     <label>Email:
@@ -74,7 +79,7 @@ class SessionForm extends React.Component {
                             onChange={this.handleChange('email')} 
                         />
                     </label>
-                    <br />
+                    {/* <br /> */}
                     <label>Password:
                         <input 
                             type="password" 
@@ -82,14 +87,19 @@ class SessionForm extends React.Component {
                             onChange={this.handleChange('password')} 
                         />
                     </label>
-                    <br/>
-                    {this.props.formType === 'Sign Up' ? email : ""}
+                    {/* <br/> */}
+                    {formType === 'Sign Up' ? email : ""}
                     {this.renderErrors()}
-                    <input type="submit" value={this.props.formType} />
+                    <input type="submit" value={formType} className={formType}/>
                 </form>
                 {this.props.otherForm}
-                <br/>
-                {this.props.formType === "Sign In" ? <button onClick={this.demoUserLogin}>Demo User</button> : ''}
+                {/* <br/> */}
+                {formType === "Sign In" ? <button 
+                    onClick={this.demoUserLogin}
+                    className="demo"
+                    >
+                    Demo User
+                </button> : ''}
             </div>
         )
     }

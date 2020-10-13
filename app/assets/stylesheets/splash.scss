@@ -1,0 +1,69 @@
+html{
+    background: rgb(245, 245, 245);
+    font-family: 'Overpass', sans-serif;
+}
+
+main{
+    width: 1250px;
+    background: white;
+    margin: 0 auto;
+}
+
+button{
+    font-family: 'Overpass', sans-serif;
+    border-radius: 3px;
+    border-color: rgb(220, 220, 220);
+    border-width: 1px;
+    border-style: solid;
+} //can also add buttons to reset file
+
+h2{
+    font-size: 35px;
+    font-weight: 300;
+    padding: 5px;
+}
+
+h4{
+    font-size: 25px;
+    font-weight: 200;
+    padding: 10px;
+}
+
+.signin{
+    background: rgba(255, 255, 255, 1.0);
+    color: gray;
+    padding: 8px 10px;
+    font-size: 15px;
+    font-weight: 100;
+    margin: 10px;
+    
+}
+
+.signup{
+    background-color: rgb(155, 229, 235);
+    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+    padding: 12.5px 25px;
+    border-style: none;
+    font-size: 20px;
+    font-weight: 100;
+    color: white;
+    margin: 10px;
+}
+
+span {
+    font-size: 13px;
+    font-weight: 200;
+    padding: 10px;
+}
+
+.footer-session{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-bottom-style: solid;
+    border-color: rgb(220, 220, 220);
+
+    padding: 80px;
+
+}
