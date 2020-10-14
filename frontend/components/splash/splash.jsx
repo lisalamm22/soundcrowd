@@ -9,18 +9,25 @@ class Splash extends React.Component{
         return(
             <div>
                 <div className="splash-welcome"></div>
+                {/* searchbarcontainer */}
+                {/* songindexcontainer */}
+
                 <div className="splash-app">
                     <div className="splash-app-pic">
                     <div className="splash-app-txt">
                         <h2>Never stop listening</h2>
+                        <div className="line"></div>
                         <h4>SoundCrowd is available on Web. Coming soon to iOS, Android, Sonos, Chromecast, and Xbox One.</h4>
                     </div></div>
                 </div>
 
-                {/* images */}
-                {/* searchbarcontainer */}
-                {/* songindexcontainer */}
-                {/* images */}
+                <div className="splash-creators">
+                    <div className="splash-creators-txt">
+                        <h2>Calling all creators</h2>
+                        <h4>Get on SoundCrowd to connect with fans, share your sounds, and grow your crowd. What are you waiting for?</h4>
+                    </div>
+                </div>
+
                 <div className="footer-session">
                     <h2>Thanks for listening. Now join the party.</h2>
                     <h4>Save tracks, follow artists and build playlists. All for free.</h4>

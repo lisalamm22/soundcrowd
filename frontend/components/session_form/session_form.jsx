@@ -41,30 +41,15 @@ class SessionForm extends React.Component {
             .then(() => this.props.history.push('/'));
     }
 
-    // renderErrors() {
-    //     debugger
-    //     return (
-    //         <ul>
-    //             {this.props.errors.map((error, i) => (
-    //                 <li key={i}>
-    //                     {error}
-    //                 </li>
-    //             ))}
-    //         </ul>
-    //     );
-    // }
-
-
     render() {
         const errors = {}
         this.props.errors.forEach((err) => {
             errors[err.split(" ")[0].toLowerCase()] = err
         })
         console.log(errors)
-        const email = (<div>
+        const email = (<div className="form-username">
                         <input 
                             className={errors['username'] ? "session-err" : "session-input"}
-                            // className = 'session-err'
                             placeholder="Your username"
                             type="text" 
                             value={this.state.username} 
@@ -78,10 +63,18 @@ class SessionForm extends React.Component {
             <div>
                 <h2>SoundCrowd</h2>
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    {/* Please {this.props.formType} or {this.props.otherForm} */}
-                    {/* <div onClick={this.props.closeModal} className="close-x"></div> */}
-                    <br />
-                    
+                    {formType === "Sign In" ? <button 
+                        onClick={this.demoUserLogin}
+                        className="demo"
+                        >
+                        Demo User
+                    </button> : ''}
+                    <div className="form-seperator">
+                        <div className="line-1px"></div>
+                        <span>or</span>
+                        <div className="line-1px"></div>
+                    </div>
+                    <div className="form-email">
                         <input 
                             className={errors['email'] ? "session-err" : "session-input" }
                             type="text" 
@@ -90,6 +83,8 @@ class SessionForm extends React.Component {
                             onChange={this.handleChange('email')} 
                         />
                         {errors['email'] ? <p className="login-err" >{errors['email']}</p> : ''}
+                    </div>
+                    <div className="form-password">
                         <input 
                         className={errors['password'] ? "session-err" : "session-input"}
                             type="password" 
@@ -98,18 +93,12 @@ class SessionForm extends React.Component {
                             onChange={this.handleChange('password')} 
                         />
                         {errors['password'] ? <p className="login-err" >{errors['password']}</p> : ''}
+                    </div>
                     {formType === 'Sign Up' ? email : ""}
-                    {/* {this.renderErrors()} */}
                     <button className='session-submit-button'>{formType}</button>
                     
-                    {formType === "Sign In" ? <button 
-                        onClick={this.demoUserLogin}
-                        className="demo"
-                        >
-                        Demo User
-                    </button> : ''}
                 </form>
-                    {/* {this.props.otherForm} */}
+                <p class="modal-fine-print">We may use your email and devices for updates and tips on SoundCrowd's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.</p>
             </div>
         )
     }

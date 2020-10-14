@@ -1,29 +1,46 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
-const NavBar = ({ currentUser, logout, openModal }) => {
-
-    const sessionLinks = () => (
-        <nav className="login-signup">
+class NavBar extends React.Component {
+    constructor(props){
+        super(props)
+        this.sessionLinks = this.sessionLinks.bind(this)
+        this.navLinks = this.navLinks.bind(this)
+    }
+    sessionLinks(){
+        return(<nav className="login-signup">
             <div>
-                <img src={window.logonameclearback} alt="SoundCrowd"/>
+                <Link to='/'>
+                    <img src={window.logonameclearback} alt="SoundCrowd"/>
+                </Link>
                 <div className="login-signup-buttons">
-                    <button onClick={() => openModal('login')} className='signin'>Sign in</button>
-                    <button onClick={() => openModal('signup')} className='signup'>Create account</button>
+                    <button onClick={() => this.props.openModal('login')} className='signin'>Sign in</button>
+                    <button onClick={() => this.props.openModal('signup')} className='signup'>Create account</button>
                 </div>
             </div>
         </nav>
-    );
-    const personalGreeting = () => (
-        <hgroup className="header-group">
-            <h2 className="header-name">Hi, {currentUser.username}!</h2>
-            <button className="header-button" onClick={logout}>Log Out</button>
+    )};
+    navLinks(){
+        return(<hgroup className="header-group">
+            <Link to='/discover'>
+                <img src={window.logo} alt="SoundCrowd"/>
+            </Link>
+            <Link to='/discover'><h5>Home</h5></Link>
+            <Link to='/stream'><h5>Stream</h5></Link>
+            <Link to='/library'><h5>Library</h5></Link>
+            {/* searchcontainer */}
+            <h5>Upload</h5>
+            <h2 className="header-name">{this.props.currentUser.username}</h2>
+            <button className="header-button" onClick={this.props.logout}>Log Out</button>
         </hgroup>
-    );
-
-    return (
-        currentUser ?
-            personalGreeting(currentUser, logout) :
-            sessionLinks()
-    );
+    )}
+    render(){
+        const{ currentUser, logout, openModal } = this.props
+        return (
+            <>
+            {currentUser ?
+                this.navLinks(currentUser, logout) :
+                this.sessionLinks()}</>
+    )};
 };
 export default NavBar

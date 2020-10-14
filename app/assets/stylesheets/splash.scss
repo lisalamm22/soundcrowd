@@ -15,6 +15,7 @@ button{
     border-color: rgb(220, 220, 220);
     border-width: 1px;
     border-style: solid;
+    cursor: pointer;
 } 
 
 h2{
@@ -43,7 +44,7 @@ h4{
     background-color: lightblue;
     background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
     padding: 12.5px 25px;
-    border-style: none;
+    // border-style: none;
     font-size: 20px;
     font-weight: 100;
     color: white;
@@ -71,7 +72,7 @@ span {
 // }
 
 .splash-app-pic{
-    background-image: url(splash3.jpg);
+    background-image: url(splash3.png);
     background-repeat: no-repeat;
     background-size: contain;
     height: 390px;
@@ -86,6 +87,28 @@ span {
     width: 30%;
     padding: 65px;
     // border: 2px solid black;
+}
+
+.line{
+    height: 3px;
+    width: 80px;
+    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+}
+
+.splash-creators{
+    background-image: url(splash4.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 350px;
+    color: white;
+    font-weight: 100;
+    display: flex;
+    align-items: center;
+}
+
+.splash-creators-txt{
+    width: 45%;
+    padding: 0 60px;
 }
 
 .footer-session{

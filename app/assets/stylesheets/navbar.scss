@@ -1,11 +1,13 @@
 .login-signup{
     position: absolute;
-    width: 85%;
+    width: 1250px;
+    display: flex;
+    justify-content: center;
 }
-// still need to center the div - transform?
+
 .login-signup > div {
     display: flex;
-    width: 100%;
+    width: 95%;
     // border: solid black 2px;
     justify-content: space-between;
     align-items: center;
@@ -18,7 +20,31 @@
     height: 20px;
 }
 
+.login-signup img:hover{
+    cursor: pointer;
+}
+
 .login-signup-buttons > button {
     font-size: 14px;
     padding: 2px 12px;
+    cursor: pointer;
+}
+
+.header-group{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    width: 100%;
+    border: red 2px solid;
+}
+
+.header-name, h5{
+    font-size: 14px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.header-group img{
+    height: 50px;
 }
