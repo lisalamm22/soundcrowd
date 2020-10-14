@@ -11,7 +11,7 @@ class Splash extends React.Component{
                 <div className="splash-welcome"></div>
                 {/* searchbarcontainer */}
                 {/* songindexcontainer */}
-
+                <div className="splash-trending"></div> 
                 <div className="splash-app">
                     <div className="splash-app-pic">
                     <div className="splash-app-txt">

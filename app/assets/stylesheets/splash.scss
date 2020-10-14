@@ -67,9 +67,12 @@ span {
     padding-right: 30px;
 }
 
-// .splash-app{
-//     display: flex;
-// }
+.splash-trending{
+    background: image-url('splash_placeholder.png');
+    background-size: 100% 100%;
+    height: 826px;
+    width: 1250px;
+}
 
 .splash-app-pic{
     background: image-url('splash3.png');

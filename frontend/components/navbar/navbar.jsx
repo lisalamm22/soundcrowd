@@ -23,16 +23,22 @@ class NavBar extends React.Component {
     navLinks(){
         return(<hgroup className="header-group">
             <nav>
-                <Link to='/discover'>
-                    <img src={window.logo} alt="SoundCrowd"/>
-                </Link>
-                <Link to='/discover'><h5>Home</h5></Link>
-                <Link to='/stream'><h5>Stream</h5></Link>
-                <Link to='/library'><h5>Library</h5></Link>
+                <ul className="navbar-left">
+                    <Link to='/discover'>
+                        <img src={window.logo} alt="SoundCrowd"/>
+                    </Link>
+                    <Link to='/discover'><h5>Home</h5></Link>
+                    <Link to='/stream'><h5>Stream</h5></Link>
+                    <Link to='/library'><h5>Library</h5></Link>
+                </ul>
                 {/* searchcontainer */}
-                <h5>Upload</h5>
-                <h2 className="header-name">{this.props.currentUser.username}</h2>
-                <button className="header-button" onClick={this.props.logout}>Log Out</button>
+                <ul className="navbar-right">
+                    <h5>Upload</h5>
+                    <h2 className="header-name">{this.props.currentUser.username}</h2>
+                    <nav className="navbar-more">
+                        {/* <button className="header-button" onClick={this.props.logout}>Log Out</button> */}
+                    </nav>
+                </ul>
             </nav>
         </hgroup>
     )}
