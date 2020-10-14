@@ -4,8 +4,17 @@ import {Link} from 'react-router-dom'
 class NavBar extends React.Component {
     constructor(props){
         super(props)
+        this.state={
+            dropdown: true
+        }
         this.sessionLinks = this.sessionLinks.bind(this)
         this.navLinks = this.navLinks.bind(this)
+        this.handleMore = this.handleMore.bind(this)
+    }
+    handleMore(){
+        debugger
+        let newState = !this.state.dropdown;
+        this.setState = ({ dropdown: newState });
     }
     sessionLinks(){
         return(<nav className="login-signup">
@@ -21,6 +30,7 @@ class NavBar extends React.Component {
         </nav>
     )};
     navLinks(){
+        debugger
         return(<hgroup className="header-group">
             <nav>
                 <ul className="navbar-left">
@@ -35,9 +45,12 @@ class NavBar extends React.Component {
                 <ul className="navbar-right">
                     <h5>Upload</h5>
                     <h2 className="header-name">{this.props.currentUser.username}</h2>
-                    <nav className="navbar-more">
-                        {/* <button className="header-button" onClick={this.props.logout}>Log Out</button> */}
-                    </nav>
+                    <div className={`navbar-more`} onClick={this.handleMore}>
+                        <ul className={`more-dropdown-${this.state.dropdown}`} >
+                            <li 
+                                onClick={this.props.logout}
+                            >Sign Out</li></ul>
+                    </div>
                 </ul>
             </nav>
         </hgroup>

@@ -7,7 +7,7 @@ class Splash extends React.Component{
     
     render(){
         return(
-            <div>
+            <div className="splash">
                 <div className="splash-welcome"></div>
                 {/* searchbarcontainer */}
                 {/* songindexcontainer */}
