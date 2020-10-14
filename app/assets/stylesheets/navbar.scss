@@ -39,11 +39,13 @@
 .header-group{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     background-color: #333;
     width: 100%;
     border: red 2px solid;
 }
+
+// .header-group > nav
 
 .header-name, h5{
     font-size: 14px;

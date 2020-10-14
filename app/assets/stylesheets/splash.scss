@@ -58,7 +58,7 @@ span {
 }
 
 .splash-welcome{
-    background-image: url(splash2.jpg);
+    background: image-url('splash2.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 450px;
@@ -72,7 +72,7 @@ span {
 // }
 
 .splash-app-pic{
-    background-image: url(splash3.png);
+    background: image-url('splash3.png');
     background-repeat: no-repeat;
     background-size: contain;
     height: 390px;
@@ -96,7 +96,7 @@ span {
 }
 
 .splash-creators{
-    background-image: url(splash4.jpg);
+    background: image-url('splash4.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     height: 350px;
