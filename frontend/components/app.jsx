@@ -13,11 +13,14 @@ const App = () => (
             <NavBarContainer />
             {/* <h1>SoundCrowd</h1> */}
         </header>
-        <Switch>
-            <ProtectedRoute exact path="/discover" component={DiscoverContainer}/>
-            <AuthRoute exact path="/" component={SplashContainer}/>
-            <Redirect to="/" /> 
-        </Switch>
+        <section className="main-content">
+            <Switch>
+                <ProtectedRoute exact path="/discover" component={DiscoverContainer}/>
+                <AuthRoute exact path="/" component={SplashContainer}/>
+                <Redirect to="/" /> 
+            </Switch>
+        </section>
+        
     </div>
 );
 

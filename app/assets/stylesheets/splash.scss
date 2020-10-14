@@ -3,7 +3,7 @@ html{
     font-family: 'Overpass', sans-serif;
 }
 
-main{
+.main-content{
     width: 1250px;
     background: white;
     margin: 0 auto;
@@ -116,9 +116,14 @@ span {
     flex-direction: column;
     align-items: center;
 
-    border-bottom-style: solid;
-    border-color: rgb(220, 220, 220);
+    border-bottom: solid 1px rgb(220, 220, 220);
+    padding: 70px;
+    margin: 20px 30px;
 
-    padding: 80px;
+}
 
+.footer{
+    display: flex;
+    padding: 25px;
+    // border: solid black 2px;
 }

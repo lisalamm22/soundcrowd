@@ -46,6 +46,10 @@ class Splash extends React.Component{
                         </button>
                     </div>
                 </div>
+
+                <div className="footer">
+                    <span>Language: English (US) </span>
+                </div>
             </div>
         )
     }

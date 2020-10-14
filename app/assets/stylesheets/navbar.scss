@@ -1,19 +1,25 @@
 .login-signup{
     position: absolute;
-    width: 1250px;
+    width: 100%;
     display: flex;
     justify-content: center;
+    // border: solid black 2px;
+    // top: 0px;
+    // left: 0px;
+    top: 42px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
 }
 
 .login-signup > div {
     display: flex;
-    width: 95%;
-    // border: solid black 2px;
+    width: 1200px;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 10px 20px;
-    margin: 3px 6px;
+    padding: 10px 25px;
+    // border: solid black 2px;
 }
 
 .login-signup img {
