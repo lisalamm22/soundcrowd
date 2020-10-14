@@ -8,7 +8,14 @@ class Splash extends React.Component{
     render(){
         return(
             <div>
-                <div class="splash-welcome"></div>
+                <div className="splash-welcome"></div>
+                <div className="splash-app">
+                    <div className="splash-app-pic">
+                    <div className="splash-app-txt">
+                        <h2>Never stop listening</h2>
+                        <h4>SoundCrowd is available on Web. Coming soon to iOS, Android, Sonos, Chromecast, and Xbox One.</h4>
+                    </div></div>
+                </div>
 
                 {/* images */}
                 {/* searchbarcontainer */}

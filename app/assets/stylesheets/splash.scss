@@ -1,5 +1,5 @@
 html{
-    background: rgb(245, 245, 245);
+    background: rgb(242, 242, 242);
     font-family: 'Overpass', sans-serif;
 }
 
@@ -64,6 +64,28 @@ span {
     padding-top: 19px;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+// .splash-app{
+//     display: flex;
+// }
+
+.splash-app-pic{
+    background-image: url(splash3.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 390px;
+    background-color: rgb(242, 242, 242);
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.splash-app-txt{
+    background-color: rgba(255, 255, 255, 0);
+    width: 30%;
+    padding: 65px;
+    // border: 2px solid black;
 }
 
 .footer-session{

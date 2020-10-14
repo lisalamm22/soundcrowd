@@ -41,29 +41,39 @@ class SessionForm extends React.Component {
             .then(() => this.props.history.push('/'));
     }
 
-    renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, i) => (
-                    <li key={i}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
-    }
+    // renderErrors() {
+    //     debugger
+    //     return (
+    //         <ul>
+    //             {this.props.errors.map((error, i) => (
+    //                 <li key={i}>
+    //                     {error}
+    //                 </li>
+    //             ))}
+    //         </ul>
+    //     );
+    // }
+
 
     render() {
+        const errors = {}
+        this.props.errors.forEach((err) => {
+            errors[err.split(" ")[0].toLowerCase()] = err
+        })
+        console.log(errors)
         const email = (<div>
                         <input 
-                            className="session-email"
+                            className={errors['username'] ? "session-err" : "session-input"}
+                            // className = 'session-err'
                             placeholder="Your username"
                             type="text" 
                             value={this.state.username} 
                             onChange={this.handleChange('username')} 
                         />
+                        {errors['username'] ? <p className="login-err" >{errors['username']}</p> : ''}
                     </div>)
         const {formType} = this.props
+        debugger
         return (
             <div>
                 <h2>SoundCrowd</h2>
@@ -73,23 +83,23 @@ class SessionForm extends React.Component {
                     <br />
                     
                         <input 
-                            className="session-email"
+                            className={errors['email'] ? "session-err" : "session-input" }
                             type="text" 
                             placeholder="Your email address"
                             value={this.state.email} 
                             onChange={this.handleChange('email')} 
                         />
-
+                        {errors['email'] ? <p className="login-err" >{errors['email']}</p> : ''}
                         <input 
-                            className="session-password"
+                        className={errors['password'] ? "session-err" : "session-input"}
                             type="password" 
                             placeholder="Your password"
                             value={this.state.password} 
                             onChange={this.handleChange('password')} 
                         />
-
+                        {errors['password'] ? <p className="login-err" >{errors['password']}</p> : ''}
                     {formType === 'Sign Up' ? email : ""}
-                    {this.renderErrors()}
+                    {/* {this.renderErrors()} */}
                     <button className='session-submit-button'>{formType}</button>
                     
                     {formType === "Sign In" ? <button 
