@@ -6,8 +6,7 @@
   left: 0;
   background: rgba(235, 235, 235, 0.7);
   z-index: 10;
-  animation: color-me-in 1s;
-  // transition: opacity 2s linear;
+  animation: color-me-in 0.5s;
 }
 
 @keyframes color-me-in {
@@ -29,7 +28,16 @@
   width: 350px;
   height: 400px;
   z-index: 3;
-  // transition-timing-function: ease-out;
+  animation: move-me-in 0.5s;
+}
+
+@keyframes move-me-in {
+  0%{
+    top: -200px;
+  }
+  100%{
+    top: 350px;
+  }
 }
 
 .session{
