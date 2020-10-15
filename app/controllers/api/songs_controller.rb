@@ -2,8 +2,9 @@ class Api::SongsController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
     def index
-        artist = User.find_by(params[:song][:artist_id])
-        @songs = Song.by_artist(artist)
+        # artist = User.find_by(params[:song][:artist_id])
+        # @songs = Song.by_artist(artist)
+        @songs = Song.all
         render :index
     end
     
