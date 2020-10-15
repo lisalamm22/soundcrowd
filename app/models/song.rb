@@ -7,7 +7,7 @@ class Song < ApplicationRecord
         foreign_key: :artist_id,
         class_name: 'User'
     
-    def self.songs_by_artist(:artist)
-        songs = Song.all.includes(:artist)
+    def self.song_by_artist(artist_id)
+        songs = Song.select("songs.*").where("artist_id = ?", artist_id)
     end
 end
