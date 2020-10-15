@@ -41,9 +41,14 @@
 }
 .close-x{
   cursor: pointer;
-  position: absolute;
-  transform: translate(-50%, -50%);
+  position: fixed;
   background-color: transparent;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  font-size: 30px;
+  font-weight: 100;
+
 }
 
 // .close-x:active{

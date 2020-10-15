@@ -32,7 +32,6 @@ class SessionForm extends React.Component {
 
     demoUserLogin(){
         const user = Object.assign({}, {
-            // username: "demo",
             email: "demo@user.edu",
             password: "demouser",
         });
@@ -57,10 +56,8 @@ class SessionForm extends React.Component {
                         {errors['username'] ? <p className="login-err" >{errors['username']}</p> : ''}
                     </div>)
         const {formType} = this.props
-        // debugger
         return (
             <div className="session">
-                {/* <h2>SoundCrowd</h2> */}
                 {formType === "Sign In" ? <button 
                     onClick={this.demoUserLogin}
                     className="demo"
@@ -68,7 +65,6 @@ class SessionForm extends React.Component {
                     Demo User
                 </button> : ''}
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    <div onClick={this.props.closeModal} className="close-x">&times;</div>
                     <div className="form-seperator">
                         {formType === "Sign In" ? <>
                         <div className="line-1px"></div>
