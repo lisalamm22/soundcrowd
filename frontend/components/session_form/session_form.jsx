@@ -68,6 +68,7 @@ class SessionForm extends React.Component {
                     Demo User
                 </button> : ''}
                 <form className="session-form" onSubmit={this.handleSubmit}>
+                    <div onClick={this.props.closeModal} className="close-x">&times;</div>
                     <div className="form-seperator">
                         {formType === "Sign In" ? <>
                         <div className="line-1px"></div>

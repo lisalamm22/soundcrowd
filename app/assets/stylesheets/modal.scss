@@ -39,6 +39,37 @@
     top: 350px;
   }
 }
+.close-x{
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: transparent;
+}
+
+// .close-x:active{
+
+//   // transition: 
+//   // animation: move-me-out 0.5s;
+//   // animation: color-me-out 0.5s;
+// }
+
+// @keyframes move-me-out {
+//   0%{
+//     top: 350px;
+//   }
+//   100%{
+//     top: -200px;
+//   }
+// }
+
+// @keyframes color-me-out {
+//   0%{
+//     background:rgba(235, 235, 235, 0.7);
+//   }
+//   100%{
+//     background:rgba(235, 235, 235, 0);
+//   }
+// }
 
 .session{
   display: flex;
