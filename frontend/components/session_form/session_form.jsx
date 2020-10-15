@@ -31,14 +31,14 @@ class SessionForm extends React.Component {
     }
 
     demoUserLogin(){
-        const user = Object.assign({}, {
+        return () => {const user = Object.assign({}, {
             email: "demo@user.edu",
             password: "demouser",
         });
         this.props.processForm(user)
             .then(this.props.closeModal)
             .then(() => this.props.history.push('/'));
-    }
+    }}
 
     render() {
         const errors = {}
@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
         return (
             <div className="session">
                 {formType === "Sign In" ? <button 
-                    onClick={this.demoUserLogin}
+                    onClick={this.demoUserLogin()}
                     className="demo"
                     >
                     Demo User

@@ -1,4 +1,12 @@
 class Api::SongsController < ApplicationController
+    before_action :require_logged_in, only: [:create, :update, :destroy]
+
+    def index
+        artist = User.find_by(params[:song][:artist_id])
+        @songs = Song.by_artist(artist)
+        render :index
+    end
+    
     def create
         @song = Song.new(song_params)
         if @song.save
