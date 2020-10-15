@@ -4,14 +4,24 @@
     <title>SoundCrowd</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@100;200;300;400&display=swap" rel="stylesheet">
     <script type="text/javascript">
       window.logo = "<%= image_url('logo2.png') %>"
       window.logoname = "<%= image_url('logoname.png') %>"
       window.logonameclearback = "<%= image_url('logonameclearback.png') %>"
    </script>
+      <% if logged_in? %>
+   <script type="text/javascript">
+      window.currentUser = {
+          'id': <%= current_user.id %>,
+          'username': "<%= current_user.username %>",
+      }
+   </script>
+   <% end %>
   </head>
 
   <body>

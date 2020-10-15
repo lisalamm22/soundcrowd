@@ -12,15 +12,23 @@ class Modal extends React.Component{
     }
 
     modalCloseTransition(){
-        // debugger
-        this.setState( {closingModal: true} )
-        return () => {
-            this.props.closeModal()
+        this.setState( {closingModal: true},() => {
+            setTimeout(()=>{
+                this.props.closeModal()
+                this.setState({closingModal: false})
+            }, 400)
+        } )
+    }
+
+    shouldComponentUpdate(nextProps={modal: null}, nextState){
+        if(nextState.closingModal === true || Boolean(nextProps.modal)){
+            return true;
         }
+        return false;
     }
     
     render(){
-    const {modal, closeModal} = this.props
+    const {modal} = this.props
     if (!modal) {
         return null;
     }
@@ -38,7 +46,7 @@ class Modal extends React.Component{
     return (
         <div className={`modal-background-${this.state.closingModal}`} 
             onClick={this.modalCloseTransition}>
-            <div onClick={closeModal} className="close-x">&times;</div>
+            <div onClick={this.modalCloseTransition} className="close-x">&times;</div>
             <div className={`modal-child-${this.state.closingModal}`} 
                 onClick={this.modalCloseTransition}>
                 {component}

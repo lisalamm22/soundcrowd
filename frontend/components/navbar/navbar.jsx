@@ -48,13 +48,11 @@ class NavBar extends React.Component {
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
                             <li>About us</li>
-                            <li>About us</li>
-                            <li>About us</li>
-                            <li>About us</li>
-                            <li>About us</li>
-                            <li className="more-item"
-                                onClick={this.props.logout}
-                            >Sign Out</li>
+                            <li>Github</li>
+                            <li>LinkedIn</li>
+                            <li>Something</li>
+                            <li>Else</li>
+                            <li onClick={this.props.logout}>Sign Out</li>
                         </ul>
                     </div>
                 </ul>
