@@ -1,4 +1,19 @@
-export const upload = (song) => {
+export const fetchSongs = (artist) => {
+    return $.ajax({
+        method: `GET`,
+        url: `/api/songs`,
+        data: { artist }
+    });
+};
+
+export const fetchSong = (songId) => {
+    return $.ajax({
+        method: `GET`,
+        url: `/api/songs/${songId}`,
+    });
+};
+
+export const createSong = (song) => {
     return $.ajax({
         method: `POST`,
         url: `/api/songs`,
@@ -6,24 +21,17 @@ export const upload = (song) => {
     });
 };
 
-export const show = (songId) => {
+export const updateSong = (song) => {
     return $.ajax({
-        method: `GET`,
-        url: `/api/songs/${songId}`,
+        method: `PATCH`,
+        url: `/api/songs/${song.id}`,
+        data: { song },
     });
-}
+};
 
-export const remove = (songId) => {
+export const deleteSong = (songId) => {
     return $.ajax({
         method: `DELETE`,
         url: `/api/songs/${songId}`,
     });
 };
-
-export const update = (songId) => {
-    return $.ajax({
-        method: `PATCH`,
-        url: `/api/songs/${songId}`,
-        data: { song },
-    });
-}
