@@ -20,9 +20,10 @@ class Modal extends React.Component{
         } )
     }
 
-    shouldComponentUpdate(nextProps={modal: null}, nextState){
-        if(nextState.closingModal === true || Boolean(nextProps.modal)){
-            return true;
+    shouldComponentUpdate(nextProps={modal: null, currentUser: null}, nextState){
+        debugger
+        if((nextState.closingModal === true || Boolean(nextProps.modal)) || Boolean(nextProps.currentUser)){
+            return true; //rerender
         }
         return false;
     }
@@ -48,7 +49,7 @@ class Modal extends React.Component{
             onClick={this.modalCloseTransition}>
             <div onClick={this.modalCloseTransition} className="close-x">&times;</div>
             <div className={`modal-child-${this.state.closingModal}`} 
-                onClick={this.modalCloseTransition}>
+                onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>
@@ -63,7 +64,8 @@ import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
     return {
-        modal: state.ui.modal
+        modal: state.ui.modal,
+        currentUser: state.session.currentUserId,
     };
 };
 
