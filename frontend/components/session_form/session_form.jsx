@@ -46,7 +46,6 @@ class SessionForm extends React.Component {
         this.props.errors.forEach((err) => {
             errors[err.split(" ")[0].toLowerCase()] = err
         })
-        console.log(errors)
         const email = (<div className="form-username">
                         <input 
                             className={errors['username'] ? "session-err" : "session-input"}
@@ -58,21 +57,23 @@ class SessionForm extends React.Component {
                         {errors['username'] ? <p className="login-err" >{errors['username']}</p> : ''}
                     </div>)
         const {formType} = this.props
-        debugger
+        // debugger
         return (
-            <div>
-                <h2>SoundCrowd</h2>
+            <div className="session">
+                {/* <h2>SoundCrowd</h2> */}
+                {formType === "Sign In" ? <button 
+                    onClick={this.demoUserLogin}
+                    className="demo"
+                    >
+                    Demo User
+                </button> : ''}
                 <form className="session-form" onSubmit={this.handleSubmit}>
-                    {formType === "Sign In" ? <button 
-                        onClick={this.demoUserLogin}
-                        className="demo"
-                        >
-                        Demo User
-                    </button> : ''}
                     <div className="form-seperator">
+                        {formType === "Sign In" ? <>
                         <div className="line-1px"></div>
                         <span>or</span>
-                        <div className="line-1px"></div>
+                        <div className="line-1px"></div> </>
+                        : null}
                     </div>
                     <div className="form-email">
                         <input 

@@ -5,16 +5,16 @@ class NavBar extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            dropdown: true
+            dropdown: false
         }
         this.sessionLinks = this.sessionLinks.bind(this)
         this.navLinks = this.navLinks.bind(this)
         this.handleMore = this.handleMore.bind(this)
     }
     handleMore(){
-        debugger
+        // debugger
         let newState = !this.state.dropdown;
-        this.setState = ({ dropdown: newState });
+        this.setState({ dropdown: newState });
     }
     sessionLinks(){
         return(<nav className="login-signup">
@@ -30,7 +30,7 @@ class NavBar extends React.Component {
         </nav>
     )};
     navLinks(){
-        debugger
+        // debugger
         return(<hgroup className="header-group">
             <nav>
                 <ul className="navbar-left">
