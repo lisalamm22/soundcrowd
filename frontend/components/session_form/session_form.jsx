@@ -58,12 +58,12 @@ class SessionForm extends React.Component {
         const {formType} = this.props
         return (
             <div className="session">
+
                 {formType === "Sign In" ? <button 
                     onClick={this.demoUserLogin()}
-                    className="demo"
-                    >
-                    Demo User
-                </button> : ''}
+                    className="demo">
+                    Demo User</button> : ''}
+
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <div className="form-seperator">
                         {formType === "Sign In" ? <>
@@ -93,10 +93,14 @@ class SessionForm extends React.Component {
                         {errors['password'] ? <p className="login-err" >{errors['password']}</p> : ''}
                     </div>
                     {formType === 'Sign Up' ? email : ""}
-                    <button className='session-submit-button'>{formType}</button>
-                    
+                    <button className='session-submit-button'>{formType}</button>   
                 </form>
-                <p class="modal-fine-print">We may use your email and devices for updates and tips on SoundCrowd's products and services, and for activities notifications. You can unsubscribe for free at any time in your notification settings.</p>
+
+                <p className="modal-fine-print">We may use your email and devices for 
+                updates and tips on SoundCrowd's products and services, and for 
+                activities notifications. You can unsubscribe for free at any time 
+                in your notification settings.</p>
+
             </div>
         )
     }

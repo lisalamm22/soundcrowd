@@ -75,8 +75,10 @@
     font-size: 14px;
     font-weight: 300;
     color: #ccc;
-    padding: 16px 32px;
+    padding: 16px 0px;
+    width: 100px;
     cursor: pointer;
+    text-align: center;
 }
 .header-name:hover{
     color: rgba(245,245,245,1);
@@ -86,11 +88,8 @@
 }
 
 .navbar-more{
-    opacity: .75;
-    background: image-url('more.svg');
-    background-repeat: no-repeat;
-    background-size: 50% 50%;
-    background-position: center;
+    // opacity: .75;
+
     // border: none;
     // outline: none;
     width: 46px;
@@ -98,11 +97,30 @@
     padding: 0px;
     position: relative;
     display: inline-block;
+    
 }
 
-.navbar-more:hover{
+.navbar-more::before{
+    content: "";
+    background: image-url('more.svg');
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: center;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.75;
+}
+
+.navbar-more:hover::before{
     opacity: 1;
 }
+
+// .navbar-more:hover{
+//     opacity: 1;
+// }
 .navbar-left h5{
     border-right: solid black 1px;
 }
@@ -115,26 +133,37 @@
 .more-dropdown-true{
     position: absolute;
     background-color: white;
+    border: 1px solid #ccc;
     opacity:1;
     width: 160px;
     // padding: 10px;
     z-index: 2;
-    right: 0;
+    right: 0px;
     top: 46px;
 }
-
-.more-dropdown-true>li{
-    color: black;
-    opacity: 1;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    background-color: white;
-    border-radius: 0;
-    list-style-type: none;
-}
-
 .more-dropdown-false{
     display: none;
+}
+
+.more-dropdown-true li{
+    color: black;
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+    width: 140px;
+    background-color: transparent;
+    border-radius: 0;
+    list-style: none;
+    font-size: 12px;
+    text-align: left;
+    font-weight: 500;
+}
+.more-dropdown-true>li:hover{
+    background-color: rgb(220, 220, 220);
+    // width: 160px;
+}
+
+.more-item{
+    background-color: white;
+    opacity: 1;
 }

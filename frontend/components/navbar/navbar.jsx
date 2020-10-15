@@ -47,9 +47,15 @@ class NavBar extends React.Component {
                     <h2 className="header-name">{this.props.currentUser.username}</h2>
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
-                            <li 
+                            <li>About us</li>
+                            <li>About us</li>
+                            <li>About us</li>
+                            <li>About us</li>
+                            <li>About us</li>
+                            <li className="more-item"
                                 onClick={this.props.logout}
-                            >Sign Out</li></ul>
+                            >Sign Out</li>
+                        </ul>
                     </div>
                 </ul>
             </nav>
