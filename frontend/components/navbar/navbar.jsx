@@ -43,7 +43,7 @@ class NavBar extends React.Component {
                 </ul>
                 {/* searchcontainer */}
                 <ul className="navbar-right">
-                    <h5>Upload</h5>
+                    <Link to='/upload'><h5>Upload</h5></Link>
                     <h2 className="header-name">{this.props.currentUser.username}</h2>
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >

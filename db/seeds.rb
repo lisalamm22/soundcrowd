@@ -12,6 +12,9 @@ Song.destroy_all
 demo = User.create!(username: 'demo', email: 'demo@user.edu', password: 'demouser')
 hello = User.create!(username: 'hello', email: 'hello@hi.com', password: '123456')
 
+file1 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/demo_profile_pic')
+demo.profile_pic.attach(io: file1, filename: "img_#{demo.id}.jpg")
+
 song1 = Song.create!(title: 'I See Fire (Kygo Remix)', artist_id: demo.id, genre: 'Tropical House', description: 'Fire 🔥🔥🔥')
 song2 = Song.create!(title: 'Miami 82 (Kygo Remix)', artist_id: demo.id, genre: 'Tropical House', description: 'Sunshine on my mind')
 song3 = Song.create!(title: 'Can’t Afford It All (Kygo Remix)', artist_id: demo.id, genre: 'Tropical House', description: 'Born to shop. Forced to work')

@@ -21,9 +21,8 @@ class Modal extends React.Component{
     }
 
     shouldComponentUpdate(nextProps={modal: null, currentUser: null}, nextState){
-        debugger
         if((nextState.closingModal === true || Boolean(nextProps.modal)) || Boolean(nextProps.currentUser)){
-            return true; //rerender
+            return true; 
         }
         return false;
     }

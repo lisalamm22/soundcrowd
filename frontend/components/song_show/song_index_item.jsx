@@ -10,7 +10,7 @@ class SongIndexItem extends React.Component {
     render() {
         const {song} = this.props
         return (
-            <div>SongTitle</div>
+            <div>SongTitle: {song.title}</div>
         )
     }
 }

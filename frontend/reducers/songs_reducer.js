@@ -10,7 +10,7 @@ const SongsReducer = (oldState = {}, action) => {
     let nextState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_ALL_SONGS:
-            return action.posts;
+            return action.songs;
         case RECEIVE_SONG:
             nextState[action.song.id] = action.song
             return nextState;
