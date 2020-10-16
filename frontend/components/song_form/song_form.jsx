@@ -21,7 +21,6 @@ class SongForm extends React.Component{
     }
 
     handlefile(fileType){
-        // debugger
         return(e) => {
             const file = e.currentTarget.files[0]
             const fileReader = new FileReader();
@@ -62,15 +61,16 @@ class SongForm extends React.Component{
         songFormData.append('song[artist_id]', this.state.artist_id);
         songFormData.append('song[genre]', this.state.genre);
         songFormData.append('song[description]', this.state.description);
-        songFormData.append('song[imageURL]', this.state.imageFile);
         songFormData.append('song[audioURL]', this.state.audioFile);
+            if(this.state.imageFile){
+                songFormData.append('song[imageURL]', this.state.imageFile);
+            }
         this.props.createSong(songFormData)
         this.resetState();
     }
 
     render(){
-        console.log(this.state)
-        console.log(this.initialState)
+        // console.log(this.state)
         const preview = this.state.imageURL ? <img src={this.state.imageURL}/> :  null
         if(this.state.audioFile === null){
             return(

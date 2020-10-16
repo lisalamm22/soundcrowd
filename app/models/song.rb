@@ -7,8 +7,16 @@ class Song < ApplicationRecord
         foreign_key: :artist_id,
         class_name: 'User'
 
+    validate :ensure_audio
+
     has_one_attached :audioURL
     has_one_attached :imageURL
+
+    def ensure_audio
+        unless self.audioURL.attached?
+            errors[:audioURL] << "must be attached"
+        end
+    end
     
     def self.song_by_artist(artist_id)
         songs = Song.select("songs.*").where("artist_id = ?", artist_id)
