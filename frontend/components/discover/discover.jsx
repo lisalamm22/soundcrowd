@@ -1,5 +1,5 @@
 import React from 'react';
-import SongIndexContainer from '../songs/song_index_container'
+import SongIndexContainer from '../song_show/song_index_container'
 
 class Discover extends React.Component{
     constructor(props){
