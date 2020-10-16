@@ -13,6 +13,7 @@ class SongForm extends React.Component{
         }
         this.handlefile = this.handlefile.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.resetState = this.resetState.bind(this)
     }
 
     handlefile(fileType){
@@ -36,8 +37,10 @@ class SongForm extends React.Component{
             description: 'Describe your track',
             imageFile: null,
             audioFile: null,
-        })
-    }
+        // }, ()=>{
+        //     console.log('hi')
+        //     console.log(this.state)
+    })}
 
     handleSubmit(e){
         e.preventDefault();
@@ -49,11 +52,13 @@ class SongForm extends React.Component{
         songFormData.append('song[imageURL]', this.state.imageFile);
         songFormData.append('song[audioURL]', this.state.audioFile);
         this.props.createSong(songFormData)
-            // .then(()=>{this.clearState});
+            // .then(()=>{
+            //     debugger
+            //     this.resetState});
     }
 
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         if(this.state.audioFile === null){
             return(
                 <div>
@@ -72,8 +77,10 @@ class SongForm extends React.Component{
                             onChange={this.handleChange('title')}/>
                     </label>
                     <label>Genre 
-                        <select name="genre" onChange={this.handleChange('genre')}>
-                            <option value="none" selected="selected" >None</option>
+                        <select name="genre" 
+                            value={this.state.genre}
+                            onChange={this.handleChange('genre')}>
+                            <option value="none">None</option>
                             <option value="ambient">Ambient</option>
                             <option value="classical">Classical</option>
                             <option value="country">Country</option>
