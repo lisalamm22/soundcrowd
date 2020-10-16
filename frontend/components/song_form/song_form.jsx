@@ -3,7 +3,8 @@ import React from 'react'
 class SongForm extends React.Component{
     constructor(props){
         super(props)
-        this.state={
+        
+        this.initialState={
             title: '',
             artist_id: this.props.currentUserId,
             genre: 'none',
@@ -12,6 +13,8 @@ class SongForm extends React.Component{
             imageURL: null,
             audioFile: null,
         }
+        this.state= this.initialState
+
         this.handlefile = this.handlefile.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.resetState = this.resetState.bind(this)
@@ -41,7 +44,6 @@ class SongForm extends React.Component{
                 fileReader.readAsDataURL(file);
             }
         }
-            // set title to e.currentTarget.files[0].name
     };
 
     handleChange(field){
@@ -51,17 +53,7 @@ class SongForm extends React.Component{
     };
 
     resetState(){
-        this.setState({
-            title: '',
-            artist_id: this.props.currentUserId,
-            genre: 'none',
-            description: 'Describe your track',
-            imageFile: null,
-            audioFile: null,
-        // }, ()=>{
-        //     console.log('hi')
-        //     console.log(this.state)
-    })}
+        this.setState(this.initialState)}
 
     handleSubmit(e){
         e.preventDefault();
@@ -73,13 +65,12 @@ class SongForm extends React.Component{
         songFormData.append('song[imageURL]', this.state.imageFile);
         songFormData.append('song[audioURL]', this.state.audioFile);
         this.props.createSong(songFormData)
-            // .then(()=>{
-            //     debugger
-            //     this.resetState});
+        this.resetState();
     }
 
     render(){
         console.log(this.state)
+        console.log(this.initialState)
         const preview = this.state.imageURL ? <img src={this.state.imageURL}/> :  null
         if(this.state.audioFile === null){
             return(
