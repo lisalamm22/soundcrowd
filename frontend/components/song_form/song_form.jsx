@@ -9,6 +9,7 @@ class SongForm extends React.Component{
             genre: 'none',
             description: 'Describe your track',
             imageFile: null,
+            imageURL: null,
             audioFile: null,
         }
         this.handlefile = this.handlefile.bind(this)
@@ -19,8 +20,28 @@ class SongForm extends React.Component{
     handlefile(fileType){
         // debugger
         return(e) => {
+            const file = e.currentTarget.files[0]
+            const fileReader = new FileReader();
+            if(fileType === 'audioFile'){
+                fileReader.onloadend = () => {
+                    this.setState({
+                        [fileType]: file,
+                        title: file.name
+                    })
+                }
+            }
+            else{
+            fileReader.onloadend = () => {
+                this.setState({ 
+                    [fileType]: file,
+                    imageURL: fileReader.result,
+                })
+            }}
+            if(file){
+                fileReader.readAsDataURL(file);
+            }
+        }
             // set title to e.currentTarget.files[0].name
-            this.setState({ [fileType]: e.currentTarget.files[0]})};
     };
 
     handleChange(field){
@@ -58,7 +79,8 @@ class SongForm extends React.Component{
     }
 
     render(){
-        // console.log(this.state)
+        console.log(this.state)
+        const preview = this.state.imageURL ? <img src={this.state.imageURL}/> :  null
         if(this.state.audioFile === null){
             return(
                 <div>
@@ -70,6 +92,7 @@ class SongForm extends React.Component{
             return(
                 <form className="song-form" onSubmit={this.handleSubmit}>
                     <input type="file" onChange={this.handlefile('imageFile')}/>
+                    {preview}
                     <label>Title
                         <input type="text" 
                             placeholder={this.state.audioFile.name}
