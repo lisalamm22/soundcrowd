@@ -42,7 +42,9 @@ export const fetchSong = (songId) => (dispatch) => {
 export const createSong = (song) => (dispatch) => {
     return (
         SongApiUtil.createSong(song)
-            .then(song => { dispatch(receiveSong(song)) })
+            .then(song => { 
+                return dispatch(receiveSong(song)) 
+            })
     );
 };
 

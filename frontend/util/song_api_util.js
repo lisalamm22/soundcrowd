@@ -14,11 +14,14 @@ export const fetchSong = (songId) => {
 };
 
 export const createSong = (song) => {
+    debugger
     return $.ajax({
         method: `POST`,
         url: `/api/songs`,
-        data: { song },
-    });
+        data: song,
+        contentType: false,
+        processData: false
+    })
 };
 
 export const updateSong = (song) => {
@@ -26,7 +29,7 @@ export const updateSong = (song) => {
         method: `PATCH`,
         url: `/api/songs/${song.id}`,
         data: { song },
-    });
+    })
 };
 
 export const deleteSong = (songId) => {

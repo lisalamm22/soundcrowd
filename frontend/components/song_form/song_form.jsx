@@ -6,24 +6,50 @@ class SongForm extends React.Component{
         this.state={
             title: '',
             artist_id: this.props.currentUserId,
-            genre: '',
-            description: '',
+            genre: 'none',
+            description: 'Describe your track',
             imageFile: null,
             audioFile: null,
         }
         this.handlefile = this.handlefile.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
     handlefile(fileType){
         // debugger
         return(e) => {
-            this.setState({ [fileType]: e.currentTarget.files[0]})}
-    }
+            // set title to e.currentTarget.files[0].name
+            this.setState({ [fileType]: e.currentTarget.files[0]})};
+    };
 
     handleChange(field){
         return(e) => {
             this.setState({ [field]: e.target.value})
-        }
+        };
+    };
+
+    resetState(){
+        this.setState({
+            title: '',
+            artist_id: this.props.currentUserId,
+            genre: 'none',
+            description: 'Describe your track',
+            imageFile: null,
+            audioFile: null,
+        })
+    }
+
+    handleSubmit(e){
+        e.preventDefault();
+        const songFormData = new FormData();
+        songFormData.append('song[title]', this.state.title);
+        songFormData.append('song[artist_id]', this.state.artist_id);
+        songFormData.append('song[genre]', this.state.genre);
+        songFormData.append('song[description]', this.state.description);
+        songFormData.append('song[imageURL]', this.state.imageFile);
+        songFormData.append('song[audioURL]', this.state.audioFile);
+        this.props.createSong(songFormData)
+            // .then(()=>{this.clearState});
     }
 
     render(){
@@ -37,16 +63,17 @@ class SongForm extends React.Component{
         )}
         else{
             return(
-                <form>
+                <form className="song-form" onSubmit={this.handleSubmit}>
                     <input type="file" onChange={this.handlefile('imageFile')}/>
                     <label>Title
                         <input type="text" 
-                            value={this.state.audioFile.name}
+                            placeholder={this.state.audioFile.name}
+                            value={this.state.title}
                             onChange={this.handleChange('title')}/>
                     </label>
                     <label>Genre 
                         <select name="genre" onChange={this.handleChange('genre')}>
-                            <option value="none">None</option>
+                            <option value="none" selected="selected" >None</option>
                             <option value="ambient">Ambient</option>
                             <option value="classical">Classical</option>
                             <option value="country">Country</option>
@@ -83,7 +110,7 @@ class SongForm extends React.Component{
                             onChange={this.handleChange('description')}>
                         </textarea>
                     </label>
-
+                    <button>Save</button>
                 </form>
             )
         }

@@ -6,6 +6,9 @@ class Song < ApplicationRecord
         primary_key: :id,
         foreign_key: :artist_id,
         class_name: 'User'
+
+    has_one_attached :audioURL
+    has_one_attached :imageURL
     
     def self.song_by_artist(artist_id)
         songs = Song.select("songs.*").where("artist_id = ?", artist_id)
