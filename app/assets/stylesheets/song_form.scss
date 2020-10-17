@@ -3,11 +3,11 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    border: solid red;
+    // border: solid red;
 }
 .song-form-audio{
     display: flex;
-    border: solid red;
+    // border: solid red;
     justify-content: space-between;
     align-items: center;
     width: 60%;
@@ -18,7 +18,16 @@
     margin-top: 25px;
 }
 
-.song-form-audio input{
+.song-form-img {
+    display: flex;
+    position: relative;
+    // align-items: center;
+    justify-content: center;
+    padding: 0px 10px;
+    // border: black solid;
+}
+
+.song-form-audio input, .song-form-img input{
     width: 0.1px;
     height: 0.1px;
 	opacity: 0;
@@ -28,37 +37,99 @@
     align-items: right;
 }
 
+.song-form-audio label, .song-form-img label{
+    color: white;
+    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+    border-radius: 3px;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .song-form-audio label{
     margin: 20px;
     padding: 8px 35px;
     font-size: 18px;
     font-weight: 400px;
-    color: white;
-    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
-    display: inline-block;
-    cursor: pointer;
+}
+
+.song-form-img label{
+    margin: 20px;
+    padding: 6px 15px;
+    font-size: 14px;
+    font-weight: 200px;
+    position: absolute;
+    border: lightgray solid 1px;
+    top:190px;
 }
 
 .song-details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: red solid;
+    // border: red solid;
 }
 .song-form-details{
     display: flex;
     flex-direction: column;
     align-items: right;
-    border: blue solid;
+    width: 60%;
+    // border: blue solid;
+    box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
 }
 
 .song-form-details>div{
     display: flex;
-    border: green solid;
+    // border: green solid;
+    justify-content: space-evenly;
+    margin: 25px 0;
 }
 
 .song-form-txt{
     display: flex;
     flex-direction: column;
+    font-weight: 200;
+    font-size: 14px;
+    width: 57.5%;
 }
+
+.song-form-txt label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.song-form-txt input, 
+.song-form-txt textarea,
+.song-form-txt select{
+    outline: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+.song-img-prev{
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+}
+
+.song-img-placeholder {
+    width: 260px;
+    height: 260px;
+    // background-color: blue;
+    background-image: linear-gradient(to left,lightyellow,lavender , lightblue);
+}
+
+.song-form-submit{
+    display: flex;
+    border-top: lightgray solid 1px;
+}
+.song-form-details>div:last-child{
+    justify-content: flex-end;
+
+}
+
+.song-form-submit button{
+    margin: 10px;
+}
+
 

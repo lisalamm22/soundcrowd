@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 //display image, artist, title, 'go to your track'
 
-class SongFormIndex extends React.Component{
+class SongFormItem extends React.Component{
     constructor(props){
         super(props)
     }
@@ -23,4 +23,4 @@ class SongFormIndex extends React.Component{
     }
 }
 
-export default SongFormIndex
+export default SongFormItem

@@ -1,5 +1,5 @@
 import React from 'react'
-import SongFormItem from './song_form_index'
+import SongFormItem from './song_form_item'
 
 class SongForm extends React.Component{
     constructor(props){
@@ -77,7 +77,8 @@ class SongForm extends React.Component{
     render(){
         // console.log(this.state)]
         // debugger
-        const preview = this.state.imageURL ? <img src={this.state.imageURL}/> :  null
+        const preview = this.state.imageURL ? <img src={this.state.imageURL} className='song-img-prev'/> :  
+            <div className="song-img-placeholder"></div>
         const songList = Object.values(this.props.songs).map((song) => {
                 return <SongFormItem song={song} artist={this.props.currentUser} />
             })
@@ -89,7 +90,7 @@ class SongForm extends React.Component{
                     {`Drag and drop your tracks & albums here`}
                     <label>Upload a file
                     <input type="file" 
-                        className = "upload-audio-btn"
+                        // className = "upload-audio-btn"
                         onChange={this.handlefile('audioFile')}/>
                     </label>
                 </div>
@@ -99,9 +100,11 @@ class SongForm extends React.Component{
         else{
             return(
             <div className = "song-details">
-                <form className="song-form-details" onSubmit={this.handleSubmit}>
+                <form className="song-form-details">
                     <div><div className="song-form-img">
+                    <label >{`📷 Upload image` }
                     <input type="file" onChange={this.handlefile('imageFile')}/>
+                    </label>
                     {preview}</div>
                     <div className="song-form-txt">
                     <label>Title
@@ -148,12 +151,16 @@ class SongForm extends React.Component{
                     </label>
                     <label>Description
                         <textarea cols="30" rows="10"
+                            placeholder = 'Describe your track'
                             onChange={this.handleChange('description')}>
                         </textarea>
                     </label>
                     </div>
                     </div>
-                    <button>Save</button>
+                    <div className='song-form-submit'>
+                        <button className="song-form-cancel" onClick={this.resetState}>Cancel</button>
+                        <button className="song-form-save" onClick={this.handleSubmit}>Save</button>
+                    </div>
                 </form>
                 {songList}
             </div>
