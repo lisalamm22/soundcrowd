@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from './store/store'
 import Root from './components/root'
-import {signup, login, logout} from './actions/session_actions'
+import {fetchSongs} from './util/song_api_util'
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -23,9 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
  
     ReactDOM.render(<Root store={store} />, root);
-    window.signup = signup;
-    window.login = login;
-    window.logout = logout;
+    window.fetchSongs = fetchSongs;
     window.getState = store.getState;
     window.dispatch = store.dispatch;
 

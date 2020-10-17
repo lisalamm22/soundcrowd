@@ -19,6 +19,7 @@ class Song < ApplicationRecord
     end
     
     def self.song_by_artist(artist_id)
-        songs = Song.select("songs.*").where("artist_id = ?", artist_id)
+        # songs = Song.select("songs.*").where("artist_id = ?", artist_id)
+        songs = Song.find_by(artist_id: artist_id)
     end
 end

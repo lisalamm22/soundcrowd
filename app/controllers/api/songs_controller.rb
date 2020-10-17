@@ -1,10 +1,12 @@
 class Api::SongsController < ApplicationController
     before_action :require_logged_in, only: [:create, :update, :destroy]
 
-    def index
-        # artist = User.find_by(params[:song][:artist_id])
-        # @songs = Song.by_artist(artist)
+    def index 
         @songs = Song.all
+        if params[:byArtistId] 
+            @songs = @songs.where(artist_id: params[:byArtistId])
+        end
+
         render :index
     end
     
@@ -39,6 +41,8 @@ class Api::SongsController < ApplicationController
 
     private
     def song_params
+        # params
         params.require(:song).permit(:title, :artist_id, :genre, :description, :audioURL, :imageURL)
     end
+
 end

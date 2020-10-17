@@ -25,10 +25,11 @@ const removeSong = (songId) => {
     });
 };
 
-export const fetchSongs = () => (dispatch) => {
+export const fetchSongs = (data) => (dispatch) => {
     return (
-        SongApiUtil.fetchSongs()
-            .then(songs => { dispatch(receiveAllSongs(songs)) })
+        SongApiUtil.fetchSongs(data)
+            .then(songs => { 
+                return dispatch(receiveAllSongs(songs)) })
     );
 };
 

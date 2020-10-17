@@ -12,7 +12,6 @@ class NavBar extends React.Component {
         this.handleMore = this.handleMore.bind(this)
     }
     handleMore(){
-        // debugger
         let newState = !this.state.dropdown;
         this.setState({ dropdown: newState });
     }
@@ -30,7 +29,6 @@ class NavBar extends React.Component {
         </nav>
     )};
     navLinks(){
-        // debugger
         return(<hgroup className="header-group">
             <nav>
                 <ul className="navbar-left">

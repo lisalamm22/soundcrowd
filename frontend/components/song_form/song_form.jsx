@@ -20,6 +20,10 @@ class SongForm extends React.Component{
         this.resetState = this.resetState.bind(this)
     }
 
+    componentDidMount(){
+        this.props.fetchSongs({byArtistId: this.props.currentUserId})
+    }
+
     handlefile(fileType){
         return(e) => {
             const file = e.currentTarget.files[0]
