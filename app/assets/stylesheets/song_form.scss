@@ -1,4 +1,4 @@
-.song-form{
+.song-audio{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,6 +39,26 @@
     cursor: pointer;
 }
 
-.song-form-details{
-
+.song-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: red solid;
 }
+.song-form-details{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    border: blue solid;
+}
+
+.song-form-details>div{
+    display: flex;
+    border: green solid;
+}
+
+.song-form-txt{
+    display: flex;
+    flex-direction: column;
+}
+

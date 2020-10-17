@@ -76,7 +76,7 @@ class SongForm extends React.Component{
 
     render(){
         // console.log(this.state)]
-        debugger
+        // debugger
         const preview = this.state.imageURL ? <img src={this.state.imageURL}/> :  null
         const songList = Object.values(this.props.songs).map((song) => {
                 return <SongFormItem song={song} artist={this.props.currentUser} />
@@ -84,23 +84,26 @@ class SongForm extends React.Component{
         
         if(this.state.audioFile === null){
             return(
-                <div className="song-form">
-                    <div className="song-form-audio">
-                        {`Drag and drop your tracks & albums here`}
-                        <label>Upload a file
-                        <input type="file" 
-                            className = "upload-audio-btn"
-                            onChange={this.handlefile('audioFile')}/>
-                        </label>
-                    </div>
-                    {songList}
+            <div className="song-audio">
+                <div className="song-form-audio">
+                    {`Drag and drop your tracks & albums here`}
+                    <label>Upload a file
+                    <input type="file" 
+                        className = "upload-audio-btn"
+                        onChange={this.handlefile('audioFile')}/>
+                    </label>
                 </div>
+                {songList}
+            </div>
         )}
         else{
             return(
+            <div className = "song-details">
                 <form className="song-form-details" onSubmit={this.handleSubmit}>
+                    <div><div className="song-form-img">
                     <input type="file" onChange={this.handlefile('imageFile')}/>
-                    {preview}
+                    {preview}</div>
+                    <div className="song-form-txt">
                     <label>Title
                         <input type="text" 
                             placeholder={this.state.audioFile.name}
@@ -148,9 +151,12 @@ class SongForm extends React.Component{
                             onChange={this.handleChange('description')}>
                         </textarea>
                     </label>
+                    </div>
+                    </div>
                     <button>Save</button>
-                    {songList}
                 </form>
+                {songList}
+            </div>
             )
                 
         }
