@@ -1,0 +1,44 @@
+.song-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border: solid red;
+}
+.song-form-audio{
+    display: flex;
+    border: solid red;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    border: dashed lightgray 2px;
+    padding: 10px 24px;
+    font-size: 18px;
+    color: rgb(111, 111, 111);
+    margin-top: 25px;
+}
+
+.song-form-audio input{
+    width: 0.1px;
+    height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+    align-items: right;
+}
+
+.song-form-audio label{
+    margin: 20px;
+    padding: 8px 35px;
+    font-size: 18px;
+    font-weight: 400px;
+    color: white;
+    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+    display: inline-block;
+    cursor: pointer;
+}
+
+.song-form-details{
+
+}

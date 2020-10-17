@@ -1,4 +1,5 @@
 import React from 'react'
+import SongFormItem from './song_form_index'
 
 class SongForm extends React.Component{
     constructor(props){
@@ -74,18 +75,30 @@ class SongForm extends React.Component{
     }
 
     render(){
-        // console.log(this.state)
+        // console.log(this.state)]
+        debugger
         const preview = this.state.imageURL ? <img src={this.state.imageURL}/> :  null
+        const songList = Object.values(this.props.songs).map((song) => {
+                return <SongFormItem song={song} artist={this.props.currentUser} />
+            })
+        
         if(this.state.audioFile === null){
             return(
-                <div>
-                    {`Drag and drop your tracks & albums here`}
-                    <input type="file" onChange={this.handlefile('audioFile')}/>
+                <div className="song-form">
+                    <div className="song-form-audio">
+                        {`Drag and drop your tracks & albums here`}
+                        <label>Upload a file
+                        <input type="file" 
+                            className = "upload-audio-btn"
+                            onChange={this.handlefile('audioFile')}/>
+                        </label>
+                    </div>
+                    {songList}
                 </div>
         )}
         else{
             return(
-                <form className="song-form" onSubmit={this.handleSubmit}>
+                <form className="song-form-details" onSubmit={this.handleSubmit}>
                     <input type="file" onChange={this.handlefile('imageFile')}/>
                     {preview}
                     <label>Title
@@ -136,8 +149,10 @@ class SongForm extends React.Component{
                         </textarea>
                     </label>
                     <button>Save</button>
+                    {songList}
                 </form>
             )
+                
         }
     }
 
