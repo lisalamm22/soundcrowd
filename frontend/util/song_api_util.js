@@ -7,6 +7,7 @@ export const fetchSongs = (data) => {
 };
 
 export const fetchSong = (songId) => {
+    debugger
     return $.ajax({
         method: `GET`,
         url: `/api/songs/${songId}`,

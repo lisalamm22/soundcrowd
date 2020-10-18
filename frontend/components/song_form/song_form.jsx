@@ -1,5 +1,6 @@
 import React from 'react'
 import SongFormItem from './song_form_item'
+import SongFormNav from './song_form_nav'
 
 class SongForm extends React.Component{
     constructor(props){
@@ -86,6 +87,7 @@ class SongForm extends React.Component{
         if(this.state.audioFile === null){
             return(
             <div className="song-audio">
+                <SongFormNav />
                 <div className="song-form-audio">
                     {`Drag and drop your tracks & albums here`}
                     <label>Upload a file
@@ -99,7 +101,8 @@ class SongForm extends React.Component{
         )}
         else{
             return(
-            <div className = "song-details">
+                <div className = "song-details">
+                <SongFormNav />
                 <form className="song-form-details">
                     <div><div className="song-form-img">
                     <label >{`📷 Upload image` }
