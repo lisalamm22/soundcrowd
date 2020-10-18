@@ -16,7 +16,7 @@ class SongFormItem extends React.Component{
             <dt className="song-form-item">
                 <dd>Artist: {artist.username}</dd>
                 <dd>Title: {song.title}</dd>
-                <dd>Image: {song.imageURL}</dd>
+                <dd>Image:<img src={song.imageURL} /></dd>
                 <span>Upload complete.</span>
                 <Link to={`/songs/${song.id}`}>Go to your track</Link>
             </dt>

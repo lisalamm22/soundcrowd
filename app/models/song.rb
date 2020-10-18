@@ -7,7 +7,7 @@ class Song < ApplicationRecord
         foreign_key: :artist_id,
         class_name: 'User'
 
-    validate :ensure_audio
+    # validate :ensure_audio
 
     has_one_attached :audioURL
     has_one_attached :imageURL

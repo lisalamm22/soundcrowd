@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SongShow extends React.Component {
     constructor(props) {
@@ -6,26 +7,20 @@ class SongShow extends React.Component {
     }
 
     componentDidMount() {
-        debugger
+        // debugger
         this.props.fetchSong(this.props.match.params.songId);
     }
 
     render() {
-
+        // debugger
         let checkSong;
         (this.props.song) ? checkSong = this.props.song : checkSong = null
 
         return (
             (!checkSong) ? <div>no song</div> : (
-                <p>{checkSong.id}</p>
+                <p><Link to={`/songs/${checkSong.id}/edit`}>Edit Song</Link></p>
             )
         )
-        // const { song } = this.props
-        // return (
-        //     <div>
-        //         {song.id}
-        //     </div>
-        // )
     }
 }
 

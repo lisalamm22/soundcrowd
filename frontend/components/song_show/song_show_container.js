@@ -12,7 +12,7 @@ const mSTP = (state, ownProps) => {
 const mDTP = (dispatch) => {
     return ({
         fetchSong: (songId) => {
-            debugger
+            // debugger
             return dispatch(fetchSong(songId))
         },
     })

@@ -1,23 +1,34 @@
 import { connect } from 'react-redux';
 
 import { createSong } from '../../actions/song_actions';
-import SongForm from './song_form';
+import CreateSongForm from './create_song_form';
 import { fetchSongs } from '../../actions/song_actions';
 
 const mapStateToProps = (state) => {
     return({
         currentUserId: state.session.currentUserId,
         currentUser: state.entities.users[state.session.currentUserId],
-        songs: state.entities.songs
+        songs: state.entities.songs,
+        song: {
+            title: '',
+            artist_id: state.session.currentUserId,
+            genre: 'none',
+            description: 'Describe your track',
+            imageURL: '',
+            imagePrev: '',
+            audioURL: '',
+        },
+        formType: 'Create Song'
+        
     }
 )};
 
 const mapDispatchToProps = dispatch => ({
-    createSong: song => dispatch(createSong(song)),
+    processForm: song => dispatch(createSong(song)),
     fetchSongs: data => dispatch(fetchSongs(data))
 });
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(SongForm);
+)(CreateSongForm);
