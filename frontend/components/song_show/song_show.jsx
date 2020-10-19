@@ -26,7 +26,7 @@ class SongShow extends React.Component {
         (this.props.song) ? checkSong = this.props.song : checkSong = null
 
         return (
-            (!checkSong) ? <div>no song yet</div> : (
+            (!checkSong) ? <div><Redirect to="/discover"/></div> : (
                 <div>
                     <SongShowHeader song={checkSong}/>
                     <SongShowBody song={checkSong} deleteSong={this.props.deleteSong}

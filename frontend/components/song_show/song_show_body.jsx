@@ -29,10 +29,13 @@ class SongShowBody extends React.Component {
                 {/* comment bar */}
                 {options}
                 <div>
-                    <img src={song.artist.photoURL} className="song-show-artist-img" />
+                    <section className="song-show-left">
+                        <img src={song.artist.photoURL} className="song-show-artist-img" />
+                        <h5>{song.artist.username}</h5>
+                    </section>
                 {/* </div>
                 <div> */}
-                    <section className='song-show-des'>
+                    <section className='song-show-right'>
                         {song.description}
                     </section>
                 </div>

@@ -65,6 +65,18 @@
 
 .song-show-body>div{
     display: flex;
+    padding: 20px;
+}
+
+.song-show-left{
+    display: flex;
+    flex-direction: column;
+}
+
+.song-show-right, .song-show-left>h5{
+    padding: 2px;
+    font-weight: 100;
+    font-size: 14px;
 }
 
 .song-show-artist-img{
@@ -74,9 +86,14 @@
     border-radius: 50%;
     background-color: black;
     padding: 1px;
+    margin-right: 20px;
 }
 
-.song-show-des{
-    padding: 2px;
-}
+// .song-show-left>h5{
+//     padding: 2px;
+//     font-weight: 100;
+//     font-size: 14px;
+
+// }
+
 
