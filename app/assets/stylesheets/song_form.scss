@@ -75,6 +75,7 @@
     width: 60%;
     // border: blue solid;
     box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+    padding: 25px;
 }
 
 .song-form-details>div{
@@ -136,10 +137,46 @@
 .song-form-item{
     display: flex;
     width: 60%;
-    flex-direction: column;
     padding: 25px;
     margin: 0 10px;
     box-shadow: 0 2px 12px -5px rgba(0,0,0,.1);
+}
+
+.uploaded-song-det {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 12px;
+}
+
+.uploaded-song-det div{
+    display: flex;
+    flex-direction: column;
+}
+
+.uploaded-song-det li:first-child{
+    font-size: 14px;
+    color: gray;
+    font-weight: 200;
+    padding: 3px 0px;
+}
+
+.uploaded-song-det p{
+    font-size: 14px;
+    font-weight: 100;
+    padding: 3px 0;
+}
+
+.uploaded-song-det a{
+    font-size: 14px;
+    text-decoration: none;
+}
+
+
+
+.uploaded-song-img {
+    width: 120px;
+    height: 120px;
 }
 
 .song-form-nav{

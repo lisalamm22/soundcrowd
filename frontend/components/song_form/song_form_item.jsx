@@ -13,13 +13,19 @@ class SongFormItem extends React.Component{
         console.log(artist)
         console.log(song)
         return(
-            <dt className="song-form-item">
-                <dd>Artist: {artist.username}</dd>
-                <dd>Title: {song.title}</dd>
-                <dd>Image:<img src={song.imageURL} /></dd>
-                <span>Upload complete.</span>
-                <Link to={`/songs/${song.id}`}>Go to your track</Link>
-            </dt>
+            <div className="song-form-item">
+                <img src={song.imageURL} className="uploaded-song-img"/>
+                <ul className="uploaded-song-det">
+                    <div>
+                        <li>Artist: {artist.username}</li>
+                        <li>Title: {song.title}</li>
+                    </div>
+                    <div>
+                        <p>Upload complete.</p>
+                        <Link to={`/songs/${song.id}`}>Go to your track</Link>
+                    </div>
+                </ul>
+            </div>
         )
     }
 }

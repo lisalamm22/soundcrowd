@@ -17,11 +17,12 @@ class CreateSongForm extends React.Component {
     }
 
     handleAudio(e) {
+        debugger
             const file = e.currentTarget.files[0]
             const fileReader = new FileReader();
                 fileReader.onloadend = () => {
                     this.setState({
-                        audioFile: file,
+                        audioURL: file,
                         title: file.name
                     })
                 }
@@ -34,16 +35,17 @@ class CreateSongForm extends React.Component {
         const songList = Object.values(this.props.songs).map((song) => {
             return <SongFormItem song={song} artist={this.props.currentUser} />
         })
+        debugger
 
-        if (this.state.audioFile === '') {
+        if (this.state.audioURL === '') {
             return (
                 <div className="song-audio">
                     <SongFormNav />
                     <div className="song-form-audio">
                         {`Drag and drop your tracks & albums here`}
                         <label>Upload a file
-                    <input type="file"
-                                onChange={this.handleAudio} />
+                        <input type="file"
+                                    onChange={this.handleAudio} />
                         </label>
                     </div>
                     {songList}
@@ -54,7 +56,8 @@ class CreateSongForm extends React.Component {
             return (
                 <div className="song-details">
                     <SongFormNav />
-                    <SongForm song={this.props.song} formType={this.props.formType} processForm={this.props.processForm}/>
+                    <SongForm song={this.state} initialSong={this.props.song} 
+                    formType={this.props.formType} processForm={this.props.processForm}/>
                     {songList}
                 </div>
             )

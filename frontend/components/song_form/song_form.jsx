@@ -33,7 +33,9 @@ class SongForm extends React.Component{
     };
 
     resetState(){
-        this.setState(this.props.song)}
+        debugger
+        this.setState(this.props.initialSong)
+    }
 
     handleSubmit(e){
         e.preventDefault();

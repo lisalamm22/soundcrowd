@@ -1,4 +1,7 @@
 json.extract! song, :id, :title, :artist_id, :genre, :description
+json.set! 'artist' do 
+    json.partial! "/api/users/user", user: song.artist
+end
 
 if song.audioURL.attached?
     json.audioURL url_for(song.audioURL)
@@ -10,3 +13,8 @@ if song.imageURL.attached?
 else
     json.imageURL ''
 end
+
+
+# json.set! song.artist.id do 
+#     json.extract! song.artist, :id, :name
+# end
