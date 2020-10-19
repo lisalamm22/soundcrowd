@@ -1,5 +1,4 @@
 import React from 'react'
-
 class SongForm extends React.Component{
     constructor(props){
         super(props)
@@ -12,19 +11,19 @@ class SongForm extends React.Component{
     }
 
     handleImage(e){
-            const file = e.currentTarget.files[0]
-            const fileReader = new FileReader();
-  
-            fileReader.onloadend = () => {
-                this.setState({ 
-                    imageURL: file,
-                    imagePrev: fileReader.result,
-                })
-            }
-            if(file){
-                fileReader.readAsDataURL(file);
-            }
+        const file = e.currentTarget.files[0]
+        const fileReader = new FileReader();
+
+        fileReader.onloadend = () => {
+            this.setState({ 
+                imageURL: file,
+                imagePrev: fileReader.result,
+            })
         }
+        if(file){
+            fileReader.readAsDataURL(file);
+        }
+    }
 
     handleChange(field){
         return(e) => {
@@ -50,6 +49,7 @@ class SongForm extends React.Component{
             }
         this.props.processForm(songFormData)
         this.resetState();
+        
     }
 
     render(){
@@ -65,7 +65,7 @@ class SongForm extends React.Component{
 
         return(
             <form className="song-form-details">
-                <div><div className="song-form-img">
+            <div><div className="song-form-img">
                 <label >{`📷 Upload image` }
                 <input type="file" onChange={this.handleImage}/>
                 </label>

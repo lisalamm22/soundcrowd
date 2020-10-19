@@ -17,8 +17,10 @@ const mapStateToProps = (state) => {
             imageURL: '',
             imagePrev: '',
             audioURL: '',
+            audio: false,
         },
-        formType: 'Create Song'
+        formType: 'Create Song',
+
         
     }
 )};
