@@ -12,7 +12,16 @@ class CreateSongForm extends React.Component {
         //     audio: false
         // }
         // this.state = Object.assign({}, this.props.song, {audio: false})
-        this.state = this.props.song
+        this.state = {
+            title: '',
+            artist_id: this.props.currentUserId,
+            genre: 'none',
+            description: 'Describe your track',
+            imageURL: '',
+            imagePrev: '',
+            audioURL: '',
+            audio: false,
+        };
 
         this.handleAudio = this.handleAudio.bind(this)
         this.handleImage = this.handleImage.bind(this)
@@ -31,7 +40,7 @@ class CreateSongForm extends React.Component {
     };
 
     handleAudio(e) {
-        debugger
+        // debugger
             const file = e.currentTarget.files[0]
             const fileReader = new FileReader();
                 fileReader.onloadend = () => {
@@ -44,6 +53,7 @@ class CreateSongForm extends React.Component {
                 fileReader.readAsDataURL(file);
             }
             this.setState({audio: true})
+            e.currentTarget.value = '';
     }
 
     handleImage(e) {
@@ -62,8 +72,16 @@ class CreateSongForm extends React.Component {
     }
 
     resetState() {
-        debugger
-        this.setState(this.props.song)
+        // debugger
+        this.setState({
+            title: '',
+            genre: 'none',
+            description: 'Describe your track',
+            imageURL: '',
+            imagePrev: '',
+            audioURL: '',
+            audio: false,
+        })
     }
 
     handleSubmit(e) {
@@ -77,12 +95,12 @@ class CreateSongForm extends React.Component {
         if (this.state.imageURL) {
             songFormData.append('song[imageURL]', this.state.imageURL);
         }
-        this.props.processForm(songFormData);
-        this.resetState();
+        this.props.processForm(songFormData)
+            .then(this.resetState);
     }
 
     render() {
-        debugger
+        // debugger
         const songList = Object.values(this.props.songs).map((song) => {
             return <SongFormItem song={song} artist={this.props.currentUser} />
         })

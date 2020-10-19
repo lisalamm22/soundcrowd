@@ -9,16 +9,16 @@ const mapStateToProps = (state) => {
         currentUserId: state.session.currentUserId,
         currentUser: state.entities.users[state.session.currentUserId],
         songs: state.entities.songs,
-        song: {
-            title: '',
-            artist_id: state.session.currentUserId,
-            genre: 'none',
-            description: 'Describe your track',
-            imageURL: '',
-            imagePrev: '',
-            audioURL: '',
-            audio: false,
-        },
+        // song: {
+        //     title: '',
+        //     artist_id: state.session.currentUserId,
+        //     genre: 'none',
+        //     description: 'Describe your track',
+        //     imageURL: '',
+        //     imagePrev: '',
+        //     audioURL: '',
+        //     audio: false,
+        // },
         formType: 'Create Song',
 
         

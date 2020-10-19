@@ -25,10 +25,13 @@ export const createSong = (song) => {
 };
 
 export const updateSong = (song) => {
+    // debugger
     return $.ajax({
         method: `PATCH`,
-        url: `/api/songs/${song.id}`,
+        url: `/api/songs/${song.get('id')}`,
         data: song ,
+        contentType: false,
+        processData: false
     })
 };
 

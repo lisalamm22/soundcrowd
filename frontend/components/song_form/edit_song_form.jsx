@@ -20,9 +20,11 @@ class EditSongForm extends React.Component {
             const {song} = this.props;
             if(!song) return null;
             return (
-                <div className="song-details">
-                    <SongForm song={this.props.song} initialSong={this.props.song}
-                        formType={this.props.formType} processForm={this.props.processForm} />
+                <div className="song-edit">
+                    <div className="song-details-edit">
+                        <SongForm song={this.props.song} initialSong={this.props.song}
+                            formType={this.props.formType} processForm={this.props.processForm} />
+                    </div>
                 </div>
             )
 

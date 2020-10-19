@@ -1,4 +1,5 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 class SongForm extends React.Component{
     constructor(props){
         super(props)
@@ -33,43 +34,46 @@ class SongForm extends React.Component{
 
     resetState(){
         // debugger
-        this.setState(this.props.initialSong)
+        this.setState(this.props.initialSong);
+        <Redirect to={`/songs/${this.props.song.id}`} />
     }
 
     handleSubmit(e){
+        // debugger
         e.preventDefault();
         const songFormData = new FormData();
+        songFormData.append('id', this.props.song.id);
         songFormData.append('song[title]', this.state.title);
         songFormData.append('song[artist_id]', this.state.artist_id);
         songFormData.append('song[genre]', this.state.genre);
         songFormData.append('song[description]', this.state.description);
-        songFormData.append('song[audioURL]', this.state.audioURL);
+        // songFormData.append('song[audioURL]', this.state.audioURL);
             if(this.state.imageURL){
                 songFormData.append('song[imageURL]', this.state.imageURL);
             }
+        console.log(songFormData)
         this.props.processForm(songFormData)
-        this.resetState();
+            .then(() => this.props.history.push(`/songs/${this.props.song.id}`));
         
     }
 
     render(){
         console.log(this.state)
         // debugger
-        const {formType, song} = this.props
+        
+        const {song} = this.props
         if(!song){return null}
-        let preview;
-        if(formType === 'Create Song'){
-        preview = this.state.imagePrev === '' ? <div className="song-img-placeholder"></div> :  
-            <img src={this.state.imagePrev} className='song-img-prev'/>
-        }
+        const preview = this.state.imageURL === '' ? <div className="song-img-placeholder"></div> :  
+            <img src={this.state.imageURL} className='song-img-prev'/>
 
         return(
             <form className="song-form-details">
             <div><div className="song-form-img">
-                <label >{`📷 Upload image` }
-                <input type="file" onChange={this.handleImage}/>
-                </label>
-                {formType === 'Create Song' ? preview : <div className="song-img-placeholder"></div>}</div>
+                    <label >{`📷 Upload image` }
+                        <input type="file" onChange={this.handleImage}/>
+                    </label>
+                    {preview}
+                </div>
                 <div className="song-form-txt">
                 <label>Title
                     <input type="text" 
@@ -116,6 +120,7 @@ class SongForm extends React.Component{
                 <label>Description
                     <textarea cols="30" rows="10"
                         placeholder = 'Describe your track'
+                        value={this.state.description}
                         onChange={this.handleChange('description')}>
                     </textarea>
                 </label>
