@@ -1,5 +1,5 @@
 import React from 'react';
-import SongShow from './song_show';
+import {Link} from 'react-router-dom'
 
 class SongShowHeader extends React.Component{
     constructor(props){
@@ -11,10 +11,12 @@ class SongShowHeader extends React.Component{
         debugger
         return(
             <div className="song-show-header">
-                <h3>{song.artist.username}</h3>
-                <h2>{song.title}</h2>
+                <div className="song-show-det">
+                    <Link to={`/user/${song.artist_id}`} >{song.artist.username}</Link>
+                    <h2>{song.title}</h2>
+                </div>
                 <img src={song.imageURL} className="song-show-track-img" />
-                <img src={song.artist.photoURL} className="show-show-artist-img"/>
+                
             </div>
         )
     }

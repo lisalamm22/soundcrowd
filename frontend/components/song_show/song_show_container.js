@@ -6,6 +6,7 @@ import { fetchSong, deleteSong } from '../../actions/song_actions';
 const mSTP = (state, ownProps) => {
     return ({
         song: state.entities.songs[ownProps.match.params.songId],
+        currentUserId: state.session.currentUserId,
     })
 }
 
