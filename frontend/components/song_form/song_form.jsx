@@ -3,7 +3,7 @@ import React from 'react'
 class SongForm extends React.Component{
     constructor(props){
         super(props)
-        debugger
+        // debugger
         this.state = props.song
 
         this.handleImage = this.handleImage.bind(this)
@@ -33,7 +33,7 @@ class SongForm extends React.Component{
     };
 
     resetState(){
-        debugger
+        // debugger
         this.setState(this.props.initialSong)
     }
 

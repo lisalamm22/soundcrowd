@@ -12,7 +12,7 @@ const receiveAllSongs = (songs) => {
 };
 
 const receiveSong = (song) => {
-    debugger
+    // debugger
     return ({
         type: RECEIVE_SONG,
         song,

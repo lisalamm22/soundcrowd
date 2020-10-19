@@ -17,7 +17,7 @@ class CreateSongForm extends React.Component {
     }
 
     handleAudio(e) {
-        debugger
+        // debugger
             const file = e.currentTarget.files[0]
             const fileReader = new FileReader();
                 fileReader.onloadend = () => {
@@ -35,7 +35,7 @@ class CreateSongForm extends React.Component {
         const songList = Object.values(this.props.songs).map((song) => {
             return <SongFormItem song={song} artist={this.props.currentUser} />
         })
-        debugger
+        // debugger
 
         if (this.state.audioURL === '') {
             return (

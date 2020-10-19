@@ -8,7 +8,6 @@ class SongShowHeader extends React.Component{
 
     render(){
         const {song} = this.props
-        debugger
         return(
             <div className="song-show-header">
                 <div className="song-show-det">

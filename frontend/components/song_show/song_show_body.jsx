@@ -9,13 +9,11 @@ class SongShowBody extends React.Component {
     }
 
     deleteTrack(){
-        debugger
         this.props.deleteSong(this.props.song.id);
         <Redirect to={`/user/${this.props.currentUserId}`}/>
     }
 
     render() {
-        debugger
         const { song } = this.props
         let options = null;
         this.props.currentUserId === song.artist_id ? options = (

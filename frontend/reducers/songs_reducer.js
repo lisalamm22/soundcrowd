@@ -14,7 +14,7 @@ const SongsReducer = (oldState = {}, action) => {
             return action.songs;
         case RECEIVE_SONG:
             nextState[action.song.id] = action.song
-            debugger
+            // debugger
             return nextState;
         case REMOVE_SONG:
             delete nextState[action.songId];
