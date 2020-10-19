@@ -10,7 +10,11 @@ class SongIndexItem extends React.Component {
     render() {
         const {song} = this.props
         return (
-            <div>SongTitle: {song.title}</div>
+            <li className="song-index-item">
+                <img src={song.imageURL} className="song-index-img"/>
+                <p>{song.title}</p>
+                <p>{song.artist.username}</p>
+            </li>
         )
     }
 }

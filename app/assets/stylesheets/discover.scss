@@ -1,0 +1,46 @@
+.discover{
+    display: block;
+    padding-top: 30px;
+    width: 92%;
+    margin: 0 auto;
+    border: black solid;
+}
+
+.discover-right{
+    display: flex;
+    border: blue solid;
+    
+}
+
+
+.song-index{
+    border: red solid;
+    display: flex;
+    width: 1700px;
+    height: 250px;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+.song-index-item{
+    display: flex;
+    flex-direction: column;
+    padding: 15px 15px 15px 0px;;
+}
+
+.song-index-img{
+    height: 170px;
+    width: 170px;  
+}
+
+.song-index-item p:nth-child(2){
+    font-size: 14px;
+    font-weight: 100;
+}
+.song-index-item p:last-child{
+    font-size: 12px;
+    color:#999;
+    font-weight: 100;
+}

@@ -23,7 +23,7 @@ const App = () => (
                 <ProtectedRoute exact path="/upload" component={CreateSongFormContainer}/>
                 <Route exact path="/user/:userId" component={UserContainer}/>
                 <Route exact path="/songs/:songId" component={SongShowContainer}/>
-                <Route exact path="/songs/:songId/edit" component={EditSongFormContainer}/>
+                <ProtectedRoute exact path="/songs/:songId/edit" component={EditSongFormContainer}/>
                 <AuthRoute exact path="/" component={SplashContainer}/>
                 <Redirect to="/" /> 
             </Switch>

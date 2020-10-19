@@ -16,7 +16,7 @@ class SongIndex extends React.Component {
         return (
             <div>
                 {/* SongIndex */}
-                <ul>
+                <ul className='song-index'>
                     {Object.values(songs).map((song, idx) => {
                         return <SongIndexItem key={idx} song={song} />
                     })}

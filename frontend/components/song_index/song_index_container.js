@@ -11,8 +11,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
     return ({
-        fetchSongs: () => {
-            return dispatch(fetchSongs())
+        fetchSongs: (data) => {
+            return dispatch(fetchSongs(data))
         },
     })
 }
