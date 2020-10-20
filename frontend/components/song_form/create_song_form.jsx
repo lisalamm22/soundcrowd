@@ -1,5 +1,5 @@
 import React from 'react'
-import SongForm from './song_form'
+// import SongForm from './edit_song_det'
 import SongFormItem from './song_form_item'
 import SongFormNav from './song_form_nav'
 
@@ -105,7 +105,7 @@ class CreateSongForm extends React.Component {
             return <SongFormItem song={song} artist={this.props.currentUser} />
         })
 
-        const preview = this.state.imagePrev === '' ? <div className="song-img-placeholder"></div> :
+        const preview = this.state.imagePrev === '' ? <img src="http://dalelyles.com/musicmp3s/no_cover.jpg" className="song-img-placeholder"></img> :
             <img src={this.state.imagePrev} className='song-img-prev' />
             
         return(

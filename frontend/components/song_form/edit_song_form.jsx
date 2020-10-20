@@ -1,11 +1,11 @@
 import React from 'react'
-import SongForm from './song_form'
+import SongForm from './edit_song_det'
 
 class EditSongForm extends React.Component {
     constructor(props) {
-        // debugger
+        debugger
         super(props)
-
+        
         this.state = this.props.song
     }
 
@@ -23,7 +23,8 @@ class EditSongForm extends React.Component {
                 <div className="song-edit">
                     <div className="song-details-edit">
                         <SongForm song={this.props.song} initialSong={this.props.song}
-                            formType={this.props.formType} processForm={this.props.processForm} />
+                            formType={this.props.formType} processForm={this.props.processForm} 
+                            history={this.props.history}/>
                     </div>
                 </div>
             )

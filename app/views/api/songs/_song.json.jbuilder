@@ -11,7 +11,7 @@ end
 if song.imageURL.attached?
     json.imageURL url_for(song.imageURL)
 else
-    json.imageURL ''
+    json.imageURL 'http://dalelyles.com/musicmp3s/no_cover.jpg'
 end
 
 

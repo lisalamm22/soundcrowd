@@ -3,8 +3,10 @@ import {Redirect} from 'react-router-dom'
 class SongForm extends React.Component{
     constructor(props){
         super(props)
-        // debugger
-        this.state = props.song
+        debugger
+        let song = Object.assign({}, props.song)
+        delete song["imageURL"]
+        this.state = song
 
         this.handleImage = this.handleImage.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -48,12 +50,13 @@ class SongForm extends React.Component{
         songFormData.append('song[genre]', this.state.genre);
         songFormData.append('song[description]', this.state.description);
         // songFormData.append('song[audioURL]', this.state.audioURL);
-            if(this.state.imageURL){
-                songFormData.append('song[imageURL]', this.state.imageURL);
-            }
-        console.log(songFormData)
+        if(this.state.imageURL){
+            songFormData.append('song[imageURL]', this.state.imageURL);
+        }
+        debugger
         this.props.processForm(songFormData)
-            .then(() => this.props.history.push(`/songs/${this.props.song.id}`));
+            .then(() => this.props.history.push(`/songs/${this.props.song.id}`))
+            .then(()=> console.log('success'));
         
     }
 
@@ -63,8 +66,17 @@ class SongForm extends React.Component{
         
         const {song} = this.props
         if(!song){return null}
-        const preview = this.state.imageURL === '' ? <div className="song-img-placeholder"></div> :  
-            <img src={this.state.imageURL} className='song-img-prev'/>
+        let preview = null;
+            if(this.state.imagePrev){
+                preview = <img src={this.state.imagePrev} className="song-img-prev" />
+            }
+            else{
+                preview = <img src={song.imageURL} className='song-img-prev' />
+            }
+        
+            // song.imageURL === '' ? <div className="song-img-placeholder"></div> :  
+            // (this.state.imageURL ? <img src={this.state.imageURL} className="song-img-prev"/> : 
+            // <img src={song.imageURL} className='song-img-prev'/>)
 
         return(
             <form className="song-form-details">
@@ -77,7 +89,7 @@ class SongForm extends React.Component{
                 <div className="song-form-txt">
                 <label>Title
                     <input type="text" 
-                        placeholder={this.state.audioURL.name}
+                        // placeholder={this.state.audioURL.name}
                         value={this.state.title}
                         onChange={this.handleChange('title')}/>
                 </label>

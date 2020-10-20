@@ -25,7 +25,7 @@ class Api::SongsController < ApplicationController
     end
 
     def update
-        debugger
+        # debugger
         @song = Song.find(params[:id])
         if @song.update(song_update_params)
             render :show 
