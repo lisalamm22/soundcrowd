@@ -41,13 +41,14 @@ class SongShowHeader extends React.Component{
         const {song} = this.props
         return(
             <div className="song-show-header">
-                <div className="song-show-det">
+                <div className="song-show-head-left">
                     <Link to={`/user/${song.artist_id}`} >{song.artist.username}</Link>
                     <h2>{song.title}</h2>
                 </div>
+                <div className="song-show-head-right">
                 {this.timeDiff()}
                 <img src={song.imageURL} className="song-show-track-img" />
-                
+                </div>
             </div>
         )
     }
