@@ -16,7 +16,7 @@ class CreateSongForm extends React.Component {
             title: '',
             artist_id: this.props.currentUserId,
             genre: 'none',
-            description: 'Describe your track',
+            description: '',
             imageURL: '',
             imagePrev: '',
             audioURL: '',

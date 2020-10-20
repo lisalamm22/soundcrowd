@@ -9,7 +9,12 @@ import CreateSongFormContainer from './song_form/create_song_form_container'
 import SongShowContainer from './song_show/song_show_container'
 import YourTracksContainer from './user/user_container';
 import EditSongFormContainer from './song_form/edit_song_form_container';
-import UserContainer from './user/user_container'
+import UserContainer from './user/user_container';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fab, faPencilAlt, faTrash)
 
 const App = () => (
     <div>

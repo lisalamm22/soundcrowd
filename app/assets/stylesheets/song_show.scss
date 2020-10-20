@@ -39,11 +39,12 @@
 .song-show-body {
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
 .song-show-body-op{
     display: flex;
-    padding: 5px 0 3px 10px;
+    padding-bottom: 7px;
     border-bottom: 1px rgb(200, 200, 200) solid;
 }
 
@@ -52,7 +53,7 @@
     background-color: white;
     border: black solid 1px;
     border-radius: 3px;
-    padding: 3px 10px 0px;
+    padding: 4px 10px 0px;
     margin-right: 5px;
     font-size: 14px;
     font-weight: 100;

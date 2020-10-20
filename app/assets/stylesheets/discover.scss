@@ -1,27 +1,58 @@
 .discover{
-    display: block;
+    display: flex;
     padding-top: 30px;
-    width: 92%;
+    // width: 92%;
     margin: 0 auto;
-    border: black solid;
+    // border: black solid;
+    background-color: white;
 }
 
 .discover-right{
-    display: flex;
-    border: blue solid;
+    display: none;
+    // border: blue solid;
     
 }
 
+.discover-main{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 30px;
+
+}
+
+.discover-main>div{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+    border-bottom: 1px solid lightgray;
+}
+
+.discover-main h2{
+    font-size: 23px;
+    color: #333;
+    padding: 0;
+    font-weight: 300;
+}
+
+.discover-main p{
+    color: #999;
+    font-size: 14px;
+    margin-top: 10px;
+    font-weight: 300;
+}
 
 .song-index{
-    border: red solid;
+    // border: red solid;
     display: flex;
-    width: 1700px;
-    height: 250px;
-    overflow-x: hidden;
+    height: 275px;
+    overflow: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
+    margin-top: 20px;
+    // padding-bottom: 20px;
+    // border-bottom: #999 solid 1px;
 }
 
 .song-index-item{
