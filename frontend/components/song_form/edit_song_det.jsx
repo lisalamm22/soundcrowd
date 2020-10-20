@@ -36,8 +36,9 @@ class SongForm extends React.Component{
 
     resetState(){
         // debugger
-        this.setState(this.props.initialSong);
-        <Redirect to={`/songs/${this.props.song.id}`} />
+        // this.setState(this.props.initialSong);
+        // <Redirect to={`/songs/${this.props.song.id}`} />
+        this.props.history.push(`/songs/${this.props.song.id}`)
     }
 
     handleSubmit(e){
@@ -56,7 +57,7 @@ class SongForm extends React.Component{
         debugger
         this.props.processForm(songFormData)
             .then(() => this.props.history.push(`/songs/${this.props.song.id}`))
-            .then(()=> console.log('success'));
+            // .then(()=> console.log('success'));
         
     }
 
