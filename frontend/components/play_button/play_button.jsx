@@ -29,7 +29,7 @@ class PlayButton extends React.Component {
             <FontAwesomeIcon className="pause-icon" icon="pause" />
             : <FontAwesomeIcon className="play-icon" icon="play" />
         return (
-            <button className="play-btn" onClick={this.handleClick}>{buttonIcon}</button>
+            <button id="play-btn" className="play-btn" onClick={this.handleClick}>{buttonIcon}</button>
         )
     }
 }
