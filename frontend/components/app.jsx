@@ -10,11 +10,19 @@ import SongShowContainer from './song_show/song_show_container'
 import YourTracksContainer from './user/user_container';
 import EditSongFormContainer from './song_form/edit_song_form_container';
 import UserContainer from './user/user_container';
+import PlaybarContainer from './playbar/playbar_container';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faPencilAlt, faTrash,
+    faPlay, faPause, faStepBackward, faStepForward,
+    faVolumeUp, faVolumeDown, faVolumeMute, 
+    faRandom, faRedoAlt,
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faPencilAlt, faTrash)
+library.add(fab, faPencilAlt, faTrash, 
+    faPlay, faPause, faStepBackward, faStepForward,
+    faVolumeUp, faVolumeDown, faVolumeMute,
+    faRandom, faRedoAlt,)
 
 const App = () => (
     <div>
@@ -33,7 +41,7 @@ const App = () => (
                 <Redirect to="/" /> 
             </Switch>
         </section>
-        
+        <PlaybarContainer />
     </div>
 );
 

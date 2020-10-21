@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import PlayButton from './play_button';
-import { receiveCurrentSong, playSong, pauseSong, receivePreviousSong } from '../../actions/playbar_actions';
+import { receiveCurrSong, playSong, pauseSong, receivePrevSong } from '../../actions/playbar_actions';
 
 const mSTP = state => {
     return {
@@ -11,8 +11,8 @@ const mSTP = state => {
 
 const mDTP = dispatch => {
     return {
-        receiveCurrentSong: songId => dispatch(receiveCurrentSong(songId)),
-        receivePreviousSong: songId => dispatch(receivePreviousSong(songId)),
+        receiveCurrSong: songId => dispatch(receiveCurrSong(songId)),
+        receivePrevSong: songId => dispatch(receivePrevSong(songId)),
         playSong: () => dispatch(playSong()),
         pauseSong: () => dispatch(pauseSong()),
     };

@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import PlayButtonContainer from '../play_button/play_button_container'
 
 class SongShowHeader extends React.Component{
     constructor(props){
@@ -42,6 +43,7 @@ class SongShowHeader extends React.Component{
         return(
             <div className="song-show-header">
                 <div className="song-show-head-left">
+                    <PlayButtonContainer songId={song.id}/>
                     <Link to={`/user/${song.artist_id}`} >{song.artist.username}</Link>
                     <h2>{song.title}</h2>
                 </div>

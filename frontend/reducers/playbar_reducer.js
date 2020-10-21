@@ -16,11 +16,12 @@ const defaultState = {
 }
 
 const playbarReducer = (oldState = defaultState, action) => {
+    debugger
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
     switch(action.type){
         case RECEIVE_CURRENT_SONG:
-            nextState[currentSongId] = action.songId;
+            nextState["currentSongId"] = action.songId;
             return nextState;
         case RECEIVE_PREVIOUS_SONG:
             nextState.prevSongs.push(action.songId);
@@ -29,15 +30,15 @@ const playbarReducer = (oldState = defaultState, action) => {
             nextState.nextSongs.push(action.songId);
             return nextState;
         case PLAY_SONG:
-            nextState[playing] = true;
+            nextState["playing"] = true;
             return nextState;
         case PAUSE_SONG:
-            nextState[playing] = false;
+            nextState["playing"] = false;
             return nextState;
         case RECEIVE_PLAYLIST:
             const playlist = Object.values(action.songs);
             playlist.forEach((song, idx) => {
-                randIdx = Math.floor(Math.random()*(playlist.length-idx))
+                let randIdx = Math.floor(Math.random()*(playlist.length-idx))
                 nextState.nextSongs.push(playlist[randIdx])
             })
             return nextState;
