@@ -28,13 +28,13 @@ song10 = Song.create!(title: 'Ain’t My Fault (R3HAB Remix)', artist_id: hello.
 
 songImg1 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/1.png')
 song1.imageURL.attach(io: songImg1, filename: "song#{song1.id}_img.png")
-songAud1 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/1.+Ed+Sheeran+-+I+See+Fire+(Kygo+Remix).mp3')
+songAud1 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/1.+Ed+Sheeran+-+I+See+Fire+(Kygo+Remix)+(1).mp3')
 song1.audioURL.attach(io: songAud1, filename: "song#{song1.id}_aud.mp3")
 
-songImg2 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/2.png')
-song2.imageURL.attach(io: songImg2, filename: "song#{song2.id}_img.png")
-songAud2 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/2.+Syn+Cole+-+Miami+82+(Kygo+Remix).mp3')
-song2.audioURL.attach(io: songAud2, filename: "song#{song2.id}_aud.mp3")
+# songImg2 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/2.png')
+# song2.imageURL.attach(io: songImg2, filename: "song#{song2.id}_img.png")
+# songAud2 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/2.+Syn+Cole+-+Miami+82+(Kygo+Remix).mp3')
+# song2.audioURL.attach(io: songAud2, filename: "song#{song2.id}_aud.mp3")
 
 songImg3 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/3.png')
 song3.imageURL.attach(io: songImg3, filename: "song#{song3.id}_img.png")
@@ -68,7 +68,7 @@ song8.audioURL.attach(io: songAud8, filename: "song#{song8.id}_aud.mp3")
 
 songImg9 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/9.png')
 song9.imageURL.attach(io: songImg9, filename: "song#{song9.id}_img.png")
-songAud9 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/9.+Montgomery+-+Pinata+(Japanese+Wallpaper+Remix)+(1).mp3')
+songAud9 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/9.+Montgomery+-+Pinata+(Japanese+Wallpaper+Remix).mp3')
 song9.audioURL.attach(io: songAud9, filename: "song#{song9.id}_aud.mp3")
 
 songImg10 = open('https://soundcrowd-seed.s3-us-west-1.amazonaws.com/10.png')

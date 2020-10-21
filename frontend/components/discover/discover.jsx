@@ -10,11 +10,11 @@ class Discover extends React.Component{
         return(
             <div className="discover">
                 <div className="discover-main">
-                    <div>
+                    {/* <div>
                         <h2>New Music Now</h2>
                         <p>The latest hits, updated all the time</p>
                         <SongIndexContainer />
-                    </div>
+                    </div> */}
                     {/* <div>
                         <h2>SoundCrowd Charts</h2>
                         <p>The most played tracks on SoundCrowd this week</p>

@@ -11,16 +11,23 @@ class Playbar extends React.Component{
             songPlayed: 0,
             volume: 0.05,
         }
+        this.getSongLength = this.getSongLength.bind(this);
         this.handlePlay = this.handlePlay.bind(this);
         this.handleSongPlay = this.handleSongPlay.bind(this);
         this.handleNext = this.handleNext.bind(this);
         this.handlePrev = this.handlePrev.bind(this);
+        this.handleScrubbing = this.handleScrubbing.bind(this);
     }
 
     componentDidMount(){
         const playbar = document.getElementById('audio');
         playbar.volume = 0.05;
-        setTimeout(()=>{this.props.receivePlaylist(this.props.songs)},1000);
+        setTimeout(()=>this.props.receivePlaylist(this.props.songs),1000);
+    }
+
+    getSongLength() {
+        const playbar = document.getElementById('audio');
+        this.setState({ songLength: playbar.duration })
     }
 
     handlePlay(){
@@ -31,6 +38,7 @@ class Playbar extends React.Component{
             playbar.pause();
         }
         else{
+            debugger
             this.props.playSong();
             playbar.play();
         }
@@ -69,8 +77,14 @@ class Playbar extends React.Component{
         }
     }
 
+    handleScrubbing(e){
+        const playbar = document.getElementById('audio')
+        playbar.currentTime = e.target.value;
+        this.setState({ songPlayed: e.target.value });
+    }
+
     render(){
-        const {currentSong} = this.props
+        const {currentSong, artist, playing} = this.props
         const songURL = currentSong ? currentSong.audioURL : null
         const playbar = currentSong ? 
         <div className = "playbar">
@@ -97,7 +111,8 @@ class Playbar extends React.Component{
             </div>
             <div className="playbar-scrub">
                 <p>{formatSongTime(this.state.songPlayed)}</p>
-                <input type="range" id="scrubber" min='0' max={this.state.songLength}/>
+                <input type="range" id="scrubber" min='0' max={this.state.songLength}
+                    onInput={this.handleScrubbing}/>
                 <p>{formatSongTime(this.state.songLength)}</p>
             </div>
             <div className="playbar-song-info">
@@ -109,12 +124,17 @@ class Playbar extends React.Component{
             </div>
         </div>
         </div> 
-        : null
+        : null;
+        debugger
         return(
             <>
                 <audio id="audio"
                     src={songURL}
                     controls
+                    controlsList="nodownload"
+                    onLoadedMetadata={this.getSongLength}
+                    onPlaying={this.handleSongPlay}
+                    onEnded={this.handleNext}
                     // crossOrigin="anonymous"
                 ></audio>
                 {playbar}
