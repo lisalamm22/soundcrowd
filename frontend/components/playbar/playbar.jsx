@@ -21,6 +21,7 @@ class Playbar extends React.Component{
     }
 
     componentDidMount(){
+        debugger
         const playbar = document.getElementById('audio');
         playbar.volume = 0.05;
         setTimeout(()=>this.props.receivePlaylist(this.props.songs),1000);
@@ -59,8 +60,15 @@ class Playbar extends React.Component{
 
     handleNext(){
         this.props.receivePrevSong(this.props.currentSong.id);
-        this.props.receiveCurrSong(this.props.nextSongs.shift());
-        this.props.playSong();
+        if(this.props.nextSongs.length > 0){
+            this.props.receiveCurrSong(this.props.nextSongs.shift());
+            this.props.playSong();
+        }
+        else if(this.props.playlist.length > 0){
+            this.props.receiveCurrSong(this.props.playlist.shift());
+            this.props.playSong();
+        }
+        // this.props.playSong();
         this.setState({songPlayed: 0})
     }
 
@@ -133,7 +141,7 @@ class Playbar extends React.Component{
         </div>
         </div> 
         : null;
-        debugger
+        // debugger
         return(
             <>
                 <audio id="audio"

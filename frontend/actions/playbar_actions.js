@@ -20,6 +20,7 @@ export const receivePrevSong = (songId) => {
 };
 
 export const receiveNextSong = (songId) => {
+    debugger
     return {
         type: RECEIVE_NEXT_SONG,
         songId
@@ -39,6 +40,7 @@ export const pauseSong = () => {
 };
 
 export const receivePlaylist = (songs) => {
+    debugger
     return {
         type: RECEIVE_PLAYLIST,
         songs

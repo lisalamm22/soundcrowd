@@ -10,7 +10,7 @@ class PlayButton extends React.Component {
     handleClick(){
         const playbar = document.getElementById('audio')
         debugger
-        if(this.props.playing && this.props.currentSong.id === this.props.songId){
+        if(this.props.playing && this.props.currentSongId === this.props.songId){
             this.props.pauseSong();
             playbar.pause();
         }
@@ -25,7 +25,7 @@ class PlayButton extends React.Component {
     }
 
     render() {
-        const buttonIcon = (this.props.playing && this.props.currentSong.id === this.props.songId) ?
+        const buttonIcon = (this.props.playing && this.props.currentSongId === this.props.songId) ?
             <FontAwesomeIcon className="pause-icon" icon="pause" />
             : <FontAwesomeIcon className="play-icon" icon="play" />
         return (

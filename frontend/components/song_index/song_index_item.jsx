@@ -11,9 +11,9 @@ class SongIndexItem extends React.Component {
         const {song} = this.props
         return (
             <li className="song-index-item">
-                <img src={song.imageURL} className="song-index-img"/>
-                <p>{song.title}</p>
-                <p>{song.artist.username}</p>
+                <Link to={`/songs/${song.id}`}><img src={song.imageURL} className="song-index-img"/></Link>
+                <Link to={`/songs/${song.id}`}>{song.title}</Link>
+                <Link to={`/users/${song.artist_id}`}>{song.artist.username}</Link>
             </li>
         )
     }

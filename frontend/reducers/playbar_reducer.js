@@ -13,10 +13,11 @@ const defaultState = {
     currentSongId: null,
     prevSongs: [],
     nextSongs: [],
+    playlist: [],
 }
 
 const playbarReducer = (oldState = defaultState, action) => {
-    debugger
+    // debugger
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
     switch(action.type){
@@ -39,7 +40,7 @@ const playbarReducer = (oldState = defaultState, action) => {
             const playlist = Object.values(action.songs);
             playlist.forEach((song, idx) => {
                 let randIdx = Math.floor(Math.random()*(playlist.length-idx))
-                nextState.nextSongs.push(playlist[randIdx])
+                nextState.playlist.push(playlist[randIdx].id)
             })
             return nextState;
         default:

@@ -9,7 +9,8 @@ const mSTP = state => {
         currentSong: state.entities.songs[state.ui.playbar.currentSongId],
         playing: state.ui.playbar.playing,
         prevSongs: state.ui.playbar.prevSongs,
-        nextSongs: state.ui.playbar.nextSongs
+        nextSongs: state.ui.playbar.nextSongs,
+        playlist: state.ui.playbar.playlist,
     };
 };
 

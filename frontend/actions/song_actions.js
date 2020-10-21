@@ -31,6 +31,9 @@ export const fetchSongs = (data) => (dispatch) => {
         SongApiUtil.fetchSongs(data)
             .then(songs => { 
                 return dispatch(receiveAllSongs(songs)) })
+            .then(res => {
+                window.localStorage.setItem('songs', JSON.stringify(res.songs))
+            })
     );
 };
 

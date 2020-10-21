@@ -6,7 +6,8 @@ import { receiveCurrSong, playSong, pauseSong, receivePrevSong } from '../../act
 const mSTP = state => {
     return {
         playing: state.ui.playbar.playing,
-        currentSong: state.entities.songs[state.ui.playbar.currentSongId]
+        // currentSong: state.entities.songs[state.ui.playbar.currentSongId],
+        currentSongId: state.ui.playbar.currentSongId,
     };
 };
 
