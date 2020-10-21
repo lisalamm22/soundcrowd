@@ -17,6 +17,7 @@ class Playbar extends React.Component{
         this.handleNext = this.handleNext.bind(this);
         this.handlePrev = this.handlePrev.bind(this);
         this.handleScrubbing = this.handleScrubbing.bind(this);
+        this.handleRepeat = this.handleRepeat.bind(this);
     }
 
     componentDidMount(){
@@ -78,9 +79,15 @@ class Playbar extends React.Component{
     }
 
     handleScrubbing(e){
-        const playbar = document.getElementById('audio')
+        const playbar = document.getElementById('audio');
         playbar.currentTime = e.target.value;
         this.setState({ songPlayed: e.target.value });
+    }
+
+    handleRepeat(){
+        // const playbar = document.getElementById('audio');
+        this.props.receiveNextSong(this.props.currentSong.id);
+        this.props.receivePrevSong(this.props.currentSong.id);
     }
 
     render(){
@@ -106,13 +113,14 @@ class Playbar extends React.Component{
                     <FontAwesomeIcon icon="step-forward"/></button>
                 <button className="playbar-shuffle">
                     <FontAwesomeIcon icon="random"/></button>
-                <button className="playbar-repeat">
+                <button className="playbar-repeat"
+                    onClick={this.handleRepeat}>
                     <FontAwesomeIcon icon="redo-alt"/></button>
             </div>
             <div className="playbar-scrub">
                 <p>{formatSongTime(this.state.songPlayed)}</p>
                 <input type="range" id="scrubber" min='0' max={this.state.songLength}
-                    onInput={this.handleScrubbing}/>
+                    onInput={this.handleScrubbing} className="slider"/>
                 <p>{formatSongTime(this.state.songLength)}</p>
             </div>
             <div className="playbar-song-info">

@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PlayButton from './play_button';
 import { receiveCurrSong, playSong, pauseSong, receivePrevSong } from '../../actions/playbar_actions';
 
@@ -18,4 +19,4 @@ const mDTP = dispatch => {
     };
 };
 
-export default connect(mSTP, mDTP)(PlayButton);
+export default withRouter(connect(mSTP, mDTP)(PlayButton));

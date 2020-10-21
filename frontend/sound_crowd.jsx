@@ -9,12 +9,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     // const store = configureStore();
     let store;
+    let songs;
+    if (window.localStorage.getItem('songs')) {
+        songs - JSON.parse(window.localStorage.getItem('songs'));
+    }
     if (window.currentUser) {
         const preloadedState = {
             entities: {
-                users: { [window.currentUser.id]: window.currentUser }
+                users: { [window.currentUser.id]: window.currentUser },
+                songs: songs
             },
-            session: { currentUserId: window.currentUser.id }
+            session: { currentUserId: window.currentUser.id },
+            // ui:
         };
         store = configureStore(preloadedState);
         delete window.currentUser;

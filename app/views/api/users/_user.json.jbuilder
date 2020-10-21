@@ -1,6 +1,7 @@
 json.extract! user, :id, :username
 if user.profile_pic.attached?
-    json.photoUrl url_for(user.profile_pic)
+    json.photoURL url_for(user.profile_pic)
 else
-    json.photoUrl ''
+#    json.photoUrl ''
+    json.photoURL image-url(default_img.jpeg)
 end

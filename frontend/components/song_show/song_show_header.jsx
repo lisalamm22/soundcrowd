@@ -44,8 +44,10 @@ class SongShowHeader extends React.Component{
             <div className="song-show-header">
                 <div className="song-show-head-left">
                     <PlayButtonContainer songId={song.id}/>
-                    <Link to={`/user/${song.artist_id}`} >{song.artist.username}</Link>
-                    <h2>{song.title}</h2>
+                    <div>
+                        <Link to={`/user/${song.artist_id}`} >{song.artist.username}</Link>
+                        <h2>{song.title}</h2>
+                    </div>
                 </div>
                 <div className="song-show-head-right">
                 {this.timeDiff()}
