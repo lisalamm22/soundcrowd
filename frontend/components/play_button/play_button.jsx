@@ -16,6 +16,7 @@ class PlayButton extends React.Component {
         }
         else{
             this.props.receiveCurrSong(this.props.songId);
+            localStorage.setItem('currentSongId', this.props.songId)
             this.props.receivePrevSong(this.props.songId);
             this.props.playSong();
             debugger

@@ -11,7 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let store;
     let songs;
     if (window.localStorage.getItem('songs')) {
-        songs - JSON.parse(window.localStorage.getItem('songs'));
+        songs = JSON.parse(window.localStorage.getItem('songs'));
+    }
+    let currentSongId;
+    if(window.localStorage.getItem('currentSongId')){
+        currentSongId = JSON.parse(window.localStorage.getItem('currentSongId'))
     }
     if (window.currentUser) {
         const preloadedState = {
@@ -20,7 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 songs: songs
             },
             session: { currentUserId: window.currentUser.id },
-            // ui:
+            ui: {
+                playbar: { 
+                    currentSongId: currentSongId,
+                    playing: false,
+                    prevSongs: [],
+                    nextSongs: [],
+                    playlist: [], 
+                }
+            }
         };
         store = configureStore(preloadedState);
         delete window.currentUser;

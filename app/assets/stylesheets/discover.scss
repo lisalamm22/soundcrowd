@@ -81,14 +81,13 @@
 }
 
 .song-index-item>div{
-    // display: none;
+    display: none;
 }
 
-.song-index-item>div{
+.song-index-item:hover>div{
     display: block;
     position: absolute;
     top: 70px;
     left: 55px;
     z-index: 2;
 }
-

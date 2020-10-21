@@ -18,6 +18,7 @@ class Playbar extends React.Component{
         this.handlePrev = this.handlePrev.bind(this);
         this.handleScrubbing = this.handleScrubbing.bind(this);
         this.handleRepeat = this.handleRepeat.bind(this);
+        this.handleVolume = this.handleVolume.bind(this);
     }
 
     componentDidMount(){
@@ -98,7 +99,24 @@ class Playbar extends React.Component{
         this.props.receivePrevSong(this.props.currentSong.id);
     }
 
+    handleVolume(e){
+        const playbar = document.getElementById('audio');
+        playbar.volume = e.target.value / 1000.0;
+        this.setState({ volume: e.target.value/1000.0 })
+    }
+
     render(){
+        let volumeIcon;
+        debugger
+        if(this.state.volume === 0){
+            volumeIcon = <FontAwesomeIcon icon="volume-mute" />
+        }
+        else if(this.state.volume < 0.5){
+            volumeIcon = <FontAwesomeIcon icon="volume-down" />
+        }
+        else{
+            volumeIcon = <FontAwesomeIcon icon="volume-up" />
+        }
         const {currentSong, artist, playing} = this.props
         const songURL = currentSong ? currentSong.audioURL : null
         const playbar = currentSong ? 
@@ -130,6 +148,13 @@ class Playbar extends React.Component{
                 <input type="range" id="scrubber" min='0' max={this.state.songLength}
                     onInput={this.handleScrubbing} className="slider"/>
                 <p>{formatSongTime(this.state.songLength)}</p>
+                <button className="playbar-volume">
+                    <input type="range" 
+                    min="0.0" 
+                    defaultValue={this.state.volume*1000}
+                    max = "1000.0"
+                    onChange={this.handleVolume} />
+                {volumeIcon}</button>
             </div>
             <div className="playbar-song-info">
                 <Link to={`/songs/${currentSong.id}`}><img src={currentSong.imageURL}/> </Link>
