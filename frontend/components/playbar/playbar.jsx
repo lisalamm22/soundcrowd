@@ -60,14 +60,17 @@ class Playbar extends React.Component{
     }
 
     handleNext(){
+        const playbar = document.getElementById('audio');
         this.props.receivePrevSong(this.props.currentSong.id);
         if(this.props.nextSongs.length > 0){
             this.props.receiveCurrSong(this.props.nextSongs.shift());
             this.props.playSong();
+            playbar.play();
         }
         else if(this.props.playlist.length > 0){
             this.props.receiveCurrSong(this.props.playlist.shift());
             this.props.playSong();
+            playbar.play();
         }
         // this.props.playSong();
         this.setState({songPlayed: 0})
@@ -94,9 +97,8 @@ class Playbar extends React.Component{
     }
 
     handleRepeat(){
-        // const playbar = document.getElementById('audio');
         this.props.receiveNextSong(this.props.currentSong.id);
-        this.props.receivePrevSong(this.props.currentSong.id);
+        // this.props.receivePrevSong(this.props.currentSong.id);
     }
 
     handleVolume(e){

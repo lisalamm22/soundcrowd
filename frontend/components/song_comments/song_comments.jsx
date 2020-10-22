@@ -6,14 +6,12 @@ class SongComments extends React.Component{
         super(props)
     }
 
-
-
     render(){
         const { comments, users } = this.props
         debugger
         return(
             <div>
-                <ul>
+                <ul className="song-comments">
                     {Object.values(comments).map((comment, idx) => {
                         return <SongCommentItem key={idx} 
                             comment={comment}

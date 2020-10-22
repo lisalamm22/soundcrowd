@@ -5,7 +5,16 @@ class Api::UsersController < ApplicationController
             login!(@user)
             render :show
         else
-            render json: @user.errors.full_messages, status: 401
+            render json: @user.errors.full_messages, status: 422
+        end
+    end
+
+    def show
+        @user.User.find(params[:id])
+        if @user
+            render :show
+        else
+            render json: ['User does not exist'], status: 422
         end
     end
 

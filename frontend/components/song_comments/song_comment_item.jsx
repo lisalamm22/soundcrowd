@@ -51,14 +51,14 @@ class SongCommentItem extends React.Component {
     render() {
         debugger
         const profilePic = this.props.author.photoURL ?
-            <img src={this.props.author.photoURL}/> :
+            <img src={this.props.author.photoURL} className="comment-img"/> :
             <div>profile pic placeholder</div>
 
         return (
             <li>
                 <div>
                 {profilePic}
-                <Link >{this.props.author.username}</Link>
+                <Link to={`/users/${this.props.author.id}`} >{this.props.author.username}</Link>
                 <p>{this.props.comment.body}</p>
                 </div>
                 <p>{this.timeDiff()}</p>
