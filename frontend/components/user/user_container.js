@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 // import { updateSong, deleteSong } from '../../actions/song_actions';
 import UserSongs from './user';
-// import { fetchSongs } from '../../actions/song_actions';
+import { fetchSongs } from '../../actions/song_actions';
 import { fetchUser } from '../../actions/user_actions';
 
 
@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => ({
     fetchUser: userId => dispatch(fetchUser(userId)),
+    fetchSongs: data => dispatch(fetchSongs(data)),
 });
 
 export default withRouter(connect(

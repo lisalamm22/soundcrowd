@@ -20,8 +20,8 @@ const SongsReducer = (oldState = {}, action) => {
         case REMOVE_SONG:
             delete nextState[action.songId];
             return nextState;
-        case RECEIVE_USER:
-            return Object.assign({}, action.user.songs)
+        // case RECEIVE_USER:
+        //     return Object.assign(nextState, action.user.songs)
         default:
             return oldState;
     }
