@@ -1,13 +1,39 @@
 .user-page{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     margin-top: 46px;
     width: 100%;
     background: white;
+    flex-direction: column;
 }
 
-.user-songs{
+.user-header{
+    display: flex;
+    justify-content: space-between ;
+    height: 200px;
+    width: 1210px;
+    padding: 20px; 
+    background-image: linear-gradient(to left,lightyellow,lavender , lightblue);
+}
+
+.user-main{
     display: flex;
     flex-direction: column;
-    
+    padding: 20px;
+}
+
+.user-nav{
+    display: flex; 
+    border-bottom: 1px rgb(225, 225, 225) solid;
+}
+
+.user-nav>li{
+    list-style: none;
+    padding: 10px;
+}
+
+.user-tracks{
+    display: flex;
+    flex-direction: column;
+
 }

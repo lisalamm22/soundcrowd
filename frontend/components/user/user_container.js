@@ -5,18 +5,19 @@ import UserSongs from './user';
 import { fetchSongs } from '../../actions/song_actions';
 
 const mapStateToProps = (state) => {
+    debugger
     return ({
-        // currentUserId: state.session.currentUserId,
-        // currentUser: state.entities.users[state.session.currentUserId],
+        currentUserId: state.session.currentUserId,
+        currentUser: state.entities.users[state.session.currentUserId],
         songs: state.entities.songs,
-        // user: state.entities.users[]
+        users: state.entities.users
     }
     )
 };
 
 const mapDispatchToProps = dispatch => ({
-    // updateSong: song => dispatch(updateSong(song)),
-    // deleteSong: song => dispatch(deleteSong(song)),
+    updateSong: song => dispatch(updateSong(song)),
+    deleteSong: song => dispatch(deleteSong(song)),
     fetchSongs: data => dispatch(fetchSongs(data)),
 });
 
