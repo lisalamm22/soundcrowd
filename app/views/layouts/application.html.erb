@@ -13,18 +13,17 @@
       window.logo = "<%= image_url('logo2.png') %>"
       window.logoname = "<%= image_url('logoname.png') %>"
       window.logonameclearback = "<%= image_url('logonameclearback.png') %>"
-   </script>
-      <% if logged_in? %>
-   <script type="text/javascript">
-      window.currentUser = {
-          'id': <%= current_user.id %>,
-          'username': "<%= current_user.username %>",
-      }
-   </script>
-   <% end %>
+    </script>
+    <% if logged_in? %>
+      <script id="bootstrap-current-user" type="text/javascript">
+        window.currentUser = <%= render("api/users/user.json.jbuilder",
+        user: current_user).html_safe %>
+      </script>
+    <% end %>
   </head>
 
   <body>
     <%= yield %>
   </body>
 </html>
+

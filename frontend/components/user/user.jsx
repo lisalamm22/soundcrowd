@@ -9,20 +9,18 @@ class UserProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchSongs({ byArtistId: this.props.match.params.userId })
+        this.props.fetchUser(this.props.match.params.userId)
     }
 
 
     render() {
-        debugger
-        const {users} = this.props
-        const user = users[this.props.match.params.userId]
-        console.log(user)
-        let component = <UserTracks songs={this.props.songs}
-            artist={this.props.match.params.userId}/>
+        // debugger
+        const { currentUserId, songs, user } = this.props
+        if(!user){return null}
+        let component = <UserTracks songs={songs} artist={user.id}/>
         return(
             <div className="user-page">   
-                <UserHeader user = {user} currentUserId={this.props.currentUserId}/>
+                <UserHeader user = {user} currentUserId={currentUserId}/>
                 <div className="user-main">
                     <nav className='user-nav'>
                         <li>All</li>

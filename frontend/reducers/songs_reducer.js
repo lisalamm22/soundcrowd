@@ -3,6 +3,7 @@ import {
     RECEIVE_SONG,
     REMOVE_SONG,
 } from '../actions/song_actions';
+import { RECEIVE_USER } from '../actions/user_actions';
 
 
 const SongsReducer = (oldState = {}, action) => {
@@ -19,6 +20,8 @@ const SongsReducer = (oldState = {}, action) => {
         case REMOVE_SONG:
             delete nextState[action.songId];
             return nextState;
+        case RECEIVE_USER:
+            return Object.assign({}, action.user.songs)
         default:
             return oldState;
     }
