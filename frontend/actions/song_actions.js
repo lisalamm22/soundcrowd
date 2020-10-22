@@ -40,7 +40,9 @@ export const fetchSongs = (data) => (dispatch) => {
 export const fetchSong = (songId) => (dispatch) => {
     return (
         SongApiUtil.fetchSong(songId)
-            .then(song => { dispatch(receiveSong(song)) })
+            .then(song => { 
+                debugger
+                return dispatch(receiveSong(song)) })
     );
 };
 
