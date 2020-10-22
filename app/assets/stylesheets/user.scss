@@ -16,6 +16,13 @@
     background-image: linear-gradient(to left,lightyellow,lavender , lightblue);
 }
 
+.user-photo{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 .user-main{
     display: flex;
     flex-direction: column;
