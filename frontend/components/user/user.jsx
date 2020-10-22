@@ -20,7 +20,9 @@ class UserProfile extends React.Component {
         })
 
         return(
-            <div>{songList}</div>
+            <div className="user-page">   
+                <ul className="user-songs">{songList}</ul>
+            </div>
         )
 
     }

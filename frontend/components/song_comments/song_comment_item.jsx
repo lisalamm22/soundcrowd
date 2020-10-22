@@ -14,7 +14,6 @@ class SongCommentItem extends React.Component {
     }
 
     timeDiff() {
-        // debugger
         const now = new Date();
         let years = now.getUTCFullYear() - this.props.comment.created_at.slice(0, 4);
         let months = now.getUTCMonth() + 1 - this.props.comment.created_at.slice(5, 7);
@@ -49,11 +48,9 @@ class SongCommentItem extends React.Component {
     }
 
     render() {
-        debugger
         const profilePic = this.props.author.photoURL ?
             <img src={this.props.author.photoURL} className="comment-img"/> :
             <div>profile pic placeholder</div>
-
         return (
             <li className="comment-item">
                 <div>
@@ -63,10 +60,12 @@ class SongCommentItem extends React.Component {
                         <span>{this.props.comment.body}</span>
                     </div>
                 </div>
-                <div>
+                <div className="comment-more">
                     <span>{this.timeDiff()}</span>
-                    <button onClick={this.handleDelete}>
-                    <FontAwesomeIcon icon="trash" /></button>
+                    {this.props.author.id === this.props.currentUserId ? 
+                    <button onClick={this.handleDelete} className='comment-item-delete'>
+                    <FontAwesomeIcon icon="trash" /></button> : null}
+                    
                 </div>
             </li>
         )

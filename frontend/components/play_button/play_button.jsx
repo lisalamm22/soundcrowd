@@ -9,7 +9,6 @@ class PlayButton extends React.Component {
 
     handleClick(){
         const playbar = document.getElementById('audio')
-        debugger
         if(this.props.playing && this.props.currentSongId === this.props.songId){
             this.props.pauseSong();
             playbar.pause();
@@ -19,7 +18,6 @@ class PlayButton extends React.Component {
             localStorage.setItem('currentSongId', this.props.songId)
             this.props.receivePrevSong(this.props.songId);
             this.props.playSong();
-            debugger
             playbar.setAttribute("autoPlay", "");
             playbar.play();
         }

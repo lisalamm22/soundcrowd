@@ -20,7 +20,6 @@ export const receivePrevSong = (songId) => {
 };
 
 export const receiveNextSong = (songId) => {
-    debugger
     return {
         type: RECEIVE_NEXT_SONG,
         songId

@@ -29,6 +29,7 @@ class NavBar extends React.Component {
         </nav>
     )};
     navLinks(){
+        const {currentUser} = this.props
         return(<hgroup className="header-group">
             <nav>
                 <ul className="navbar-left">
@@ -40,10 +41,9 @@ class NavBar extends React.Component {
                     <Link to='/library'><h5>Library</h5></Link>
                 </ul>
                 <input type="text" placeholder="Search" className="navbar-search"/>
-                {/* searchcontainer */}
                 <ul className="navbar-right">
                     <Link to='/upload'><h5>Upload</h5></Link>
-                    <h2 className="header-name">{this.props.currentUser.username}</h2>
+                    <Link to={`/users/${currentUser.id}`}><h2 className="header-name">{currentUser.username}</h2></Link>
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
                             <li>About us</li>

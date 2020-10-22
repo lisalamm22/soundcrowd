@@ -10,13 +10,13 @@ class SongComments extends React.Component{
 
     render(){
         const { comments, users } = this.props
-        debugger
         return(
             <div className="song-comments">
                 <p><FontAwesomeIcon icon="comment-alt" />{` ${Object.values(comments).length} comments`}</p>
                 <ul>
                     {Object.values(comments).map((comment, idx) => {
                         return <SongCommentItem key={idx} 
+                            currentUserId={this.props.currentUserId}
                             comment={comment}
                             author = {users[comment.author_id]}
                             deleteComment={this.props.deleteComment} />

@@ -22,7 +22,6 @@ class Playbar extends React.Component{
     }
 
     componentDidMount(){
-        debugger
         const playbar = document.getElementById('audio');
         playbar.volume = 0.05;
         setTimeout(()=>this.props.receivePlaylist(this.props.songs),1000);
@@ -41,7 +40,6 @@ class Playbar extends React.Component{
             playbar.pause();
         }
         else{
-            debugger
             this.props.playSong();
             playbar.play();
         }
@@ -109,7 +107,6 @@ class Playbar extends React.Component{
 
     render(){
         let volumeIcon;
-        debugger
         if(this.state.volume === 0){
             volumeIcon = <FontAwesomeIcon icon="volume-mute" />
         }
@@ -168,7 +165,6 @@ class Playbar extends React.Component{
         </div>
         </div> 
         : null;
-        // debugger
         return(
             <>
                 <audio id="audio"

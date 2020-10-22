@@ -23,7 +23,6 @@ const playbarReducer = (oldState = defaultState, action) => {
     switch(action.type){
         case RECEIVE_CURRENT_SONG:
             nextState["currentSongId"] = action.songId;
-            debugger
             return nextState;
         case RECEIVE_PREVIOUS_SONG:
             nextState.prevSongs.push(action.songId);

@@ -3,7 +3,6 @@ import {Redirect} from 'react-router-dom'
 class SongForm extends React.Component{
     constructor(props){
         super(props)
-        debugger
         let song = Object.assign({}, props.song)
         delete song["imageURL"]
         this.state = song
@@ -54,7 +53,6 @@ class SongForm extends React.Component{
         if(this.state.imageURL){
             songFormData.append('song[imageURL]', this.state.imageURL);
         }
-        debugger
         this.props.processForm(songFormData)
             .then(() => this.props.history.push(`/songs/${this.props.song.id}`))
             // .then(()=> console.log('success'));
