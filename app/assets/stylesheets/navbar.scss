@@ -67,6 +67,20 @@
     align-items: center;
 }
 
+.navbar-search{
+    color: #666;
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+    padding: 5px 7px;
+    background: #e5e5e5;
+    height: 24px;
+    width: 40%;
+    font-size: 14px;
+    margin: 5px;
+
+}
+
 .header-name, .header-group h5, .navbar-more{
     font-size: 14px;
     font-weight: 300;
@@ -145,6 +159,6 @@
     text-align: left;
     font-weight: 500;
 }
-.more-dropdown-true>li:hover{
+.more-dropdown-true>li:hover, .more-dropdown-true a:hover{
     background-color: rgb(220, 220, 220);
 }

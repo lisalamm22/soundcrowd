@@ -1,5 +1,7 @@
 import React from 'react';
-import SongCommentItem from './song_comment_item'
+import SongCommentItem from './song_comment_item';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class SongComments extends React.Component{
     constructor(props){
@@ -10,8 +12,9 @@ class SongComments extends React.Component{
         const { comments, users } = this.props
         debugger
         return(
-            <div>
-                <ul className="song-comments">
+            <div className="song-comments">
+                <p><FontAwesomeIcon icon="comment-alt" />{` ${Object.values(comments).length} comments`}</p>
+                <ul>
                     {Object.values(comments).map((comment, idx) => {
                         return <SongCommentItem key={idx} 
                             comment={comment}

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CreateCommentFormContainer from '../comment_form/create_comment_form_container'
+import SongCommentsContainer from '../song_comments/song_comments_container';
 
 class SongShowBody extends React.Component {
     constructor(props) {
@@ -25,17 +27,16 @@ class SongShowBody extends React.Component {
         ) : null
         return (
             <div className="song-show-body">
-                {/* comment bar */}
+                <CreateCommentFormContainer />
                 {options}
                 <div>
                     <section className="song-show-left">
                         <img src={song.artist.photoURL} className="song-show-artist-img" />
                         <h5>{song.artist.username}</h5>
                     </section>
-                {/* </div>
-                <div> */}
                     <section className='song-show-right'>
-                        {song.description}
+                        <section className="song-description">{song.description}</section>
+                        <SongCommentsContainer />
                     </section>
                 </div>
 

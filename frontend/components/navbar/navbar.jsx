@@ -39,6 +39,7 @@ class NavBar extends React.Component {
                     <Link to='/stream'><h5>Stream</h5></Link>
                     <Link to='/library'><h5>Library</h5></Link>
                 </ul>
+                <input type="text" placeholder="Search" className="navbar-search"/>
                 {/* searchcontainer */}
                 <ul className="navbar-right">
                     <Link to='/upload'><h5>Upload</h5></Link>
@@ -46,8 +47,8 @@ class NavBar extends React.Component {
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
                             <li>About us</li>
-                            <li>Github</li>
-                            <li>LinkedIn</li>
+                            <a href="https://github.com/lisalamm22/soundcrowd" target="_blank"><li>Github</li></a>
+                            <a href="https://www.linkedin.com/in/lisa-lam-64607743/" target="_blank"><li>LinkedIn</li></a>
                             <li>Something</li>
                             <li>Else</li>
                             <li onClick={this.props.logout}>Sign Out</li>

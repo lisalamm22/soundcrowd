@@ -17,12 +17,14 @@ import { faPencilAlt, faTrash,
     faPlay, faPause, faStepBackward, faStepForward,
     faVolumeUp, faVolumeDown, faVolumeMute, 
     faRandom, faRedoAlt,
+    faCommentAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faPencilAlt, faTrash, 
     faPlay, faPause, faStepBackward, faStepForward,
     faVolumeUp, faVolumeDown, faVolumeMute,
-    faRandom, faRedoAlt,)
+    faRandom, faRedoAlt,
+    faCommentAlt)
 
 const App = () => (
     <div>

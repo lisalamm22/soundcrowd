@@ -2,8 +2,8 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import SongShowHeader from './song_show_header';
 import SongShowBody from './song_show_body';
-import CreateCommentFormContainer from '../comment_form/create_comment_form_container'
-import SongCommentsContainer from '../song_comments/song_comments_container'
+// import CreateCommentFormContainer from '../comment_form/create_comment_form_container'
+// import SongCommentsContainer from '../song_comments/song_comments_container';
 
 class SongShow extends React.Component {
     constructor(props) {
@@ -22,10 +22,10 @@ class SongShow extends React.Component {
             (!checkSong) ? <div><Redirect to="/discover"/></div> : (
                 <div>
                     <SongShowHeader song={checkSong}/>
-                    <CreateCommentFormContainer />
+                    {/* <CreateCommentFormContainer /> */}
                     <SongShowBody song={checkSong} deleteSong={this.props.deleteSong}
                         currentUserId={this.props.currentUserId}/>
-                    <SongCommentsContainer />
+                    {/* <SongCommentsContainer /> */}
                 </div>
             )
         )

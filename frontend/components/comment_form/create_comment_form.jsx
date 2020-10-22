@@ -28,9 +28,10 @@ class CreateCommentForm extends React.Component{
     }
 
     render(){
+        console.log(this.props)
         return(
-            <div>
-                {/* <img src={this.props.currentUser.profileURL}/> */}
+            <div className="create-comment">
+                <img src={this.props.currentUser.photoURL}/>
                 <form onKeyPress={
                     e => {
                         if(e.key === 'Enter'){

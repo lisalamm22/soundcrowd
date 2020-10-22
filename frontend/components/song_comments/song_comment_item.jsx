@@ -55,15 +55,19 @@ class SongCommentItem extends React.Component {
             <div>profile pic placeholder</div>
 
         return (
-            <li>
+            <li className="comment-item">
                 <div>
-                {profilePic}
-                <Link to={`/users/${this.props.author.id}`} >{this.props.author.username}</Link>
-                <p>{this.props.comment.body}</p>
+                    {profilePic}
+                    <div className="comment-body">
+                        <Link to={`/users/${this.props.author.id}`} >{this.props.author.username}</Link>
+                        <span>{this.props.comment.body}</span>
+                    </div>
                 </div>
-                <p>{this.timeDiff()}</p>
-                <button onClick={this.handleDelete}>
+                <div>
+                    <span>{this.timeDiff()}</span>
+                    <button onClick={this.handleDelete}>
                     <FontAwesomeIcon icon="trash" /></button>
+                </div>
             </li>
         )
     }

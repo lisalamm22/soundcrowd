@@ -6,9 +6,8 @@ import CreateCommentForm from './create_comment_form';
 const mapStateToProps = (state) => {
     return ({
         currentUserId: state.session.currentUserId,
-        // currentUser: state.session.users[state.session.currentUserId],
+        currentUser: state.entities.users[state.session.currentUserId],
         comments: state.entities.comments,
-        
     })
 };
 
