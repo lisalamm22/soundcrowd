@@ -62,8 +62,11 @@
 }
 
 .user-tracks{
-    padding-bottom: 20px;
+    margin-top: 10px;
+    padding: 0 20px 20px;
     border-bottom: #e1e1e1  1px solid;
+    border-right: #e1e1e1  1px solid;
+    width: 70%;
 }
 
 .user-track{
@@ -77,6 +80,7 @@
 .user-track>div{
     justify-content: space-between;
     padding: 10px 10px 0 10px;
+    width: 100%;
 }
 
 .user-songs{

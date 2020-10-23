@@ -85,7 +85,8 @@
 .header-name-grp{
     display: flex;
     padding: 0 5px;
-    
+    align-items: center;
+    justify-content: center;
 }
 
 .header-name, .header-group h5, .navbar-more{

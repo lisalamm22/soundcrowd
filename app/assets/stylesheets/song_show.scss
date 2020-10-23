@@ -90,7 +90,6 @@
 .song-show-left{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .song-show-right{
@@ -111,6 +110,7 @@
     background: image-url('default_img.jpeg');
     padding: 1px;
     margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .song-description{
@@ -143,9 +143,13 @@
     border: none;
 }
 
+.create-comment form{
+    width: 90%;
+}
+
 .create-comment input{
     padding: 5px;
-    width: 800px;
+    width: 100%;
     border: 1px solid #e5e5e5;
     outline: none;
     border-radius: 3px;

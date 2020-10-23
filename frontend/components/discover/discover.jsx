@@ -1,5 +1,6 @@
 import React from 'react';
 import SongIndexContainer from '../song_index/song_index_container'
+import ListeningHistoryContainer from '../listening_history/listening_history_container'
 
 class Discover extends React.Component{
     constructor(props){
@@ -11,17 +12,17 @@ class Discover extends React.Component{
             <div className="discover">
                 <div className="discover-main">
                     <div>
-                        <h2>New Music Now</h2>
-                        <p>The latest hits, updated all the time</p>
+                        <h2>Poppin'</h2>
+                        <p>The greatest hits, updated all the time</p>
                         <SongIndexContainer byGenre='Pop' />
                     </div>
                     <div>
-                        <h2>SoundCrowd Charts</h2>
-                        <p>The most played tracks on SoundCrowd this week</p>
+                        <h2>SoundCrowd Feels</h2>
+                        <p>The most mood tracks on SoundCrowd this week</p>
                         <SongIndexContainer byGenre='RBSoul' />
                     </div>
                     <div>
-                        <h2>Top Crowds</h2>
+                        <h2>Dancing on Your Own</h2>
                         <p>The biggest sounds on SoundCrowd</p>
                         <SongIndexContainer byGenre='DanceEDM'/>
                     </div>
@@ -36,7 +37,9 @@ class Discover extends React.Component{
                         <SongIndexContainer byGenre='Electronic'/>
                     </div>
                 </div>
-                <div className="discover-right">User Stuff</div>
+                <div className="discover-right">
+                    <ListeningHistoryContainer />
+                </div>
             </div>
         )
     }

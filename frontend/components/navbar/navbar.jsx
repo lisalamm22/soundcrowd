@@ -44,9 +44,9 @@ class NavBar extends React.Component {
                 <ul className="navbar-right">
                     <Link to='/upload'><h5>Upload</h5></Link>
                     <div className="header-name-grp">
-                    <img src={currentUser.photoURL} className="header-name-img"/>
+                    
                     <Link to={`/users/${currentUser.id}`}>
-                        <h2 className="header-name">{currentUser.username}</h2></Link></div>
+                        <h2 className="header-name"><img src={currentUser.photoURL} className="header-name-img"/>{currentUser.username}</h2></Link></div>
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
                             <li>About us</li>
