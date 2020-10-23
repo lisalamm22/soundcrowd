@@ -8,8 +8,6 @@ class SongFormItem extends React.Component{
     
     render(){
         const {artist, song} = this.props
-        console.log(artist)
-        console.log(song)
         return(
             <div className="song-form-item">
                 <img src={song.imageURL} className="uploaded-song-img"/>

@@ -8,7 +8,6 @@ class UserHeader extends React.Component {
 
     render() {
         const {user} = this.props
-        console.log(user)
         return (
             <div className="user-header">
                 <img src={user.photoURL} className="user-photo"/>

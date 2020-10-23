@@ -34,14 +34,12 @@ class SongForm extends React.Component{
     };
 
     resetState(){
-        // debugger
         // this.setState(this.props.initialSong);
         // <Redirect to={`/songs/${this.props.song.id}`} />
         this.props.history.push(`/songs/${this.props.song.id}`)
     }
 
     handleSubmit(e){
-        // debugger
         e.preventDefault();
         const songFormData = new FormData();
         songFormData.append('id', this.props.song.id);
@@ -55,14 +53,10 @@ class SongForm extends React.Component{
         }
         this.props.processForm(songFormData)
             .then(() => this.props.history.push(`/songs/${this.props.song.id}`))
-            // .then(()=> console.log('success'));
         
     }
 
     render(){
-        console.log(this.state)
-        // debugger
-        
         const {song} = this.props
         if(!song){return null}
         let preview = null;

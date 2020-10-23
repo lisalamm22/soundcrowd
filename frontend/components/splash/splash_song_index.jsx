@@ -12,7 +12,6 @@ class SplashSongIndex extends React.Component{
     }
 
     getDisplaySongs(){
-        debugger
         const songArr = Object.values(this.props.songs)
         let displayIdx = []
         while (songArr.length > 12 && displayIdx.length < 12) {
@@ -31,7 +30,6 @@ class SplashSongIndex extends React.Component{
         const display = this.getDisplaySongs().map( (idx) => {
             return <SplashSongItem song={Object.values(songs)[idx]} />
         })
-        debugger
 
         return(
             <div className="splash-songs">

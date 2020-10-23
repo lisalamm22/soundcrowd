@@ -8,7 +8,6 @@ class SplashSongItem extends React.Component{
 
     render(){
         const {song} = this.props
-        console.log(song)
         return (<li className="splash-song-item">
             <div className="splash-song-play"><PlayButton songId={song.id}/></div>
             <img src={song.imageURL} className="splash-song-img" />

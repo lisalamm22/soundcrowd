@@ -39,7 +39,6 @@ export const pauseSong = () => {
 };
 
 export const receivePlaylist = (songs) => {
-    debugger
     return {
         type: RECEIVE_PLAYLIST,
         songs

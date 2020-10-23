@@ -4,7 +4,6 @@ export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 const receiveComment = (comment) => {
-    // debugger
     return ({
         type: RECEIVE_COMMENT,
         comment,

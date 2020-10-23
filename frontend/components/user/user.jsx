@@ -15,7 +15,6 @@ class UserProfile extends React.Component {
 
 
     render() {
-        // debugger
         const { currentUserId, songs, user } = this.props
         if(!user){return null}
         let component = <UserTracks songs={songs} user={user} currentUserId={currentUserId}/>

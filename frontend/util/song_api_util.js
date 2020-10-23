@@ -7,7 +7,6 @@ export const fetchSongs = (data) => {
 };
 
 export const fetchSong = (songId) => {
-    // debugger
     return $.ajax({
         method: `GET`,
         url: `/api/songs/${songId}`,
@@ -25,7 +24,6 @@ export const createSong = (song) => {
 };
 
 export const updateSong = (song) => {
-    // debugger
     return $.ajax({
         method: `PATCH`,
         url: `/api/songs/${song.get('id')}`,

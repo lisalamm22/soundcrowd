@@ -10,7 +10,6 @@ const CommentsReducer = (oldState = {}, action) => {
     let nextState = Object.assign({}, oldState);
     switch(action.type){
         case RECEIVE_SONG:
-            debugger
             return Object.assign({}, action.song.comments);
         case RECEIVE_COMMENT:
             nextState[action.comment.comment.id] = action.comment.comment;

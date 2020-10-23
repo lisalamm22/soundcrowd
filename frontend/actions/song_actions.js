@@ -20,7 +20,6 @@ const receiveGenreSongs = (songs) => {
 };
 
 const receiveSong = (song) => {
-    // debugger
     return ({
         type: RECEIVE_SONG,
         song,

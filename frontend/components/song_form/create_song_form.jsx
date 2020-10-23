@@ -40,7 +40,6 @@ class CreateSongForm extends React.Component {
     };
 
     handleAudio(e) {
-        // debugger
             const file = e.currentTarget.files[0]
             const fileReader = new FileReader();
                 fileReader.onloadend = () => {
@@ -72,7 +71,6 @@ class CreateSongForm extends React.Component {
     }
 
     resetState() {
-        // debugger
         this.setState({
             title: '',
             genre: 'none',
@@ -100,7 +98,6 @@ class CreateSongForm extends React.Component {
     }
 
     render() {
-        // debugger
         const songList = Object.values(this.props.songs).map((song) => {
             return <SongFormItem song={song} artist={this.props.currentUser} />
         })
@@ -195,7 +192,6 @@ class CreateSongForm extends React.Component {
 
 export default CreateSongForm
 
-                                            // debugger
 
                                             // if (this.state.audioURL === '') {
                                             //     return (
