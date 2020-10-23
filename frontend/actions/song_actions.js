@@ -1,12 +1,20 @@
 import * as SongApiUtil from '../util/song_api_util';
 
 export const RECEIVE_ALL_SONGS = 'RECEIVE_ALL_SONGS';
+export const RECEIVE_GENRE_SONGS = 'RECEIVE_GENRE_SONGS';
 export const RECEIVE_SONG = 'RECEIVE_SONG';
 export const REMOVE_SONG = 'REMOVE_SONG';
 
 const receiveAllSongs = (songs) => {
     return ({
         type: RECEIVE_ALL_SONGS,
+        songs,
+    });
+};
+
+const receiveGenreSongs = (songs) => {
+    return ({
+        type: RECEIVE_GENRE_SONGS,
         songs,
     });
 };
@@ -31,6 +39,16 @@ export const fetchSongs = (data) => (dispatch) => {
         SongApiUtil.fetchSongs(data)
             .then(songs => { 
                 return dispatch(receiveAllSongs(songs)) })
+            .then(res => {
+                window.localStorage.setItem('songs', JSON.stringify(res.songs))
+            })
+    );
+};
+export const fetchGenreSongs = (data) => (dispatch) => {
+    return (
+        SongApiUtil.fetchSongs(data)
+            .then(songs => { 
+                return dispatch(receiveGenreSongs(songs)) })
             .then(res => {
                 window.localStorage.setItem('songs', JSON.stringify(res.songs))
             })

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
-import SongIndex from './song_index';
-import { fetchSongs } from '../../actions/song_actions';
+import Stream from './stream';
+import { fetchSongs, deleteSong } from '../../actions/song_actions';
 
 
 const mSTP = (state) => {
     return ({
         songs: Object.values(state.entities.songs),
-        
+        currentUserId: state.session.currentUserId,
     })
 }
 
@@ -15,7 +15,8 @@ const mDTP = (dispatch) => {
         fetchSongs: (data) => {
             return dispatch(fetchSongs(data))
         },
+        deleteSong: songId => dispatch(deleteSong(songId))
     })
 }
 
-export default connect(mSTP, mDTP)(SongIndex)
+export default connect(mSTP, mDTP)(Stream)

@@ -39,6 +39,11 @@
     display: flex;
     align-items: center;
     padding-right: 10px;
+    width: 25%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
 }
 
 .playbar-song-info img{
@@ -131,7 +136,8 @@
     margin-right: 10px;
     border: none;
     border-radius: 50%;
-    background-color:#cdaed3;
+    background-image: linear-gradient(to right, pink,lightyellow, lightgreen, lightblue,lavender );
+    color: white;
 }
 
 

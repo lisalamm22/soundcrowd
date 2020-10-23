@@ -4,12 +4,29 @@ import SongIndexItem from './song_index_item';
 class SongIndex extends React.Component {
     constructor(props) {
         super(props)
-        debugger
+
+        this.filterByGenre = this.filterByGenre.bind(this)
     }
 
     // fetch songs by different filters
     componentDidMount() {
-        this.props.fetchSongs();
+        // if(this.props.byGenre){
+        //     this.props.fetchSongs({ byGenre: this.props.byGenre} )
+        // }
+        // else{
+            this.props.fetchSongs();
+        // }
+    }
+
+    filterByGenre(){
+        const { byGenre } = this.props;
+        let filteredSongs = [];
+        Object.values(this.props.songs).forEach((song) => {
+            if(song.genre === byGenre){
+                filteredSongs.push(song)
+            }
+        })
+        return filteredSongs
     }
 
     render() {
@@ -19,7 +36,7 @@ class SongIndex extends React.Component {
         }
         return (
                 <ul className='song-index'>
-                    {Object.values(songs).map((song, idx) => {
+                    {this.filterByGenre().map((song, idx) => {
                         return <SongIndexItem key={idx} song={song} />
                     })}
                 </ul>

@@ -5,6 +5,8 @@ class Api::SongsController < ApplicationController
         @songs = Song.all
         if params[:byArtistId] 
             @songs = @songs.where(artist_id: params[:byArtistId])
+        elsif params[:byGenre]
+            @songs = @songs.where(genre: params[:byGenre])
         end
 
         render :index
@@ -42,11 +44,9 @@ class Api::SongsController < ApplicationController
 
     private
     def song_params
-        # params
         params.require(:song).permit(:title, :artist_id, :genre, :description, :audioURL, :imageURL)
     end
     def song_update_params
-        # params
         params.require(:song).permit(:title, :genre, :description, :imageURL)
     end
 
