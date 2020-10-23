@@ -53,12 +53,13 @@ class UserTrackItem extends React.Component {
     render() {
         const { user, song, currentUserId } = this.props
         return (
-            <div className="song-form-item">
-                <img src={song.imageURL} className="uploaded-song-img" />
+            <div className="user-track">
+                <img src={song.imageURL} className="user-track-img" />
                 <div>
-                <ul className="uploaded-song-det">
-                    <div>
-                        <PlayButtonContainer songId={song.id}/>
+                <ul className="user-songs">
+                    <div className="user-song-info">
+                        <div className="user-song-play">
+                            <PlayButtonContainer songId={song.id}/></div>
                         <div>
                             <Link to={`/songs/${user.id}`}>{user.username}</Link>
                             <Link to={`/songs/${song.id}`}>{song.title}</Link>
@@ -67,16 +68,16 @@ class UserTrackItem extends React.Component {
                     <span>{this.timeDiff()}</span>
 
                 </ul>
-                <CreateCommentFormContainer />
+                <div className="user-song-actions"><CreateCommentFormContainer />
                 <nav>
                     {user.id === currentUserId ? 
                     <button onClick={()=> <Redirect to={`/songs/${song.id}/edit`}/>} 
                         className='user-track-item-edit'>
-                        <FontAwesomeIcon icon="pencil-alt" /></button> : null}
+                        <FontAwesomeIcon icon="pencil-alt" />Edit</button> : null}
                     {user.id === currentUserId ? 
                     <button onClick={this.handleDelete} className='user-track-item-edit'>
-                        <FontAwesomeIcon icon="trash" /></button> : null}
-                </nav>
+                        <FontAwesomeIcon icon="trash" />Delete</button> : null}
+                </nav></div>
             </div>
             </div>
         )

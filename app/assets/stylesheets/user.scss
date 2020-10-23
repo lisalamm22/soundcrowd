@@ -9,12 +9,12 @@
 
 .user-header{
     display: flex;
-    justify-content: space-between ;
+    // justify-content: space-between ;
     // align-items: center;
     height: 200px;
     width: 1210px;
     padding: 20px; 
-    background-image: linear-gradient(to left,lightyellow,lavender , lightblue);
+    background-image: linear-gradient(to right,lightyellow,lavender , lightblue);
 }
 
 .user-photo{
@@ -22,6 +22,16 @@
     width: 150px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 20px;
+}
+
+.user-header h2{
+    background-color: white;
+    color: gray;
+    font-size: 24px;
+    height: 32px;
+    align-items: center;
+    padding: 4px 7px;
 }
 
 .user-main{
@@ -33,6 +43,7 @@
 .user-nav{
     display: flex; 
     border-bottom: 1px rgb(225, 225, 225) solid;
+    margin: 20px;
 }
 
 .user-nav>li{
@@ -40,8 +51,90 @@
     padding: 10px;
 }
 
-.user-tracks{
+.user-tracks,
+.user-track>div, 
+.user-song-info>div,
+.user-song-actions,
+.user-footer{
     display: flex;
     flex-direction: column;
 
 }
+
+.user-tracks{
+    padding-bottom: 20px;
+    border-bottom: #e1e1e1  1px solid;
+}
+
+.user-track{
+    padding: 10px 0 10px;
+}
+
+.user-track, .user-songs, .user-song-info{
+    display: flex;
+}
+
+.user-track>div{
+    justify-content: space-between;
+    padding: 10px 10px 0 10px;
+}
+
+.user-songs{
+    justify-content: space-between;
+}
+
+.user-track-img{
+    height: 160px;
+    width: 160px;
+}
+
+.user-song-play>button{
+    height: 36px;
+    width: 36px;
+    margin-right: 5px;
+}
+
+.user-song-info a{
+    text-decoration: none;
+    font-size: 14px;
+    color: black;
+    font-weight: 100;
+}
+.user-song-info a:first-child,
+.user-songs span{
+    color: #999
+}
+
+.user-song-actions button{
+    background: transparent;
+    font-size: 10px;
+    padding: 0px 10px;
+}
+
+.user-footer{
+    // width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-footer a{
+    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+    font-size: 16px;
+    // height: 46px;
+    padding: 10px 23px;
+    font-weight: 100;
+    color: white;
+    margin: 0px;
+    width: 89px;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+

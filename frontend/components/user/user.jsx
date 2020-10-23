@@ -30,10 +30,12 @@ class UserProfile extends React.Component {
                         <li>Playlists</li>
                     </nav>
                     {component}
-                    <div>
+                    {/* {user.id === currentUserId ?  */}
+                    <div className="user-footer">
                         <span>More uploads means more crowds.</span> 
                         <Link to="/upload">Upload more</Link>
-                    </div>
+                    </div> 
+                    {/* : null} */}
                 </div>
             </div>
         )

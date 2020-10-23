@@ -82,6 +82,12 @@
 
 }
 
+.header-name-grp{
+    display: flex;
+    padding: 0 5px;
+    
+}
+
 .header-name, .header-group h5, .navbar-more{
     font-size: 14px;
     font-weight: 300;
@@ -94,6 +100,14 @@
 .header-name:hover{
     color: rgba(245,245,245,1);
 }
+
+.header-name-img{
+    height: 26px;
+    width: 26px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .header-group h5:hover{
     color: rgba(245,245,245,1);
 }
