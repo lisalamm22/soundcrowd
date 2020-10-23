@@ -10,11 +10,11 @@ class SongShowHeader extends React.Component{
 
     timeDiff(){
         const now = new Date();
-        let years = now.getFullYear() - this.props.song.created_at.slice(0,4);
-        let months = now.getMonth() + 1 - this.props.song.created_at.slice(5,7);
-        let days = now.getDate() - this.props.song.created_at.slice(8,10);
-        let hours = now.getHours() - this.props.song.created_at.slice(11,13);
-        let minutes = now.getMinutes() - this.props.song.created_at.slice(14,16);
+        let years = now.getUTCFullYear() - this.props.song.created_at.slice(0,4);
+        let months = now.getUTCMonth() + 1 - this.props.song.created_at.slice(5,7);
+        let days = now.getUTCDate() - this.props.song.created_at.slice(8,10);
+        let hours = now.getUTCHours() - this.props.song.created_at.slice(11,13);
+        let minutes = now.getUTCMinutes() - this.props.song.created_at.slice(14,16);
         if(years > 0){
             return <p>{`${years} years ago`}</p>
         }
@@ -45,7 +45,7 @@ class SongShowHeader extends React.Component{
                 <div className="song-show-head-left">
                     <PlayButtonContainer songId={song.id}/>
                     <div>
-                        <Link to={`/user/${song.artist_id}`} >{song.artist.username}</Link>
+                        <Link to={`/users/${song.artist_id}`} >{song.artist.username}</Link>
                         <h2>{song.title}</h2>
                     </div>
                 </div>

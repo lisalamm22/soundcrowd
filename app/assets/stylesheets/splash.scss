@@ -23,6 +23,12 @@ button{
     cursor: pointer;
 } 
 
+.splash{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 h2{
     font-size: 35px;
     font-weight: 300;
@@ -33,6 +39,11 @@ h4{
     font-size: 25px;
     font-weight: 200;
     padding: 10px;
+}
+
+.splash>h4{
+    text-align: center;
+    margin-bottom: 40px;
 }
 
 .signin{
@@ -71,6 +82,103 @@ span {
     padding-top: 19px;
     padding-left: 30px;
     padding-right: 30px;
+}
+
+.splash>div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    // flex-direction: column;
+    width: 100%;
+}
+.splash-searchbar{
+    background: #f2f2f2;
+    padding: 0 16px;
+    height: 46px;
+    color: #666;
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 40px;
+    width: 50%;
+    // align-items: center;
+}
+
+.splash-songs{
+    display: flex;
+    justify-content: center;
+    width: 100%
+}
+
+.splash-songs ul{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1200px;
+    height: 475px;
+}
+
+.splash-songs li{
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    padding: 10px;
+}
+
+.splash-songs img{
+    height: 180px;
+    width: 180px;
+}
+
+.splash-song-title{
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 3px 0px;
+}
+
+.splash-song-artist{
+    font-size: 12px;
+    color: gray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 3px 0px;
+}
+
+.splash-song-play{
+    display: none;
+}
+
+.splash-song-item{
+    position: relative;
+}
+
+.splash-song-item:hover>div{
+    display: block;
+    position: absolute;
+    top: 70px;
+    left: 70px;
+    z-index: 2;
+}
+
+.explore-btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 40px 0 60px;
+}
+
+.explore-btn>button{
+    background-image: linear-gradient(to right, pink, lightgreen, lightblue,lavender );
+    font-size: 16px;
+    height: 46px;
+    padding: 0 23px;
+    font-weight: 100;
+    color: white;
+    margin: 0px;
 }
 
 .splash-trending{

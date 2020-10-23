@@ -50,7 +50,7 @@ class SongCommentItem extends React.Component {
     render() {
         const profilePic = this.props.author.photoURL ?
             <img src={this.props.author.photoURL} className="comment-img"/> :
-            <div>profile pic placeholder</div>
+            <div className="comment-img">profile pic placeholder</div>
         return (
             <li className="comment-item">
                 <div>

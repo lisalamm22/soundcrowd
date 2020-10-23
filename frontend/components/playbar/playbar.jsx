@@ -169,6 +169,7 @@ class Playbar extends React.Component{
             <>
                 <audio id="audio"
                     src={songURL}
+                    // autoPlay
                     controls
                     controlsList="nodownload"
                     onLoadedMetadata={this.getSongLength}

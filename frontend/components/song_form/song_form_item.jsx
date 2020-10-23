@@ -1,8 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 
-//display image, artist, title, 'go to your track'
-
 class SongFormItem extends React.Component{
     constructor(props){
         super(props)

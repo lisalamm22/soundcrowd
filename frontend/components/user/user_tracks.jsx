@@ -1,15 +1,16 @@
 import React from 'react';
-import SongFormItem from '../song_form/song_form_item';
+import UserTrackItem from '../user/user_track_item';
 
 class UserTracks extends React.Component {
     constructor(props) {
-        super(props)
+        super(props)    //
     }
 
 
     render() {
-        const songList = Object.values(this.props.songs).map((song,idx) => {
-            return <SongFormItem key={idx} song={song} artist={this.props.artist} />
+        const {songs, user, currentUserId } = this.props
+        const songList = Object.values(songs).map((song,idx) => {
+            return <UserTrackItem key={idx} song={song} user={user} currentUserId={currentUserId}/>
         })
         return (
             <ul className="user-tracks">
