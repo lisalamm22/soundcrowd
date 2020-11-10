@@ -4,6 +4,14 @@
     <title>SoundCrowd</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta property="og:title" content="SoundCrowd" />
+     <meta property='og:image' content="<%= image_url('SoundCrowd.png') %>"/>
+     <meta property="og:description"
+       content="A SoundCloud inspired open audio platform to create a community among creators, listeners, and curators."
+     />
+     <meta property="og:url"
+       content="http://soundcrowd3.herokuapp.com/"
+     />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all' %>
