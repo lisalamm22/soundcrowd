@@ -18,9 +18,10 @@ Connect here! [SoundCrowd Live](http://soundcrowd3.herokuapp.com/#/)
 
 ## Implementation
 ### Songs
-
+Users can upload, edit, and delete their song tracks. 
 
 ### Media Player
-
+Integrating HTML5 audio player to provide users playback functionality. 
 
 ### Comments
+To encourage creating a community, signed in users can comment on any song. 
