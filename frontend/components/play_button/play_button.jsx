@@ -13,10 +13,14 @@ class PlayButton extends React.Component {
             this.props.pauseSong();
             playbar.pause();
         }
+        else if(!this.props.playing && this.props.currentSongId === this.props.songId){
+            this.props.playSong();
+            playbar.play();
+        }
         else{
+            this.props.receivePrevSong(this.props.currentSongId);
             this.props.receiveCurrSong(this.props.songId);
             localStorage.setItem('currentSongId', this.props.songId)
-            this.props.receivePrevSong(this.props.songId);
             this.props.playSong();
             playbar.setAttribute("autoPlay", "");
             playbar.play();

@@ -1,6 +1,7 @@
 
 import { 
     RECEIVE_CURRENT_SONG, 
+    REMOVE_CURRENT_SONG, 
     RECEIVE_PREVIOUS_SONG, 
     RECEIVE_NEXT_SONG, 
     PLAY_SONG, 
@@ -23,8 +24,12 @@ const playbarReducer = (oldState = defaultState, action) => {
         case RECEIVE_CURRENT_SONG:
             nextState["currentSongId"] = action.songId;
             return nextState;
+        case REMOVE_CURRENT_SONG:
+            nextState["currentSongId"] = null;
+            nextState["playing"] = false;
+            return nextState;
         case RECEIVE_PREVIOUS_SONG:
-            nextState.prevSongs.push(action.songId);
+            nextState.prevSongs.unshift(action.songId);
             return nextState;
         case RECEIVE_NEXT_SONG:
             nextState.nextSongs.push(action.songId);
@@ -36,10 +41,20 @@ const playbarReducer = (oldState = defaultState, action) => {
             nextState["playing"] = false;
             return nextState;
         case RECEIVE_PLAYLIST:
-            const playlist = Object.values(action.songs);
-            playlist.forEach((song, idx) => {
-                let randIdx = Math.floor(Math.random()*(playlist.length-idx))
-                nextState.playlist.push(playlist[randIdx].id)
+            let songs = Object.values(action.songs);
+            let currIdx = songs.length;
+            let temp;
+            let randIdx;
+            while( 0 !== currIdx){
+                randIdx = Math.floor(Math.random() * currIdx);
+                currIdx -= 1;
+
+                temp = songs[currIdx];
+                songs[currIdx] = songs[randIdx];
+                songs[randIdx] = temp;
+            }
+            songs.forEach( (song, idx) => {
+                nextState.playlist.push(song.id)
             })
             return nextState;
         default:

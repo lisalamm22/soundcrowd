@@ -24,7 +24,7 @@ class Playbar extends React.Component{
     componentDidMount(){
         const playbar = document.getElementById('audio');
         playbar.volume = 0.05;
-        setTimeout(()=>this.props.receivePlaylist(this.props.songs),1000);
+        this.props.receivePlaylist(this.props.songs);
     }
 
     getSongLength() {
@@ -49,7 +49,7 @@ class Playbar extends React.Component{
         const playbar = document.getElementById('audio');
         const scrubber = document.getElementById('scrubber');
 
-        if(!playbar.paused){
+        if(!playbar.paused && this.props.currentSong){
             this.songPlay = setInterval(()=>{
                 scrubber.value = playbar.currentTime;
                 this.setState({ songPlayed: playbar.currentTime})
@@ -59,19 +59,34 @@ class Playbar extends React.Component{
 
     handleNext(){
         const playbar = document.getElementById('audio');
-        this.props.receivePrevSong(this.props.currentSong.id);
+        let nextSongId;
+        playbar.pause();
+        if(this.props.currentSong){
+            this.props.receivePrevSong(this.props.currentSong.id);
+        }
         if(this.props.nextSongs.length > 0){
-            this.props.receiveCurrSong(this.props.nextSongs.shift());
-            this.props.playSong();
-            playbar.play();
+            nextSongId = this.props.nextSongs.shift();
+            this.props.receiveCurrSong(nextSongId);
+            localStorage.setItem('currentSongId', nextSongId);
+            this.setState({songPlayed: 0}, () => {
+                this.props.playSong();
+                playbar.play();
+            })
         }
         else if(this.props.playlist.length > 0){
-            this.props.receiveCurrSong(this.props.playlist.shift());
-            this.props.playSong();
-            playbar.play();
+            nextSongId = this.props.playlist.shift();
+            this.props.receiveCurrSong(nextSongId);
+            localStorage.setItem('currentSongId', nextSongId);
+            this.setState({songPlayed: 0}, () => {
+                this.props.playSong();
+                playbar.play();
+            })
         }
-        // this.props.playSong();
-        this.setState({songPlayed: 0})
+        else{
+            playbar.currentTime = 0;
+            this.props.removeCurrSong();
+            this.setState({songPlayed : 0}, ()=> {})
+        }
     }
 
     handlePrev(){
@@ -106,6 +121,7 @@ class Playbar extends React.Component{
     }
 
     render(){
+        // if(!this.props.prevSongs){return null}
         let volumeIcon;
         if(this.state.volume === 0){
             volumeIcon = <FontAwesomeIcon icon="volume-mute" />
@@ -117,8 +133,27 @@ class Playbar extends React.Component{
             volumeIcon = <FontAwesomeIcon icon="volume-up" />
         }
         const {currentSong, artist, playing} = this.props
+        const prevSong = this.props.songs[this.props.prevSongs[this.props.prevSongs.length-1]] ? this.props.songs[this.props.prevSongs[this.props.prevSongs.length-1]] : null
         const songURL = currentSong ? currentSong.audioURL : null
-        const playbar = currentSong ? 
+        const currentSongInfo = currentSong ? 
+            <div className="playbar-song-info">
+                <Link to={`/songs/${currentSong.id}`}><img src={currentSong.imageURL}/> </Link>
+                <div>
+                    <Link to={`/users/${currentSong.artist_id}`}>{currentSong.artist.username}</Link>
+                    <Link to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
+                </div>
+            </div> : null
+        const prevSongInfo = prevSong ?
+            <div className="playbar-song-info">
+                <Link to={`/songs/${prevSong.id}`}><img src={prevSong.imageURL}/> </Link>
+                <div>
+                    <Link to={`/users/${prevSong.artist_id}`}>{prevSong.artist.username}</Link>
+                    <Link to={`/songs/${prevSong.id}`}>{prevSong.title}</Link>
+                </div>
+            </div> : null
+        const songInfo = currentSongInfo || prevSongInfo || <div></div>
+
+        const playbar = (currentSong || this.props.prevSongs.length > 0) ? 
         <div className = "playbar">
             <div>
             <div className="playbar-controls">
@@ -155,13 +190,7 @@ class Playbar extends React.Component{
                     onChange={this.handleVolume} />
                 {volumeIcon}</button>
             </div>
-            <div className="playbar-song-info">
-                <Link to={`/songs/${currentSong.id}`}><img src={currentSong.imageURL}/> </Link>
-                <div>
-                    <Link to={`/users/${currentSong.artist_id}`}>{currentSong.artist.username}</Link>
-                    <Link to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
-                </div>
-            </div>
+            {songInfo}
         </div>
         </div> 
         : null;
@@ -169,13 +198,11 @@ class Playbar extends React.Component{
             <>
                 <audio id="audio"
                     src={songURL}
-                    // autoPlay
                     controls
                     controlsList="nodownload"
                     onLoadedMetadata={this.getSongLength}
                     onPlaying={this.handleSongPlay}
                     onEnded={this.handleNext}
-                    // crossOrigin="anonymous"
                 ></audio>
                 {playbar}
             </>

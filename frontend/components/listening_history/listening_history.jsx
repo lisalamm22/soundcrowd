@@ -10,8 +10,9 @@ class ListeningHistory extends React.Component{
 
     render(){
         // if(this.props.prevSongs.length === 0){return null}
-        let prevSongsRev = this.props.prevSongs.reverse()
-        const playedSongs = prevSongsRev.map((songId, idx)=>{
+        // let prevSongsRev = this.props.prevSongs.reverse()
+        // console.log(prevSongsRev)
+        const playedSongs = this.props.prevSongs.map((songId, idx)=>{
             let song = this.props.songs[songId]
             return (<li key={idx} className="listening-history-item">
                 <div className="listening-history-play">

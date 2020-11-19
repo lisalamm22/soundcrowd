@@ -28,7 +28,7 @@ class SplashSongIndex extends React.Component{
         const {songs} = this.props
         if(!songs){return null}
         const display = this.getDisplaySongs().map( (idx) => {
-            return <SplashSongItem song={Object.values(songs)[idx]} />
+            return <SplashSongItem key={idx} song={Object.values(songs)[idx]} />
         })
 
         return(

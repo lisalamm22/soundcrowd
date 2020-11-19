@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { withRouter } from  'react-router-dom'
 import Playbar from './playbar';
-import { receiveCurrSong, receivePrevSong, receiveNextSong, playSong, pauseSong, receivePlaylist } from '../../actions/playbar_actions';
+import { receiveCurrSong, removeCurrSong, receivePrevSong, receiveNextSong, playSong, pauseSong, receivePlaylist } from '../../actions/playbar_actions';
 
 const mSTP = state => {
     return {
@@ -17,6 +17,7 @@ const mSTP = state => {
 const mDTP = dispatch => {
     return {
         receiveCurrSong: songId => dispatch(receiveCurrSong(songId)),
+        removeCurrSong: () => dispatch(removeCurrSong()),
         receivePrevSong: songId => dispatch(receivePrevSong(songId)),
         receiveNextSong: songId => dispatch(receiveNextSong(songId)),
         receivePlaylist: songs => dispatch(receivePlaylist(songs)),

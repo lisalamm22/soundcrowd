@@ -9,6 +9,7 @@
     width: 100%;
     position: fixed;
     bottom: 0px;
+    z-index: 100;
 }
 
 .playbar>div{
@@ -33,6 +34,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.playbar-scrub p{
+  width: 25px;
 }
 
 .playbar-song-info{

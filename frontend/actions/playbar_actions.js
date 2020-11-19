@@ -1,4 +1,5 @@
 export const RECEIVE_CURRENT_SONG = "RECEIVE_CURRENT_SONG";
+export const REMOVE_CURRENT_SONG = "REMOVE_CURRENT_SONG";
 export const RECEIVE_PREVIOUS_SONG = "RECEIVE_PREVIOUS_SONG";
 export const RECEIVE_NEXT_SONG = "RECEIVE_NEXT_SONG";
 export const PLAY_SONG = "PLAY_SONG";
@@ -9,6 +10,12 @@ export const receiveCurrSong = (songId) => {
     return {
         type: RECEIVE_CURRENT_SONG,
         songId
+    };
+};
+
+export const removeCurrSong = () => {
+    return {
+        type: REMOVE_CURRENT_SONG,
     };
 };
 
