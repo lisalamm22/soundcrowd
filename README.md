@@ -1,24 +1,27 @@
-# README
+# SoundCrowd
+A SoundCloud inspired opem music sharing platform. A single-page application that allows artists to share, connect and create communities around their music.
+Connect here! [SoundCrowd Live](http://soundcrowd3.herokuapp.com/#/)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![SoundCrowd](https://user-images.githubusercontent.com/68566126/98880872-949f3980-243d-11eb-8856-1a68e086a9e1.png)
 
-Things you may want to cover:
+## Technologies Used
++ Ruby on Rails
++ JavaScript
++ PostgreSQL
++ JBuilder
++ JQuery
++ HTML/CSS
++ React
++ Redux
++ Amazon Web Services (AWS S3)
++ Heroku
 
-* Ruby version
+## Implementation
+### Songs
+Users can upload, edit, and delete their song tracks. 
 
-* System dependencies
+### Media Player
+Integrating HTML5 audio player to provide users playback functionality. 
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Comments
+To encourage creating a community, signed in users can comment on any song. 
