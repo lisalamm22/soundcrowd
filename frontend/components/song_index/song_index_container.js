@@ -1,21 +1,21 @@
-import { connect } from 'react-redux';
-import SongIndex from './song_index';
-import { fetchSongs } from '../../actions/song_actions';
+// import { connect } from 'react-redux';
+// import SongIndex from './song_index';
+// import { fetchSongs } from '../../actions/song_actions';
 
 
-const mSTP = (state) => {
-    return ({
-        songs: Object.values(state.entities.songs),
+// const mSTP = (state) => {
+//     return ({
+//         songs: Object.values(state.entities.songs),
         
-    })
-}
+//     })
+// }
 
-const mDTP = (dispatch) => {
-    return ({
-        fetchSongs: (data) => {
-            return dispatch(fetchSongs(data))
-        },
-    })
-}
+// const mDTP = (dispatch) => {
+//     return ({
+//         fetchSongs: (data) => {
+//             return dispatch(fetchSongs(data))
+//         },
+//     })
+// }
 
-export default connect(mSTP, mDTP)(SongIndex)
+// export default connect(mSTP, mDTP)(SongIndex)

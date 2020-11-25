@@ -10,6 +10,7 @@ class Playbar extends React.Component{
             songLength: 0,
             songPlayed: 0,
             volume: 0.05,
+            dropdown: false,
         }
         this.getSongLength = this.getSongLength.bind(this);
         this.handlePlay = this.handlePlay.bind(this);
@@ -19,6 +20,7 @@ class Playbar extends React.Component{
         this.handleScrubbing = this.handleScrubbing.bind(this);
         this.handleRepeat = this.handleRepeat.bind(this);
         this.handleVolume = this.handleVolume.bind(this);
+        this.handleNextList = this.handleNextList.bind(this);
     }
 
     componentDidMount(){
@@ -120,6 +122,11 @@ class Playbar extends React.Component{
         this.setState({ volume: e.target.value/1000.0 })
     }
 
+    handleNextList(){
+        let newState = !this.state.dropdown;
+        this.setState({ dropdown: newState });
+    }
+
     render(){
         // if(!this.props.prevSongs){return null}
         let volumeIcon;
@@ -152,6 +159,16 @@ class Playbar extends React.Component{
                 </div>
             </div> : null
         const songInfo = currentSongInfo || prevSongInfo || <div></div>
+
+        const nextList = this.props.nextSongs.map((nextSong) => {
+            return <li>
+                <Link to={`/songs/${nextSong.id}`}><img src={nextSong.imageURL}/> </Link>
+                <div>
+                    <Link to={`/users/${nextSong.artist_id}`}>{nextSong.artist.username}</Link>
+                    <Link to={`/songs/${nextSong.id}`}>{nextSong.title}</Link>
+                </div>
+            </li>
+        })
 
         const playbar = (currentSong || this.props.prevSongs.length > 0) ? 
         <div className = "playbar">
@@ -191,6 +208,21 @@ class Playbar extends React.Component{
                 {volumeIcon}</button>
             </div>
             {songInfo}
+            <div className="playbar-controls-right">
+                <button className="playbar-like"
+                    onClick={this.handlePrev}>
+                    <FontAwesomeIcon icon="heart" /></button>
+                <button className="playbar-follow"
+                    onClick={this.handleNext}>
+                    <FontAwesomeIcon icon="user-plus"/></button>
+                <button className={`playbar-list`} onClick={this.handleNextList}>
+                    <FontAwesomeIcon icon="list"/>
+                    <div className={`next-list-dropdown-${this.state.dropdown}`} >
+                        <div>Next up</div>
+                        <ul>{nextList}</ul>
+                    </div>
+                </button>
+            </div>
         </div>
         </div> 
         : null;

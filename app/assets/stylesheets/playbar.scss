@@ -1,39 +1,40 @@
 .playbar{
-    height: 48px;
-    // border: red solid;
-    background-color: #f2f2f2;
-    border-top: 1px solid #cecece;
-    display: flex;
-    justify-content: center;
-    font-size: 12px;
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    z-index: 100;
+  height: 48px;
+  background-color: #f2f2f2;
+  border-top: 1px solid #cecece;
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  z-index: 100;
 }
 
 .playbar>div{
-    display: flex;
-    justify-content: space-between;
-    width: 1250px;
+  display: flex;
+  justify-content: space-between;
+  width: 1250px;
 }
 
 .playbar-controls{
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.playbar-controls>button{
-    background-color: transparent;
-    border: none;
-    width:24px;
-    margin-left: 12px;
+.playbar-controls>button,
+.playbar-controls-right>button{
+  background-color: transparent;
+  border: none;
+  width:24px;
+  margin-left: 12px;
 }
 
 .playbar-scrub{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
 
 .playbar-scrub p{
@@ -41,47 +42,46 @@
 }
 
 .playbar-song-info{
-    display: flex;
-    align-items: center;
-    padding-right: 10px;
-    width: 25%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  display: flex;
+  align-items: center;
+  width: 25%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
 }
 
 .playbar-song-info img{
-    height: 30px;
-    width: 30px;
-    margin-right: 15px;
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
 }
 
 .playbar-song-info>div{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .playbar-song-info a{
-    text-decoration: none;
-    font-size: 12px;
-    color: black;
-    font-weight: 200;
+  text-decoration: none;
+  font-size: 12px;
+  color: black;
+  font-weight: 200;
 }
 
 .playbar-song-info>div>a:first{
-    color: gray;
+  color: gray;
 }
 
 #audio{
-    display: none;
+  display: none;
 }
 
 
 .slider {
   -webkit-appearance: none;
-  width: 250px;
+  width: 400px;
   height: 1px;
   background: #d3d3d3;
   outline: none;
@@ -136,13 +136,45 @@
 }
 
 .play-btn{
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 50%;
-    background-image: linear-gradient(to right, pink,lightyellow, lightgreen, lightblue,lavender );
-    color: white;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, pink,lightyellow, lightgreen, lightblue,lavender );
+  color: white;
 }
 
+.playbar-controls-right{
+  padding-right: 10px;
+  display: flex;
+}
+.playbar-list{
+  cursor: pointer;
+  position: relative;
+}
+
+.next-list-dropdown-false{
+  display: none;
+}
+
+.next-list-dropdown-true{
+  display: block;
+  position: absolute;
+  bottom: 110%;
+  right: 0%;
+  width: 500px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 0 4px rgba(0,0,0,.25);
+}
+
+.next-list-dropdown-true>div{
+  line-height: 46px;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 100;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 9px 24px;
+}
 

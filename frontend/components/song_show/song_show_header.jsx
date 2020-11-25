@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import PlayButtonContainer from '../play_button/play_button_container'
+import WaveFormContainer from '../waveform/waveform_container'
 
 class SongShowHeader extends React.Component{
     constructor(props){
@@ -48,6 +49,7 @@ class SongShowHeader extends React.Component{
                         <Link to={`/users/${song.artist_id}`} >{song.artist.username}</Link>
                         <h2>{song.title}</h2>
                     </div>
+                    {/* <WaveFormContainer song={song}/> */}
                 </div>
                 <div className="song-show-head-right">
                 {this.timeDiff()}

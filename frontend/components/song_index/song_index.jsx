@@ -9,14 +9,14 @@ class SongIndex extends React.Component {
     }
 
     // fetch songs by different filters
-    componentDidMount() {
-        // if(this.props.byGenre){
-        //     this.props.fetchSongs({ byGenre: this.props.byGenre} )
-        // }
-        // else{
-            this.props.fetchSongs();
-        // }
-    }
+    // componentDidMount() {
+    //     if(this.props.byGenre){
+    //         this.props.fetchSongs({ byGenre: this.props.byGenre} )
+    //     }
+    //     else{
+    //         this.props.fetchSongs();
+    //     }
+    // }
 
     filterByGenre(){
         const { byGenre } = this.props;
@@ -30,10 +30,10 @@ class SongIndex extends React.Component {
     }
 
     render() {
-        const { songs } = this.props
-        if(!songs){
-            return null;
-        }
+        // const { songs } = this.props
+        // if(!songs){
+        //     return null;
+        // }
         return (
                 <ul className='song-index'>
                     {this.filterByGenre().map((song, idx) => {
