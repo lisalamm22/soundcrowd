@@ -4,6 +4,8 @@ import {
     REMOVE_CURRENT_SONG, 
     RECEIVE_PREVIOUS_SONG, 
     RECEIVE_NEXT_SONG, 
+    REMOVE_NEXT_SONG,
+    REMOVE_PLAYLIST_SONG,
     PLAY_SONG, 
     PAUSE_SONG, 
     RECEIVE_PLAYLIST
@@ -33,6 +35,12 @@ const playbarReducer = (oldState = defaultState, action) => {
             return nextState;
         case RECEIVE_NEXT_SONG:
             nextState.nextSongs.push(action.songId);
+            return nextState;
+        case REMOVE_NEXT_SONG:
+            nextState.nextSongs.splice(action.listIdx,1);
+            return nextState;
+        case REMOVE_PLAYLIST_SONG:
+            nextState.playlist.splice(action.listIdx,1);
             return nextState;
         case PLAY_SONG:
             nextState["playing"] = true;
