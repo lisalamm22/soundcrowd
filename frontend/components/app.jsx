@@ -19,7 +19,7 @@ import { faPencilAlt, faTrash,
     faRandom, faRedoAlt,
     faCommentAlt,
     faHeart, faUserPlus, faList,
-    faTimes, faPlus
+    faTimes, faPlus, faMinus
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faPencilAlt, faTrash, 
@@ -28,7 +28,7 @@ library.add(fab, faPencilAlt, faTrash,
     faRandom, faRedoAlt,
     faCommentAlt,
     faHeart, faUserPlus, faList,
-    faTimes, faPlus);
+    faTimes, faPlus, faMinus);
 
 const App = () => (
     <div>

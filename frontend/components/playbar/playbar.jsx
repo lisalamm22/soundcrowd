@@ -33,6 +33,13 @@ class Playbar extends React.Component{
         this.props.receivePlaylist(this.props.songs);
     }
 
+    componentDidUpdate(prevProps){
+        if(this.props.nextSongs !== prevProps.nextSongs
+            || this.props.playlist !== prevProps.playlist){
+                this.setState({});
+        }
+    }
+
     getSongLength() {
         const playbar = document.getElementById('audio');
         this.setState({ songLength: playbar.duration })
@@ -126,9 +133,11 @@ class Playbar extends React.Component{
         this.setState({ volume: e.target.value/1000.0 })
     }
 
-    handleNextList(){
-        let newState = !this.state.dropdown;
-        this.setState({ dropdown: newState });
+    handleNextList(e){
+        if(e.target.dataset.icon === "list" || e.target.dataset.icon === "times"){
+            let newState = !this.state.dropdown;
+            this.setState({ dropdown: newState });
+        }
     }
 
     handleLike(){
@@ -137,6 +146,7 @@ class Playbar extends React.Component{
     handleAddNext(e){
         console.log(e.currentTarget.value)
         this.props.receiveNextSong(parseInt(e.currentTarget.value,10))
+        
     }
     handleRemoveNext(e){
         console.log(e.currentTarget.value)
@@ -203,7 +213,7 @@ class Playbar extends React.Component{
                     <button className="next-list-item-opt"
                         value={idx}
                         onClick={this.handleRemoveNext}>
-                        <FontAwesomeIcon icon="times" /></button>
+                        <FontAwesomeIcon icon="minus" /></button>
                 </div>
             </li>
         })
@@ -256,7 +266,12 @@ class Playbar extends React.Component{
                 <div className={`playbar-list`} onClick={this.handleNextList}>
                     <FontAwesomeIcon icon="list"/>
                     <div className={`next-list-dropdown-${this.state.dropdown}`} >
-                        <div>Next up</div>
+                        <div className="next-list-head">
+                            <p className="next-list-head-p">Next up</p>
+                            <button className="next-list-close"
+                                onClick={this.handleNextList}>
+                                <FontAwesomeIcon icon="times" /></button>
+                        </div>
                         <ul className="next-list">{nextList}</ul>
                     </div>
                 </div>

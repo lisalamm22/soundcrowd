@@ -24,11 +24,16 @@
 
 .playbar-controls>button,
 .playbar-controls-right>button,
-.playbar-controls-right>div{
+.playbar-list{
   background-color: transparent;
   border: none;
   width:24px;
   margin-left: 12px;
+}
+
+.playbar-list{
+  padding: 17px 10px;
+  margin: 0;
 }
 
 .playbar-scrub{
@@ -198,7 +203,7 @@
   overflow: scroll;
 }
 
-.next-list-dropdown-true>div{
+.next-list-head{
   line-height: 46px;
   text-align: left;
   font-size: 18px;
