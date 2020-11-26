@@ -179,8 +179,8 @@ class Playbar extends React.Component{
             <div className="playbar-song-info">
                 <Link to={`/songs/${currentSong.id}`}><img src={currentSong.imageURL}/> </Link>
                 <div>
-                    <Link to={`/users/${currentSong.artist_id}`}>{currentSong.artist.username}</Link>
-                    <Link to={`/songs/${currentSong.id}`}>{currentSong.title}</Link>
+                    <Link to={`/users/${currentSong.artist_id}`}className="playbar-song-info-artist">{currentSong.artist.username}</Link>
+                    <Link to={`/songs/${currentSong.id}`}className="playbar-song-info-title">{currentSong.title}</Link>
                 </div>
             </div> : null
         const prevSongInfo = prevSong ?
@@ -188,18 +188,25 @@ class Playbar extends React.Component{
                 <Link to={`/songs/${prevSong.id}`}><img src={prevSong.imageURL}/> </Link>
                 <div>
                     <Link to={`/users/${prevSong.artist_id}`} className="playbar-song-info-artist">{prevSong.artist.username}</Link>
-                    <Link to={`/songs/${prevSong.id}`}>{prevSong.title}</Link>
+                    <Link to={`/songs/${prevSong.id}`} className="playbar-song-info-title">{prevSong.title}</Link>
                 </div>
             </div> : null
         const songInfo = currentSongInfo || prevSongInfo || <div></div>
 
         const nextList = this.props.nextSongs.concat(this.props.playlist).map((nextSongId,idx) => {
             let nextSong = this.props.songs[nextSongId]
-            return <li key={idx} >
+            let listClass;
+            if(idx<this.props.nextSongs.length){
+                listClass = "next-list-item"
+            }
+            else{
+                listClass = "playlist-item"
+            }
+            return <li key={idx} className={listClass}>
                 <Link to={`/songs/${nextSong.id}`}><img src={nextSong.imageURL}/> </Link>
-                <div>
+                <div className="next-list-item-info">
                     <Link to={`/users/${nextSong.artist_id}`} className="next-list-item-artist">{nextSong.artist.username}</Link>
-                    <Link to={`/songs/${nextSong.id}`}>{nextSong.title}</Link>
+                    <Link to={`/songs/${nextSong.id}`} className="next-list-item-title">{nextSong.title}</Link>
                 </div>
                 <div className="next-list-item-options">
                     <button className="next-list-item-opt"
