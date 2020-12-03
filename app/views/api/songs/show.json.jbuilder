@@ -21,4 +21,21 @@ json.users do
             end
         end
     end
+    # @song.likes.each do |like|
+    #     json.extract! User.find(like.liker_id), :id, :username
+    #         if User.find(like.liker_id).profile_pic.attached?
+    #             json.photoURL url_for(User.find(like.liker_id).profile_pic)
+    #         else
+    #             json.photoUrl ''
+    #         end
+    #     end
+    # end
+end
+
+json.likes do 
+    @song.likes.each do |like|
+        json.set! like.id do
+            json.extract! like, :id, :liker_id, :song_id
+        end
+    end
 end

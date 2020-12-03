@@ -22,12 +22,14 @@ import { faPencilAlt, faTrash,
     faTimes, faPlus, faMinus
 } from '@fortawesome/free-solid-svg-icons';
 
+import { faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
+
 library.add(fab, faPencilAlt, faTrash, 
     faPlay, faPause, faStepBackward, faStepForward,
     faVolumeUp, faVolumeDown, faVolumeMute,
     faRandom, faRedoAlt,
     faCommentAlt,
-    faHeart, faUserPlus, faList,
+    faHeart, faUserPlus, faList, farHeart,
     faTimes, faPlus, faMinus);
 
 const App = () => (

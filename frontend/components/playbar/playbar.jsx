@@ -271,7 +271,7 @@ class Playbar extends React.Component{
                     onClick={this.handleFollow}>
                     <FontAwesomeIcon icon="user-plus"/></button>
                 <div className={`playbar-list`} onClick={this.handleNextList}>
-                    <FontAwesomeIcon icon="list"/>
+                    <FontAwesomeIcon icon="list"/> 
                     <div className={`next-list-dropdown-${this.state.dropdown}`} >
                         <div className="next-list-head">
                             <p className="next-list-head-p">Next up</p>

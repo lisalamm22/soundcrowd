@@ -8,6 +8,7 @@ if song.audioURL.attached?
 else
     json.audioURL ''
 end
+
 if song.imageURL.attached?
     json.imageURL url_for(song.imageURL)
 else

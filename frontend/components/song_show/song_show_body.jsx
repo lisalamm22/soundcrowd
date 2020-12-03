@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CreateCommentFormContainer from '../comment_form/create_comment_form_container'
 import SongCommentsContainer from '../song_comments/song_comments_container';
+import LikeButtonContainer from '../like_button/like_button_container'
 
 class SongShowBody extends React.Component {
     constructor(props) {
@@ -24,7 +25,10 @@ class SongShowBody extends React.Component {
                 <Link to={`/songs/${song.id}/edit`}><FontAwesomeIcon icon="pencil-alt" />Edit</Link>
                 <a href="#" onClick={this.deleteTrack}><FontAwesomeIcon icon="trash" />Delete Track</a>
             </nav>
-        ) : null
+        ) : options = (<nav>
+                <LikeButtonContainer song={song}/>
+            </nav>)
+        console.log(options)
         return (
             <div className="song-show-body">
                 <CreateCommentFormContainer />
