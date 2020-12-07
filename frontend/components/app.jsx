@@ -12,14 +12,14 @@ import EditSongFormContainer from './song_form/edit_song_form_container';
 import UserContainer from './user/user_container';
 import PlaybarContainer from './playbar/playbar_container';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { fab, faAngellist, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faPencilAlt, faTrash,
     faPlay, faPause, faStepBackward, faStepForward,
     faVolumeUp, faVolumeDown, faVolumeMute, 
     faRandom, faRedoAlt,
     faCommentAlt,
     faHeart, faUserPlus, faList,
-    faTimes, faPlus, faMinus
+    faTimes, faPlus, faMinus,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
@@ -30,7 +30,8 @@ library.add(fab, faPencilAlt, faTrash,
     faRandom, faRedoAlt,
     faCommentAlt,
     faHeart, faUserPlus, faList, farHeart,
-    faTimes, faPlus, faMinus);
+    faTimes, faPlus, faMinus,
+    faGithub, faLinkedin, faAngellist);
 
 const App = () => (
     <div>

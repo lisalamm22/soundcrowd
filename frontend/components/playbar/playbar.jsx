@@ -208,10 +208,11 @@ class Playbar extends React.Component{
                     <Link to={`/songs/${nextSong.id}`} className="next-list-item-title">{nextSong.title}</Link>
                 </div>
                 <div className="next-list-item-options">
-                    <button className="next-list-item-opt"
+                    {/* <button className="next-list-item-opt"
                         value={nextSongId}
                         onClick={this.handleLike}>
-                        <FontAwesomeIcon icon="heart" /></button>
+                        <FontAwesomeIcon icon="heart" /></button> */}
+                    <LikeButtonContainer song={nextSong}/>
                     <button className="next-list-item-opt" 
                         value={nextSongId}
                         onClick={this.handleAddNext}>

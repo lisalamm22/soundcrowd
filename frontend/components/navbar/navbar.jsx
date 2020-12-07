@@ -1,6 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
 import SearchContainer from '../search/search_container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin, faAngellist } from "@fortawesome/free-brands-svg-icons";
+
+
 class NavBar extends React.Component {
     constructor(props){
         super(props)
@@ -49,12 +53,15 @@ class NavBar extends React.Component {
                             <h2 className="header-name" id="header-name">{currentUser.username}</h2>
                         </Link>
                     </div>
+                    <a className="navbar-link" href="https://github.com/lisalamm22/soundcrowd" target="_blank"><FontAwesomeIcon icon={faGithub} /></a>
+                    <a className="navbar-link" href="https://www.linkedin.com/in/lisa-lam-64607743/" target="_blank"><FontAwesomeIcon icon={faLinkedin} /></a>
+                    <a className="navbar-link" href="https://angel.co/u/lisa-lam-9" target="_blank"><FontAwesomeIcon icon={faAngellist} /></a>
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
-                            <li>About us</li>
-                            <a href="https://github.com/lisalamm22/soundcrowd" target="_blank"><li>Github</li></a>
-                            <a href="https://www.linkedin.com/in/lisa-lam-64607743/" target="_blank"><li>LinkedIn</li></a>
-                            <li>Angelist</li>
+                            {/* <li>About us</li> */}
+                            <li><a href="https://github.com/lisalamm22/soundcrowd" target="_blank">Github</a></li>
+                            <li><a href="https://www.linkedin.com/in/lisa-lam-64607743/" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://angel.co/u/lisa-lam-9" target="_blank">AngelList</a></li>
                             <li onClick={this.props.logout}>Sign Out</li>
                         </ul>
                     </div>

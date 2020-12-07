@@ -36,6 +36,10 @@
   margin: 0;
 }
 
+.playbar-list:hover{
+  cursor: pointer;
+}
+
 .playbar-scrub{
   display: flex;
   justify-content: center;
@@ -235,6 +239,7 @@
   padding: 9px 24px;
 }
 
-.next-list li{
-
+.next-list-item-options > button{
+  border: none;
 }
+
