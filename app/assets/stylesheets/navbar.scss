@@ -226,6 +226,11 @@
     text-align: left;
     font-weight: 500;
 }
+
+.more-dropdown-true a{
+    color:black;
+}
+
 .more-dropdown-true>li:hover, .more-dropdown-true a:hover{
     background-color: rgb(220, 220, 220);
 }
