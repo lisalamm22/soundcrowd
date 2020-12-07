@@ -38,7 +38,7 @@ class Search extends React.Component {
             })
         return (
         <div className="navbar-search-container">
-            <input className = "navbar-search" placeholder="Search" 
+            <input className = "navbar-search" placeholder="Seach for artists, bands, tracks, genres" 
                 onChange={this.handleChange} value={this.state.inputVal} />
             <ul className="navbar-search-results">
             {searchResults}

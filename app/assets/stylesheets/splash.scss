@@ -90,20 +90,26 @@ span {
     // flex-direction: column;
     width: 100%;
 }
-.splash-searchbar{
-    background: #f2f2f2;
-    padding: 0 16px;
-    height: 46px;
-    color: #666;
-    outline: 0;
-    border: 0;
-    border-radius: 4px;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 20px;
-    margin: 40px;
+// .splash-searchbar{
+//     background: #f2f2f2;
+//     padding: 0 16px;
+//     height: 46px;
+//     color: #666;
+//     outline: 0;
+//     border: 0;
+//     border-radius: 4px;
+//     font-weight: 100;
+//     font-size: 14px;
+//     line-height: 20px;
+//     margin: 40px;
+//     width: 50%;
+//     // align-items: center;
+// }
+
+#splash-search-container{
     width: 50%;
-    // align-items: center;
+    padding-left: 25%;
+    margin-top: 50px;
 }
 
 .splash-songs{
@@ -161,7 +167,6 @@ span {
     position: absolute;
     top: 70px;
     left: 70px;
-    z-index: 2;
 }
 
 .explore-btn{

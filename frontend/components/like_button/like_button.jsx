@@ -61,8 +61,16 @@ class LikeButton extends React.Component {
         const buttonIcon = this.state.like ?
             <FontAwesomeIcon className="liked-icon" icon="heart" />
             : <FontAwesomeIcon className="not-liked-icon" icon={farHeart}  />
-        const buttonText = this.props.page === "stream" ?
-            this.countLikes() : "Like"
+        // const buttonText = this.props.page === "stream" ?
+        //     this.countLikes() : "Like"
+        let buttonText = "";
+        if(this.props.page === "stream"){
+            buttonText = this.countLikes()
+        }
+        else if( this.props.page === "song"){
+            buttonText = "Like"
+        }
+        
         return (
         <button id="like-btn" className="like-btn" onClick={this.handleClick}>{buttonIcon} {buttonText}</button>
         )

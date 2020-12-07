@@ -70,6 +70,7 @@
     display: flex;
     align-items: center;
     position: relative;
+
 }
 
 .navbar-search-results{
@@ -77,17 +78,20 @@
     top: 85%;
     left: 0%;
     width: 100%;
+    z-index: 5;
 }
 
 .navbar-search-result-item{
-    background-color: #333;
+    background-color: #000;
     color: #999;
     font-size: 13px;
     padding: 10px;
+    z-index: 5;
 }
 
 .navbar-search-result-item:hover{
-    background-color: #666;
+    background-color: #333;
+    cursor: pointer;
 }
 
 .navbar-right{
@@ -115,6 +119,11 @@
     justify-content: center;
 }
 
+.header-name-link{
+    display: flex;
+    align-items: center;
+}
+
 .header-name, .header-group h5, .navbar-more{
     font-size: 14px;
     font-weight: 300;
@@ -126,6 +135,12 @@
 }
 .header-name:hover{
     color: rgba(245,245,245,1);
+}
+
+#header-name{
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 20px;
 }
 
 .header-name-img{

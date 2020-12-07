@@ -1,5 +1,6 @@
 import React from 'react';
 import SplashSongIndex from './splash_song_index';
+import SearchContainer from '../search/search_container';
 
 class Splash extends React.Component{
     constructor(props){
@@ -10,10 +11,11 @@ class Splash extends React.Component{
         return(
             <div className="splash">
                 <div className="splash-welcome"></div>
-                <div>
-                <input type="text" 
+                <div id="splash-search-container">
+                {/* <input type="text" 
                     className="splash-searchbar"
-                    placeholder="Seach for artists, bands, tracks, podcasts"/>
+                    placeholder="Seach for artists, bands, tracks, podcasts"/> */}
+                    <SearchContainer history={this.props.history}/>
                 </div>
                 <h4>Hear what’s trending for free in the SoundCrowd community</h4>
                 <SplashSongIndex fetchSongs={this.props.fetchSongs} songs={this.props.songs}/>

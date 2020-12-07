@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Splash from './splash';
 import { openModal } from '../../actions/modal_actions';
 import { fetchSongs } from '../../actions/song_actions'
@@ -13,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
     fetchSongs: data => dispatch(fetchSongs(data)),
 });
 
-export default connect(mapStateToProps,mapDispatchToProps)(Splash)
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Splash));

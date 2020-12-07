@@ -41,20 +41,20 @@ class NavBar extends React.Component {
                     <Link to='/library'><h5>Library</h5></Link>
                 </ul>
                 <SearchContainer history={this.props.history}/>
-                {/* <input type="text" placeholder="Search" className="navbar-search"/> */}
                 <ul className="navbar-right">
                     <Link to='/upload'><h5>Upload</h5></Link>
                     <div className="header-name-grp">
-                    
-                    <Link to={`/users/${currentUser.id}`}>
-                        <h2 className="header-name"><img src={currentUser.photoURL} className="header-name-img"/>{currentUser.username}</h2></Link></div>
+                        <Link className="header-name-link" to={`/users/${currentUser.id}`}>
+                            <img src={currentUser.photoURL} className="header-name-img"/>
+                            <h2 className="header-name" id="header-name">{currentUser.username}</h2>
+                        </Link>
+                    </div>
                     <div className={`navbar-more`} onClick={this.handleMore}>
                         <ul className={`more-dropdown-${this.state.dropdown}`} >
                             <li>About us</li>
                             <a href="https://github.com/lisalamm22/soundcrowd" target="_blank"><li>Github</li></a>
                             <a href="https://www.linkedin.com/in/lisa-lam-64607743/" target="_blank"><li>LinkedIn</li></a>
-                            <li>Something</li>
-                            <li>Else</li>
+                            <li>Angelist</li>
                             <li onClick={this.props.logout}>Sign Out</li>
                         </ul>
                     </div>

@@ -2,6 +2,13 @@ json.extract! song, :id, :title, :artist_id, :genre, :description, :created_at
 json.set! 'artist' do 
     json.partial! "/api/users/user", user: song.artist
 end
+json.set! 'likes' do 
+    song.likes.each do |like|
+        json.set! like.id do
+            json.extract! like, :id, :liker_id, :song_id
+        end
+    end
+end
 
 if song.audioURL.attached?
     json.audioURL url_for(song.audioURL)

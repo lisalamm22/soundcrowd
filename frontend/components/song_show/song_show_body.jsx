@@ -26,7 +26,7 @@ class SongShowBody extends React.Component {
                 <a href="#" onClick={this.deleteTrack}><FontAwesomeIcon icon="trash" />Delete Track</a>
             </nav>
         ) : options = (<nav>
-                <LikeButtonContainer song={song}/>
+                <LikeButtonContainer song={song} page="song"/>
             </nav>)
         return (
             <div className="song-show-body">

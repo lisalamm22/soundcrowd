@@ -10,7 +10,9 @@ class UserTracks extends React.Component {
     render() {
         const {songs, user, currentUserId } = this.props
         const songList = Object.values(songs).map((song,idx) => {
-            return <UserTrackItem key={idx} song={song} user={user} currentUserId={currentUserId}/>
+            if(song.artist.id === user.id){
+                return <UserTrackItem key={idx} song={song} user={user} currentUserId={currentUserId}/>
+            }
         })
         return (
             <ul className="user-tracks">

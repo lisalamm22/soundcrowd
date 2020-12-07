@@ -11,7 +11,12 @@ const SongsReducer = (oldState = {}, action) => {
     let nextState = Object.assign({}, oldState);
     switch (action.type) {
         case RECEIVE_ALL_SONGS:
-            return action.songs;
+            let songIds = Object.keys(action.songs)
+            songIds.forEach(songId => {
+                nextState[songId] = action.songs[songId]
+            })
+            return nextState;
+            // return action.songs
         case RECEIVE_SONG:
             nextState[action.song.id] = action.song.song
             return nextState;

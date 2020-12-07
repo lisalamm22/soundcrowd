@@ -2,6 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {formatSongTime } from '../../util/playbar_util';
 import { Link } from 'react-router-dom';
+import LikeButtonContainer from '../like_button/like_button_container';
 // import { receiveNextSong } from '../../actions/playbar_actions';
 
 class Playbar extends React.Component{
@@ -223,6 +224,8 @@ class Playbar extends React.Component{
             </li>
         })
 
+        const nextUpList = nextList.length === 0 ? null : nextList
+
         const playbar = (currentSong || this.props.prevSongs.length > 0) ? 
         <div className = "playbar">
             <div>
@@ -262,9 +265,10 @@ class Playbar extends React.Component{
             </div>
             {songInfo}
             <div className="playbar-controls-right">
-                <button className="playbar-like"
+                {/* <button className="playbar-like"
                     onClick={this.handleLike}>
-                    <FontAwesomeIcon icon="heart" /></button>
+                    <FontAwesomeIcon icon="heart" /></button> */}
+                    <LikeButtonContainer song={currentSong}/>
                 <button className="playbar-follow"
                     onClick={this.handleFollow}>
                     <FontAwesomeIcon icon="user-plus"/></button>
@@ -277,7 +281,7 @@ class Playbar extends React.Component{
                                 onClick={this.handleNextList}>
                                 <FontAwesomeIcon icon="times" /></button>
                         </div>
-                        <ul className="next-list">{nextList}</ul>
+                        <ul className="next-list">{nextUpList}</ul>
                     </div>
                 </div>
             </div>
