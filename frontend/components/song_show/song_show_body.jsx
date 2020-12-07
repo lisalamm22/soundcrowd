@@ -28,7 +28,6 @@ class SongShowBody extends React.Component {
         ) : options = (<nav>
                 <LikeButtonContainer song={song}/>
             </nav>)
-        console.log(options)
         return (
             <div className="song-show-body">
                 <CreateCommentFormContainer />

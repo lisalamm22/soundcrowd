@@ -144,12 +144,10 @@ class Playbar extends React.Component{
         console.log("liked!")
     }
     handleAddNext(e){
-        console.log(e.currentTarget.value)
         this.props.receiveNextSong(parseInt(e.currentTarget.value,10))
         
     }
     handleRemoveNext(e){
-        console.log(e.currentTarget.value)
         let listIdx = parseInt(e.currentTarget.value,10)
         const nextSongsLen = this.props.nextSongs.length
         if(listIdx<nextSongsLen){

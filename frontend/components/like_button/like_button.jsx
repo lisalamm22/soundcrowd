@@ -10,6 +10,7 @@ class LikeButton extends React.Component {
         }
         this.handleClick = this.handleClick.bind(this)
         this.findLike = this.findLike.bind(this)
+        this.countLikes = this.countLikes.bind(this)
     }
 
     componentDidUpdate(prevProps){
@@ -23,7 +24,6 @@ class LikeButton extends React.Component {
     findLike(){
         let thisLike = null;
         Object.keys(this.props.likes).forEach(likeId => {
-            console.log(likeId)
             let like = this.props.likes[likeId]
             if(like.song_id === this.props.song.id 
                 && like.liker_id === this.props.currentUserId){
@@ -31,6 +31,16 @@ class LikeButton extends React.Component {
                 }
         })
         return thisLike
+    }
+    countLikes(){
+        let count = 0;
+        Object.keys(this.props.likes).forEach(likeId => {
+            let like = this.props.likes[likeId]
+            if(like.song_id === this.props.song.id){
+                    count += 1
+                }
+        })
+        return count
     }
 
     handleClick(){
@@ -51,8 +61,10 @@ class LikeButton extends React.Component {
         const buttonIcon = this.state.like ?
             <FontAwesomeIcon className="liked-icon" icon="heart" />
             : <FontAwesomeIcon className="not-liked-icon" icon={farHeart}  />
+        const buttonText = this.props.page === "stream" ?
+            this.countLikes() : "Like"
         return (
-            <button id="like-btn" className="like-btn" onClick={this.handleClick}>{buttonIcon}</button>
+        <button id="like-btn" className="like-btn" onClick={this.handleClick}>{buttonIcon} {buttonText}</button>
         )
     }
 }

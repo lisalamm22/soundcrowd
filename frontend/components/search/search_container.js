@@ -1,17 +1,15 @@
 import { connect } from 'react-redux';
-
-import { updateFilter } from '../../actions/filter_actions';
+import { withRouter } from 'react-router-dom';
 import Search from './search';
 
 const mapStateToProps = state => ({
-    songs: Object.values(state.entities.songs),
+    songs: state.entities.songs,
 });
 
 const mapDispatchToProps = dispatch => ({
-    updateFilter: (filter, value) => dispatch(updateFilter(filter, value))
 });
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps
-)(Search);
+)(Search));

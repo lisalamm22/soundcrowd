@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-
+import SearchContainer from '../search/search_container';
 class NavBar extends React.Component {
     constructor(props){
         super(props)
@@ -40,7 +40,8 @@ class NavBar extends React.Component {
                     <Link to='/stream'><h5>Stream</h5></Link>
                     <Link to='/library'><h5>Library</h5></Link>
                 </ul>
-                <input type="text" placeholder="Search" className="navbar-search"/>
+                <SearchContainer history={this.props.history}/>
+                {/* <input type="text" placeholder="Search" className="navbar-search"/> */}
                 <ul className="navbar-right">
                     <Link to='/upload'><h5>Upload</h5></Link>
                     <div className="header-name-grp">

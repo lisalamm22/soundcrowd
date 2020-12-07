@@ -53,6 +53,7 @@
     justify-content: space-between;
 }
 
+
 .navbar-left{
     display: flex;
     align-items: center;
@@ -61,6 +62,32 @@
 
 .navbar-left img{
     height: 46px;
+}
+
+.navbar-search-container{
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.navbar-search-results{
+    position: absolute;
+    top: 85%;
+    left: 0%;
+    width: 100%;
+}
+
+.navbar-search-result-item{
+    background-color: #333;
+    color: #999;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.navbar-search-result-item:hover{
+    background-color: #666;
 }
 
 .navbar-right{
@@ -76,10 +103,9 @@
     padding: 5px 7px;
     background: #e5e5e5;
     height: 24px;
-    width: 40%;
+    width: 95%;
     font-size: 14px;
     margin: 5px;
-
 }
 
 .header-name-grp{

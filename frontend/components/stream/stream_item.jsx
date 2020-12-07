@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PlayButtonContainer from '../play_button/play_button_container';
 import CreateCommentFormContainer from '../comment_form/create_comment_form_container'
+import LikeButtonContainer from '../like_button/like_button_container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class StreamItem extends React.Component {
@@ -70,6 +71,7 @@ class StreamItem extends React.Component {
                     </ul>
                     <div className="user-song-actions"><CreateCommentFormContainer />
                         <nav>
+                            <LikeButtonContainer song={song} page="stream" />
                             {song.artist.id === currentUserId ?
                                 <button onClick={() => <Redirect to={`/songs/${song.id}/edit`} />}
                                     className='user-track-item-edit'>
@@ -77,7 +79,8 @@ class StreamItem extends React.Component {
                             {song.artist.id === currentUserId ?
                                 <button onClick={this.handleDelete} className='user-track-item-edit'>
                                     <FontAwesomeIcon icon="trash" />Delete</button> : null}
-                        </nav></div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         )

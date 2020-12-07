@@ -1,5 +1,5 @@
 import React from "react";
-import {Redirect, Switch, Route} from 'react-router-dom';
+import {Redirect, Switch, Router} from 'react-router-dom';
 import NavBarContainer from './navbar/navbar_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Modal from './modal/modal';
