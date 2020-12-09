@@ -14,6 +14,7 @@ class ListeningHistory extends React.Component{
         // console.log(prevSongsRev)
         const playedSongs = this.props.prevSongs.map((songId, idx)=>{
             let song = this.props.songs[songId]
+            if(song){
             return (<li key={idx} className="listening-history-item">
                 <div className="listening-history-play">
                     <PlayButtonContainer songId={song.id} />
@@ -23,7 +24,7 @@ class ListeningHistory extends React.Component{
                     <Link to={`/users/${song.artist_id}`}>{song.artist.username}</Link>
                     <Link to={`/songs/${song.id}`}>{song.title}</Link>
                 </div>
-            </li>)
+            </li>)}
         })
         return(
             <div className="listening-history">
