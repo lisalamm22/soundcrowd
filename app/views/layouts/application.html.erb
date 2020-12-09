@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
     <title>SoundCrowd</title>
     <%= csrf_meta_tags %>
@@ -8,12 +8,13 @@
     <%= javascript_include_tag 'application' %>
     <meta property="og:title" content="SoundCrowd" />
      <!-- <meta property='og:image' content="<%= image_url('SoundCrowd.png') %>"/> -->
-     <meta property="og:image" content="../../images/SoundCrowd.png" />
+     <meta name="image" property="og:image" content="%PUBLIC_URL%/SoundCrowd.png" />
+     <meta name ="author" content="Lisa Lam"> 
      <meta property="og:description"
        content="A SoundCloud inspired open audio platform to create a community among creators, listeners, and curators."
      />
      <meta property="og:url"
-       content="http://soundcrowd3.herokuapp.com/"
+       content="http://soundcrowd3.herokuapp.com/#/"
      />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
