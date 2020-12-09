@@ -99,7 +99,9 @@ class CreateSongForm extends React.Component {
 
     render() {
         const songList = Object.values(this.props.songs).map((song) => {
-            return <SongFormItem song={song} artist={this.props.currentUser} />
+            if(song.artist.id === this.props.currentUserId){
+                return <SongFormItem song={song} artist={this.props.currentUser} />
+            }
         })
 
         const preview = this.state.imagePrev === '' ? <img src="http://dalelyles.com/musicmp3s/no_cover.jpg" className="song-img-placeholder"></img> :
