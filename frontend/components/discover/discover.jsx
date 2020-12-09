@@ -1,15 +1,26 @@
 import React from 'react';
+import ReactLoading from "react-loading";
+import Loader from 'react-loader-spinner';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 // import SongIndexContainer from '../song_index/song_index_container'
 import SongIndex from '../song_index/song_index'
-import ListeningHistoryContainer from '../listening_history/listening_history_container'
+import ListeningHistoryContainer from '../listening_history/listening_history_container';
+// import LoadingLogo from '../../../public/Ripple-1s-200px.svg';
+
 
 class Discover extends React.Component{
     constructor(props){
         super(props)
+        this.state = {
+            isLoading: true
+        }
     }
 
     componentDidMount(){
-        this.props.fetchSongs();
+        this.props.fetchSongs()
+            .then(() => {
+                setTimeout(() => this.setState({isLoading: false}), 500)
+            });
     }
 
     render(){
@@ -18,6 +29,10 @@ class Discover extends React.Component{
             return null;
         }
         return(
+        this.state.isLoading ? 
+        <div className="loading">
+            <Loader type="Bars" color="#00BFFF" height={80} width={80} />
+        </div> :
             <div className="discover">
                 <div className="discover-main">
                     <div>

@@ -20,6 +20,14 @@ module.exports = {
                     presets: ["@babel/env", "@babel/react"],
                 },
             },
+            { 
+                test: /(\.css$)/, 
+                loaders: ['style-loader', 'css-loader', 'postcss-loader'] 
+            }, 
+            { 
+                test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
+                loader: 'url-loader?limit=100000' 
+            }
         ],
     },
 };
