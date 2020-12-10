@@ -13,13 +13,28 @@ class LikeButton extends React.Component {
         this.countLikes = this.countLikes.bind(this)
     }
 
+    componentDidMount(){
+        if(this.findLike()){
+                this.setState({like: true})
+        }
+    }
+
     componentDidUpdate(prevProps){
-        if(prevProps.likes !== this.props.likes){
+        // if(prevProps.likes !== this.props.likes){
+        //     if(this.findLike()){
+        //         this.setState({like: true})
+        //     }
+        // }
+        if(prevProps.song.id !== this.props.song.id){
             if(this.findLike()){
                 this.setState({like: true})
             }
+            else{
+                this.setState({like: false})
+            }
         }
     }
+
 
     findLike(){
         let thisLike = null;
@@ -61,8 +76,6 @@ class LikeButton extends React.Component {
         const buttonIcon = this.state.like ?
             <FontAwesomeIcon className="liked-icon" icon="heart" />
             : <FontAwesomeIcon className="not-liked-icon" icon={farHeart}  />
-        // const buttonText = this.props.page === "stream" ?
-        //     this.countLikes() : "Like"
         let buttonText = "";
         if(this.props.page === "stream"){
             buttonText = this.countLikes()

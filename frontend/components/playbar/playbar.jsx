@@ -107,7 +107,14 @@ class Playbar extends React.Component{
         const playbar = document.getElementById('audio')
         if(this.props.prevSongs.length > 0){
             this.props.receiveNextSong(this.props.currentSong.id);
-            this.props.receiveCurrSong(this.props.prevSongs.pop());
+            
+            let prevSongId = this.props.prevSongs.shift() 
+            this.props.receiveCurrSong(prevSongId);
+            localStorage.setItem('currentSongId', prevSongId);
+            this.setState({songPlayed: 0}, () => {
+                this.props.playSong();
+                playbar.play();
+            })
         }
         else{
             playbar.currentTime = 0;
