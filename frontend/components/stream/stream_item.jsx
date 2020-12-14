@@ -69,7 +69,8 @@ class StreamItem extends React.Component {
                         <span>{this.timeDiff()}</span>
 
                     </ul>
-                    <div className="user-song-actions"><CreateCommentFormContainer />
+                    <div className="user-song-actions">
+                        <CreateCommentFormContainer songId={song.id} />
                         <nav>
                             <LikeButtonContainer song={song} page="stream" />
                             {song.artist.id === currentUserId ?

@@ -7,7 +7,7 @@ class CreateCommentForm extends React.Component{
         this.state={
             body: '',
             author_id: this.props.currentUserId,
-            song_id: this.props.match.params.songId,
+            song_id: this.props.match.params.songId || this.props.songId,
         }
 
     }
