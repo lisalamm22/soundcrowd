@@ -15,9 +15,9 @@ class UserProfile extends React.Component {
 
 
     render() {
-        const { currentUserId, songs, user } = this.props
+        const { currentUserId, songs, user, deleteSong } = this.props
         if(!user){return null}
-        let component = <UserTracks songs={songs} user={user} currentUserId={currentUserId}/>
+        let component = <UserTracks songs={songs} user={user} currentUserId={currentUserId} deleteSong={deleteSong}/>
         return(
             <div className="user-page">   
                 <UserHeader user = {user} currentUserId={currentUserId}/>

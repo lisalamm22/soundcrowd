@@ -12,6 +12,7 @@ class SongShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchSong(this.props.match.params.songId);
+        window.scrollTo(0,0)
     }
 
     render() {

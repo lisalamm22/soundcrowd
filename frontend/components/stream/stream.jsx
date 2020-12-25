@@ -9,7 +9,8 @@ class Stream extends React.Component {
 
     // fetch songs by different filters
     componentDidMount() {
-            this.props.fetchSongs();
+        this.props.fetchSongs();
+        window.scrollTo(0,0);
     }
 
     render() {

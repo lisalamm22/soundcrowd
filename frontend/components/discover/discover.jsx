@@ -21,6 +21,7 @@ class Discover extends React.Component{
             .then(() => {
                 setTimeout(() => this.setState({isLoading: false}), 500)
             });
+        window.scrollTo(0,0)
     }
 
     render(){

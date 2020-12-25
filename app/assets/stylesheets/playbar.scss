@@ -174,6 +174,11 @@
   -webkit-appearance: none;
 }
 
+.playbar-volume-container{
+  display: flex;
+  justify-content: center;
+}
+
 .playbar-volume{
   background: transparent;
   outline: none;
@@ -182,16 +187,18 @@
   width:20px;
 }
 
-.playbar-volume>input{
+.playbar-volume-container>input{
   display: none;
 }
 
-.playbar-volume:hover>input{
+.playbar-volume-container:hover>input{
   -webkit-appearance: slider-vertical;
+  background: #d3d3d3;
+  // color: #cdaed3;
   width: 2px;
   position: absolute;
   display: block;
-  bottom: 20px;
+  bottom: 35px;
 }
 
 .play-btn{

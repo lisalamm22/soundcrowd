@@ -11,7 +11,8 @@ class Playbar extends React.Component{
         this.state = {
             songLength: 0,
             songPlayed: 0,
-            volume: 0.05,
+            volume: 0.5,
+            mute: false,
             dropdown: false,
         }
         this.getSongLength = this.getSongLength.bind(this);
@@ -22,6 +23,7 @@ class Playbar extends React.Component{
         this.handleScrubbing = this.handleScrubbing.bind(this);
         this.handleRepeat = this.handleRepeat.bind(this);
         this.handleVolume = this.handleVolume.bind(this);
+        this.handleMute = this.handleMute.bind(this);
         this.handleNextList = this.handleNextList.bind(this);
         this.handleLike = this.handleLike.bind(this)
         this.handleAddNext = this.handleAddNext.bind(this)
@@ -30,7 +32,7 @@ class Playbar extends React.Component{
 
     componentDidMount(){
         const playbar = document.getElementById('audio');
-        playbar.volume = 0.05;
+        playbar.volume = 0.5;
         this.props.receivePlaylist(this.props.songs);
     }
 
@@ -138,7 +140,18 @@ class Playbar extends React.Component{
     handleVolume(e){
         const playbar = document.getElementById('audio');
         playbar.volume = e.target.value / 1000.0;
-        this.setState({ volume: e.target.value/1000.0 })
+        this.setState({ volume: e.target.value/1000.0, mute: false })
+    }
+
+    handleMute(){
+        const playbar = document.getElementById('audio');
+        if(!this.state.mute){
+            playbar.volume = 0;
+        }
+        else{
+            playbar.volume = this.state.volume
+        }
+        this.setState({ mute: !this.state.mute })
     }
 
     handleNextList(e){
@@ -169,7 +182,7 @@ class Playbar extends React.Component{
     render(){
         // if(!this.props.prevSongs){return null}
         let volumeIcon;
-        if(this.state.volume === 0){
+        if(this.state.volume === 0 || this.state.mute){
             volumeIcon = <FontAwesomeIcon icon="volume-mute" />
         }
         else if(this.state.volume < 0.5){
@@ -263,13 +276,16 @@ class Playbar extends React.Component{
                 <input type="range" id="scrubber" min='0' max={this.state.songLength}
                     onInput={this.handleScrubbing} className="slider"/>
                 <p>{formatSongTime(this.state.songLength)}</p>
-                <button className="playbar-volume">
-                    <input type="range" 
-                    min="0.0" 
-                    defaultValue={this.state.volume*1000}
-                    max = "1000.0"
-                    onChange={this.handleVolume} />
-                {volumeIcon}</button>
+                <div className="playbar-volume-container">
+                    <button className="playbar-volume" 
+                        onClick={this.handleMute}>
+                        {volumeIcon}</button>
+                    <input type="range"
+                        min="0.0" 
+                        defaultValue={this.state.volume*1000}
+                        max = "1000.0"
+                        onChange={this.handleVolume} />
+                </div>
             </div>
             {songInfo}
             <div className="playbar-controls-right">

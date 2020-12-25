@@ -8,10 +8,10 @@ class UserTracks extends React.Component {
 
 
     render() {
-        const {songs, user, currentUserId } = this.props
+        const {songs, user, currentUserId, deleteSong } = this.props
         const songList = Object.values(songs).map((song,idx) => {
             if(song.artist.id === user.id){
-                return <UserTrackItem key={idx} song={song} user={user} currentUserId={currentUserId}/>
+                return <UserTrackItem key={idx} song={song} user={user} currentUserId={currentUserId} deleteSong={deleteSong}/>
             }
         })
         return (

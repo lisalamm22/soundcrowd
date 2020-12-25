@@ -193,38 +193,3 @@ class CreateSongForm extends React.Component {
 }
 
 export default CreateSongForm
-
-
-                                            // if (this.state.audioURL === '') {
-                                            //     return (
-                                            //         <div className="song-audio">
-                                            //             <SongFormNav />
-                                            //             <div className="song-form-audio">
-                                            //                 {`Drag and drop your tracks & albums here`}
-                                            //                 <label>Upload a file
-                                            //                     <input type="file"
-                                            //                         onChange={this.handleAudio} />
-                                            //                 </label>
-                                            //             </div>
-                                            //             {songList}
-                                            //         </div>
-                                            //     )
-                                            // }
-                                            // else {
-                                            //     return (
-                                            //         <div className="song-details">
-                                            //             <SongFormNav />
-                                            //             <SongForm song={this.state} initialSong={this.props.song} 
-                                            //             formType={this.props.formType} processForm={this.props.processForm}/>
-                                            //             {songList}
-                                            //         </div>
-                                            //     )
-
-                                            // }
-
-                                            // this.state.audioURL === '' ? 
-{/* <SongForm song={this.state.song} 
-    initialSong={this.props.song} 
-    formType={this.props.formType} 
-    processForm={this.props.processForm}
-    audio={this.state.audio}/> */}

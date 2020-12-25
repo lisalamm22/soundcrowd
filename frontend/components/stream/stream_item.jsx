@@ -62,7 +62,7 @@ class StreamItem extends React.Component {
                             <div className="user-song-play">
                                 <PlayButtonContainer songId={song.id} /></div>
                             <div>
-                                <Link to={`/songs/${song.artist.id}`}>{song.artist.username}</Link>
+                                <Link to={`/users/${song.artist.id}`}>{song.artist.username}</Link>
                                 <Link to={`/songs/${song.id}`}>{song.title}</Link>
                             </div>
                         </div>

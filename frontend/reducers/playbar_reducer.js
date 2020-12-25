@@ -11,6 +11,14 @@ import {
     RECEIVE_PLAYLIST
 } from '../actions/playbar_actions';
 
+import{
+    RECEIVE_CURRENT_USER
+} from '../actions/session_actions';
+
+import{
+    REMOVE_SONG
+} from '../actions/song_actions';
+
 const defaultState = {
     playing: false,
     currentSongId: null,
@@ -23,6 +31,9 @@ const playbarReducer = (oldState = defaultState, action) => {
     Object.freeze(oldState);
     let nextState = Object.assign({}, oldState)
     switch(action.type){
+        case RECEIVE_CURRENT_USER:
+            nextState = defaultState;
+            return nextState;
         case RECEIVE_CURRENT_SONG:
             nextState["currentSongId"] = action.songId;
             return nextState;
@@ -64,6 +75,15 @@ const playbarReducer = (oldState = defaultState, action) => {
             songs.forEach( (song, idx) => {
                 nextState.playlist.push(song.id)
             })
+            return nextState;
+        case REMOVE_SONG:
+            debugger
+            if(nextState.currentSongId === action.songId){
+                nextState.currentSongId = null;
+            }
+            nextState.prevSongs = prevSongs.filter(songId => songId !== action.songId)
+            nextState.nextSongs = nextSongs.filter(songId => songId !== action.songId)
+            nextState.playlist = playlist.filter(songId => songId !== action.songId)
             return nextState;
         default:
             return oldState

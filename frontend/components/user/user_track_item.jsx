@@ -13,6 +13,7 @@ class UserTrackItem extends React.Component {
     }
 
     handleDelete() {
+        debugger
         this.props.deleteSong(this.props.song.id);
     }
 
