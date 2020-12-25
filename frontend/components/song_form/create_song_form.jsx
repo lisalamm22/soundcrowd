@@ -21,6 +21,7 @@ class CreateSongForm extends React.Component {
             imagePrev: '',
             audioURL: '',
             audio: false,
+            uploading: false,
         };
 
         this.handleAudio = this.handleAudio.bind(this)
@@ -79,22 +80,25 @@ class CreateSongForm extends React.Component {
             imagePrev: '',
             audioURL: '',
             audio: false,
+            uploading: false,
         })
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const songFormData = new FormData();
-        songFormData.append('song[title]', this.state.title);
-        songFormData.append('song[artist_id]', this.state.artist_id);
-        songFormData.append('song[genre]', this.state.genre);
-        songFormData.append('song[description]', this.state.description);
-        songFormData.append('song[audioURL]', this.state.audioURL);
-        if (this.state.imageURL) {
-            songFormData.append('song[imageURL]', this.state.imageURL);
-        }
-        this.props.processForm(songFormData)
-            .then(this.resetState);
+        this.setState({uploading: true}, function(){
+            const songFormData = new FormData();
+            songFormData.append('song[title]', this.state.title);
+            songFormData.append('song[artist_id]', this.state.artist_id);
+            songFormData.append('song[genre]', this.state.genre);
+            songFormData.append('song[description]', this.state.description);
+            songFormData.append('song[audioURL]', this.state.audioURL);
+            if (this.state.imageURL) {
+                songFormData.append('song[imageURL]', this.state.imageURL);
+            }
+            this.props.processForm(songFormData)
+                .then(this.resetState);
+        })
     }
 
     render() {
@@ -180,7 +184,7 @@ class CreateSongForm extends React.Component {
                         </div>
                         <div className='song-form-submit'>
                             <button className="song-form-cancel" onClick={this.resetState}>Cancel</button>
-                            <button className="song-form-save" onClick={this.handleSubmit}>Save</button>
+                            <button className="song-form-save" disabled={this.state.uploading} onClick={this.handleSubmit}>Save</button>
                         </div>
                     </form>
                 </div>

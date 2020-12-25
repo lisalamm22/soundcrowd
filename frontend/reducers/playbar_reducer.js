@@ -81,9 +81,9 @@ const playbarReducer = (oldState = defaultState, action) => {
             if(nextState.currentSongId === action.songId){
                 nextState.currentSongId = null;
             }
-            nextState.prevSongs = prevSongs.filter(songId => songId !== action.songId)
-            nextState.nextSongs = nextSongs.filter(songId => songId !== action.songId)
-            nextState.playlist = playlist.filter(songId => songId !== action.songId)
+            nextState.prevSongs = nextState.prevSongs.filter(songId => songId !== action.songId)
+            nextState.nextSongs = nextState.nextSongs.filter(songId => songId !== action.songId)
+            nextState.playlist = nextState.playlist.filter(songId => songId !== action.songId)
             return nextState;
         default:
             return oldState
