@@ -9,7 +9,8 @@ import { receiveCurrSong,
     removePlaylistSong, 
     playSong, 
     pauseSong, 
-    receivePlaylist 
+    receivePlaylist,
+    shufflePlaylist 
 } from '../../actions/playbar_actions';
 
 const mSTP = state => {
@@ -32,6 +33,7 @@ const mDTP = dispatch => {
         removeNextSong: listIdx => dispatch(removeNextSong(listIdx)),
         removePlaylistSong: listIdx => dispatch(removePlaylistSong(listIdx)),
         receivePlaylist: songs => dispatch(receivePlaylist(songs)),
+        shufflePlaylist: () => dispatch(shufflePlaylist()),
         playSong: () => dispatch(playSong()),
         pauseSong: () => dispatch(pauseSong()),
     };

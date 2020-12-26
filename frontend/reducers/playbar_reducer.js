@@ -8,7 +8,8 @@ import {
     REMOVE_PLAYLIST_SONG,
     PLAY_SONG, 
     PAUSE_SONG, 
-    RECEIVE_PLAYLIST
+    RECEIVE_PLAYLIST,
+    SHUFFLE_PLAYLIST
 } from '../actions/playbar_actions';
 
 import{
@@ -76,6 +77,19 @@ const playbarReducer = (oldState = defaultState, action) => {
                 nextState.playlist.push(song.id)
             })
             return nextState;
+        case SHUFFLE_PLAYLIST:
+            let currShuffIdx = nextState.playlist.length;
+            let tempShuff;
+            let randShuffIdx;
+            while( 0 !== currShuffIdx){
+                randShuffIdx = Math.floor(Math.random() * currShuffIdx);
+                currShuffIdx -= 1;
+
+                tempShuff = nextState.playlist[currShuffIdx];
+                nextState.playlist[currShuffIdx] = nextState.playlist[randShuffIdx];
+                nextState.playlist[randShuffIdx] = tempShuff;
+            }
+            return nextState; 
         case REMOVE_SONG:
             if(nextState.currentSongId === action.songId){
                 nextState.currentSongId = null;

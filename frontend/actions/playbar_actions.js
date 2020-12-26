@@ -7,6 +7,7 @@ export const REMOVE_PLAYLIST_SONG = "REMOVE_PLAYLIST_SONG";
 export const PLAY_SONG = "PLAY_SONG";
 export const PAUSE_SONG = "PAUSE_SONG";
 export const RECEIVE_PLAYLIST = "RECEIVE_PLAYLIST";
+export const SHUFFLE_PLAYLIST = "SHUFFLE_PLAYLIST";
 
 export const receiveCurrSong = (songId) => {
     return {
@@ -65,3 +66,9 @@ export const receivePlaylist = (songs) => {
         songs
     };
 };
+
+export const shufflePlaylist = () => {
+    return{
+        type: SHUFFLE_PLAYLIST
+    }
+}

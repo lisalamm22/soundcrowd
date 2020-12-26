@@ -20,6 +20,7 @@ class Playbar extends React.Component{
         this.handleSongPlay = this.handleSongPlay.bind(this);
         this.handleNext = this.handleNext.bind(this);
         this.handlePrev = this.handlePrev.bind(this);
+        this.handleShuffle = this.handleShuffle.bind(this);
         this.handleScrubbing = this.handleScrubbing.bind(this);
         this.handleRepeat = this.handleRepeat.bind(this);
         this.handleVolume = this.handleVolume.bind(this);
@@ -128,6 +129,11 @@ class Playbar extends React.Component{
         }
     }
 
+    handleShuffle(){
+        this.props.shufflePlaylist();
+        this.setState({})
+    }
+
     handleScrubbing(e){
         const playbar = document.getElementById('audio');
         playbar.currentTime = e.target.value;
@@ -157,14 +163,10 @@ class Playbar extends React.Component{
     }
 
     handleNextList(e){
-        debugger
-        console.log("pressed the button")
-        console.log(e.target.dataset.icon)
         if(e.target.dataset.icon === "list" 
         || e.target.dataset.icon === "times" 
         || e.currentTarget.className === "playbar-list" 
         || e.currentTarget.className === "next-list-close"){
-            console.log("inside")
             let newState = !this.state.dropdown;
             this.setState({ dropdown: newState });
         }
@@ -274,7 +276,8 @@ class Playbar extends React.Component{
                 <button className="playbar-next"
                     onClick={this.handleNext}>
                     <FontAwesomeIcon icon="step-forward"/></button>
-                <button className="playbar-shuffle">
+                <button className="playbar-shuffle"
+                    onClick={this.handleShuffle}>
                     <FontAwesomeIcon icon="random"/></button>
                 <button className="playbar-repeat"
                     onClick={this.handleRepeat}>
