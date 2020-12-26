@@ -86,6 +86,7 @@ class Playbar extends React.Component{
             localStorage.setItem('currentSongId', nextSongId);
             this.setState({songPlayed: 0}, () => {
                 this.props.playSong();
+                playbar.currentTime = 0;
                 playbar.play();
             })
         }
@@ -95,6 +96,7 @@ class Playbar extends React.Component{
             localStorage.setItem('currentSongId', nextSongId);
             this.setState({songPlayed: 0}, () => {
                 this.props.playSong();
+                playbar.currentTime = 0;
                 playbar.play();
             })
         }

@@ -77,7 +77,6 @@ const playbarReducer = (oldState = defaultState, action) => {
             })
             return nextState;
         case REMOVE_SONG:
-            debugger
             if(nextState.currentSongId === action.songId){
                 nextState.currentSongId = null;
             }
