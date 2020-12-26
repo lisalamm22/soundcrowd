@@ -157,7 +157,14 @@ class Playbar extends React.Component{
     }
 
     handleNextList(e){
-        if(e.target.dataset.icon === "list" || e.target.dataset.icon === "times"){
+        debugger
+        console.log("pressed the button")
+        console.log(e.target.dataset.icon)
+        if(e.target.dataset.icon === "list" 
+        || e.target.dataset.icon === "times" 
+        || e.currentTarget.className === "playbar-list" 
+        || e.currentTarget.className === "next-list-close"){
+            console.log("inside")
             let newState = !this.state.dropdown;
             this.setState({ dropdown: newState });
         }
