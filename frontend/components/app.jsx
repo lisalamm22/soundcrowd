@@ -6,6 +6,7 @@ import Modal from './modal/modal';
 import SplashContainer from './splash/splash_container';
 import DiscoverContainer from './discover/discover_container';
 import StreamContainer from './stream/stream_container';
+import LibraryContainer from './library/library_container';
 import CreateSongFormContainer from './song_form/create_song_form_container';
 import SongShowContainer from './song_show/song_show_container';
 import EditSongFormContainer from './song_form/edit_song_form_container';
@@ -43,6 +44,7 @@ const App = () => (
             <Switch>
                 <ProtectedRoute exact path="/discover" component={DiscoverContainer}/>
                 <ProtectedRoute exact path="/stream" component={StreamContainer}/>
+                <ProtectedRoute exact path="/library" component={LibraryContainer}/>
                 <ProtectedRoute exact path="/upload" component={CreateSongFormContainer}/>
                 <ProtectedRoute exact path="/users/:userId" component={UserContainer}/>
                 <ProtectedRoute exact path="/songs/:songId" component={SongShowContainer}/>

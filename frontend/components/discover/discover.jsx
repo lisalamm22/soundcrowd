@@ -40,31 +40,31 @@ class Discover extends React.Component{
                         <h2>Poppin'</h2>
                         <p>The greatest hits, updated all the time</p>
                         {/* <SongIndexContainer byGenre='Pop' /> */}
-                        <SongIndex byGenre='Pop'songs={songs}/>
+                        <SongIndex byGenre='Pop'songs={songs} filter='Genre'/>
                     </div>
                     <div>
                         <h2>SoundCrowd Feels</h2>
                         <p>The most mood tracks on SoundCrowd this week</p>
                         {/* <SongIndexContainer byGenre='RBSoul' /> */}
-                        <SongIndex byGenre='RBSoul' songs={songs} />
+                        <SongIndex byGenre='RBSoul' songs={songs} filter='Genre'/>
                     </div>
                     <div>
                         <h2>Dancing on Your Own</h2>
                         <p>The biggest sounds on SoundCrowd</p>
                         {/* <SongIndexContainer byGenre='DanceEDM'/> */}
-                        <SongIndex byGenre='DanceEDM'songs={songs}/>
+                        <SongIndex byGenre='DanceEDM'songs={songs}filter='Genre'/>
                     </div>
                     <div>
                         <h2>Summer Vibes</h2>
                         <p>Bringing the beach to your living room</p>
                         {/* <SongIndexContainer byGenre='House'/> */}
-                        <SongIndex byGenre='House'songs={songs}/>
+                        <SongIndex byGenre='House'songs={songs}filter='Genre'/>
                     </div>
                     <div>
                         <h2>Fresh Beats</h2>
                         <p>Sit back and turn up the bass</p>
                         {/* <SongIndexContainer byGenre='Electronic'/> */}
-                        <SongIndex byGenre='Electronic'songs={songs}/>
+                        <SongIndex byGenre='Electronic'songs={songs} filter='Genre'/>
                     </div>
                 </div>
                 <div className="discover-right">
