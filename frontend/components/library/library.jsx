@@ -15,13 +15,13 @@ class Library extends React.Component {
     }
 
     render() {
-        const { songs, likes, currentUserId } = this.props
+        const { songs, likes, prevSongs, currentUserId } = this.props
         // if (!songs) {
         //     return null;
         // }
         return (
             <div className="library">
-                <SongIndex songs={songs} likes={likes} currentUserId={currentUserId} filter='Likes'/>
+                <SongIndex songs={songs} likes={likes} prevSongs={prevSongs} currentUserId={currentUserId} filter='Library'/>
             </div>
         )
     }

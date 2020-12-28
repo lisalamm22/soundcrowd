@@ -42,6 +42,7 @@ class SongIndex extends React.Component {
     }
 
     render() {
+        let prevSongList;
         let songList;
         if(this.props.filter === 'Genre'){
             songList = <ul className='song-index'>
@@ -50,15 +51,29 @@ class SongIndex extends React.Component {
                     })}
                 </ul>
         }
-        else if( this.props.filter === 'Likes'){
-            songList = <ul className='song-index'>
-                    {this.filterByLikes().map((song, idx) => {
-                        return <SongIndexItem key={idx} song={song} />
-                    })}
-                </ul>
+        else if( this.props.filter === 'Library'){
+            prevSongList=
+                <div className = "library-recents">
+                    <h3>Recently Played</h3>
+                    <ul className='song-index'>
+                        {this.props.prevSongs.map((songId, idx) => {
+                            return <SongIndexItem key={idx} song={this.props.songs[songId-1]} />
+                        })}
+                    </ul>
+                </div>
+            songList = 
+                <div className="library-liked">
+                    <h3>Likes</h3>
+                    <ul className='song-index'>
+                        {this.filterByLikes().map((song, idx) => {
+                            return <SongIndexItem key={idx} song={song} />
+                        })}
+                    </ul>
+                </div>
         }
         return (
             <div>
+                {prevSongList ? prevSongList : null}
                 {songList}
             </div>
         )
