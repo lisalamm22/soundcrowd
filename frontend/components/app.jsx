@@ -44,7 +44,7 @@ const App = () => (
             <Switch>
                 <ProtectedRoute exact path="/discover" component={DiscoverContainer}/>
                 <ProtectedRoute exact path="/stream" component={StreamContainer}/>
-                <ProtectedRoute exact path="/library" component={LibraryContainer}/>
+                {/* <ProtectedRoute exact path="/library" component={LibraryContainer}/> */}
                 <ProtectedRoute exact path="/upload" component={CreateSongFormContainer}/>
                 <ProtectedRoute exact path="/users/:userId" component={UserContainer}/>
                 <ProtectedRoute exact path="/songs/:songId" component={SongShowContainer}/>
