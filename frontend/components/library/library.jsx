@@ -16,12 +16,19 @@ class Library extends React.Component {
 
     render() {
         const { songs, likes, prevSongs, currentUserId } = this.props
-        // if (!songs) {
-        //     return null;
-        // }
+        if (!songs) {
+            return null;
+        }
         return (
-            <div className="library">
-                <SongIndex songs={songs} likes={likes} prevSongs={prevSongs} currentUserId={currentUserId} filter='Library'/>
+            <div>
+                <div className="library-recents">
+                    <h3>Recently Played</h3>
+                    <SongIndex songs={songs} likes={likes} prevSongs={prevSongs} currentUserId={currentUserId} filter='Recents'/>
+                </div>
+                <div className="library-liked">
+                    <h3>Likes</h3>
+                    <SongIndex songs={songs} likes={likes} prevSongs={prevSongs} currentUserId={currentUserId} filter='Likes'/>
+                </div>
             </div>
         )
     }
